@@ -1,0 +1,453 @@
+$nav-estimated-height: 97.2px;
+$shfl-bg-offset: 15vw;
+$shfl-graphic-width: 60%;
+$shfl-graphic-bg: #F1F1F1;
+
+$shfl-section-content-width: 100% - $shfl-graphic-width;
+$shfl-section-paddingTop: 10vh;
+
+%shflv2_curtainSettings {
+	@extend %absoluteFill;
+	z-index: 10;
+	display: block;
+	transform: scale(1);
+}
+
+.strt_shuffling_sections_v2 {
+	background-color: #fff !important;
+}
+
+// ===================================
+// SHFL
+// ===================================
+.shflv2 {
+	position: relative;
+
+	// .shflv2_pinned
+	&_pinned {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		
+		z-index: 1;
+
+		// .shflv2_pinned_container
+		&_container {
+			position: relative;
+			width: 100%;
+			height: 100vh;
+			padding: $shfl-section-paddingTop 0;
+		}
+	}
+
+	// .shflv2_dots
+	&_dots {
+		position: absolute;
+		top: 24vh;
+		left: $shfl-bg-offset - 4;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		flex-direction: column;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 50%;
+			font-size: .1em;
+			width: 1em;
+			height: 100%;
+			margin-left: -.5em;
+			background-color: $gray-200;
+		}
+
+		.dot {
+			position: relative;
+			font-size: 2em;
+
+			&:not(:last-child) {
+				margin-bottom: 1em;
+			}
+
+			.circle {
+				position: relative;
+				z-index: 10;
+				font-size: 1em;
+				width: 1em;
+				height: 1em;
+				display: block;
+				border-radius: 50%;
+				background-color: $gray-200;
+				cursor: pointer;
+				border: 1px solid #d8d8d8;
+
+				&:before {
+					content: '';
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					font-size: 1.5em;
+					width: 1em;
+					height: 1em;
+					z-index: 1;
+					margin-top: -.5em;
+					margin-left: -.5em;
+					border-radius: 50%;
+					border: .15rem solid $primary-color;
+					transform: scale(.8);
+					transform-origin: center center;
+					opacity: 0;
+
+					transition:
+						opacity 300ms ease-out ,
+						transform 300ms ease-out ;
+				}
+			}
+	
+			.pulse {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				font-size: 2em;
+				width: 1em;
+				height: 1em;
+				z-index: 1;
+				margin-top: -.5em;
+				margin-left: -.5em;
+				border-radius: 50%;
+				opacity: 0;
+				background-image: radial-gradient(
+					$gray-200 ,
+					rgba($gray-200, .8),
+					rgba($gray-200, .25),
+					rgba($gray-200, .1),
+					rgba($gray-200, 0),
+				);
+				transition: opacity 300ms ease-out;
+			}
+
+			.tooltip {
+				position: absolute;
+				top: 50%;
+				right: 0;
+				width: auto;
+				font-size: .8rem;
+				line-height: 1.25;
+				text-transform: uppercase;
+				letter-spacing: .15em;
+				font-weight: 600;
+				color: #000;
+				opacity: 0;
+				pointer-events: none;
+				transform: translateY(-50%) translateX(0);
+				text-align: right;
+				transition:
+					transform 300ms ease-out ,
+					opacity 300ms ease-out;
+			}
+
+			&:hover {
+				.pulse {
+					opacity: 1;
+				}
+
+				.tooltip {
+					opacity: 1;
+					transform: translateY(-50%) translateX(-4em);
+				}
+			}
+
+			&.active {
+				.circle:before {
+					transform: scale(1);
+					opacity: 1;
+				}
+
+				.tooltip {
+					opacity: 1;
+					transform: translateY(-50%) translateX(-4em);
+				}
+
+				&:hover {
+					.tooltip {
+						color: $primary-color;
+					}
+				}
+			}
+
+		}
+	}
+
+
+	// .shflv2_sectionsContainer
+	&_sectionsContainer {
+		position: relative;
+		top: 0;
+		margin-left: $shfl-bg-offset;
+		z-index: 10;
+		width: calc( 100% - #{$shfl-bg-offset});
+		overflow: hidden;
+	}
+
+	// .shflv2_section
+	&_section {
+		position: relative;
+		height: auto;
+
+		// .shflv2_section_bgAccent
+		&_bgAccent {
+			position: absolute;
+			top: 30rem;
+			left: 0;
+			pointer-events: none;
+			transform-origin: left top;
+			transform: rotate(-90deg);
+			opacity: .05;
+
+			.title {
+				display: block;
+				font-size: 3em;
+				font-weight: bold;
+				line-height: 1.5;
+				letter-spacing: .5em;
+				text-transform: uppercase;
+				margin: 0;
+			}
+		}
+
+		// .shflv2_section_container
+		&_container {
+			display: flex;
+			align-items: flex-start;
+			justify-content: flex-start;
+			flex-wrap: nowrap;
+			height: 100vh;
+		}
+	}
+
+	// .shflv2_sectionDecoy
+	&_sectionDecoy {
+		position: absolute;
+		top: 35%;
+		padding: 1em;
+		width: 100%;
+		z-index: 999;
+		pointer-events: none;
+		visibility: hidden;
+		outline: none !important;
+		&:before {
+			content: 'decoy';
+			font-size: 1em;
+			color: #FFF;
+			text-transform: uppercase;
+			letter-spacing: .15em;
+		}
+	}
+}
+
+
+
+
+// ====================================
+// CONTENT
+// ====================================
+.shflv2_section_content {
+
+	width: calc( 50vw  - #{$shfl-bg-offset});
+	padding-right: 1rem;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	position: relative;
+	z-index: 10;
+
+	.content {
+		padding-top: $nav-estimated-height;
+		height: 100%;
+		position: relative;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		flex-direction: column;
+		background-color: #fff;
+		padding: 1em;
+
+		// .content_header
+		&_header {
+			position: relative;
+			z-index: 1;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 0;
+			font-size: 2.5em;
+
+			.title {
+				font-size: 1em;
+				text-transform: uppercase;
+				letter-spacing: .25em;
+				font-weight: normal;
+				color: #000;
+			}
+
+			.title:after {
+				content: '';
+				display: block;
+				width: 80%;
+				height: 3px;
+				margin-top: .25em;
+				background-color: $primary-color;
+			}
+		}
+
+		// .content_desc
+		&_desc {
+			position: relative;
+			z-index: 1;
+			font-size: 1em;
+			line-height: 2;
+		}
+
+		// .content_curtain_x
+		&_curtain_x {
+			display: none;
+			@extend %shflv2_curtainSettings;
+			background-color: #FFF;
+			transform-origin: right;
+
+		}
+
+		// .content_curtain_y
+		&_curtain_y {
+			display: none !important;
+			@extend %shflv2_curtainSettings;
+			background-color: $primary-color;
+			transform-origin: top;
+		}
+
+
+	}
+
+	.strt_buttons {
+		justify-content: flex-start;
+	}
+}
+// ====================================
+// GRAPHICS
+// ====================================
+$shflv2_section-offset: 8rem;
+// .shflv2_section_graphic
+.shflv2_section_graphic {
+	margin-top: ($shflv2_section-offset / 2) ;
+	height: calc( 100% - #{$shflv2_section-offset});
+	flex-grow: 1;
+	flex-shrink: 1;
+	background-color: $shfl-graphic-bg;
+
+	position: relative;
+	z-index: 1;
+
+	// .shflv2_section_graphicAccent
+	&Accent {
+		position: absolute;
+		right: 0;
+		bottom: -2em;
+		z-index: 10;
+		transform-origin: bottom left;
+		transform: rotate(-90deg);
+
+
+		.title {
+			margin: 0;
+			text-transform: uppercase;
+			letter-spacing: .25em;
+			background-color: #000;
+			color: #FFF;
+			font-weight: normal;
+			padding: .25em .5em;
+			font-size: 1.25em;
+			line-height: 1;
+		}
+	}
+
+	.graphic {
+		width: 100%;
+		height: 100%;
+		position: relative;
+
+		// .graphic_curtain_x
+		&_curtain_x {
+			@extend %shflv2_curtainSettings;
+			background-color: #fff;
+			transform-origin: left;
+		}
+
+		// .graphic_curtain_y
+		&_curtain_y {
+			display: none;
+			@extend %shflv2_curtainSettings;
+			background-color: $shfl-graphic-bg;
+		}
+
+
+		// .graphic_img
+		&_img {
+			@extend %absoluteFill;
+			z-index: 1;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+				object-position: 50% 50%;
+			}
+		}
+
+		// .graphic_container
+		&_container {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			overflow: hidden;
+			position: relative;
+
+			// .graphic_container_src
+			&_src {
+				@extend %absoluteFill;
+				object-fit: contain;
+				object-position: 50% 50%;
+			}
+		}
+	}
+}
+
+
+// ===================================
+// MEDIA: ipadpro
+// ===================================
+@media #{$media-ipadPro2-portrait} {
+	.shflv2_section_container {
+		flex-direction: column;
+	}
+
+	.shflv2_section_content {
+		width: 50vw;
+		padding-right: 0;
+		.content {
+			padding: 2em;
+			background-color: #fff;
+			bottom: -20%;
+			left: 10%;
+		}
+	}
+
+	.shflv2_section_graphic {
+		width: 100%;
+		margin-top: 0;
+	}
+}
+

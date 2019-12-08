@@ -1,0 +1,30 @@
+// .strt_featureProd-cables {
+// 	.col-graphic_img {
+// 		bottom: 0;
+// 		left: 0;
+// 		height: 80%;
+
+// 		img {
+// 			height: 100%;
+// 			width: auto;
+// 		}
+// 	}
+// }
+
+.strt_featureProd-cables {
+	.col-graphic_curtain_y {
+		background-color: #000 !important;
+	}
+
+	.col-graphic_img {
+		img {
+			position: absolute;
+			left: 50%;
+			bottom: 0;
+			width: auto;
+			height: 85%;
+			transform: translateX(-50%);
+			object-position: bottom center;
+		}
+	}
+}

@@ -1,0 +1,354 @@
+$nav-estimated-height: 97.2px;
+$shfl-title-height: 8rem;
+$shfl-bg-offset: 12vw;
+$shfl-graphic-height: calc(100vh - 24rem);
+$shfl-graphic-width: 30%;
+
+$shfl-section-content-width: 100% - $shfl-graphic-width;
+$shfl-section-paddingTop: 10vh;
+
+// ===================================
+// SHFL
+// ===================================
+.shfl {
+	position: relative;
+
+	// .shfl_pinned
+	&_pinned {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: auto;
+		z-index: 1;
+		padding: 0;
+
+		// .shfl_pinned_container
+		&_container {
+			position: relative;
+			width: 100%;
+			height: 100vh;
+			padding-top: $nav-estimated-height;
+		}
+	}
+
+
+	// .shfl_background
+	&_background {
+		margin-top: 2rem;
+		margin-left: $shfl-bg-offset;
+		width: calc(100% - #{$shfl-bg-offset});
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+
+		// .shfl_background_title
+		&_title {
+			margin: 0;
+			font-size: 2.5rem;
+			font-weight: normal;
+			text-transform: uppercase;
+			letter-spacing: .25em;
+			width: 20%;
+			height: $shfl-title-height;
+		}
+
+		// .shfl_background_accent
+		&_accent {
+			width: 80%;
+			height: 45vh;
+			background-color: #F1F1F1;
+			transform-origin: right;
+		}
+	}
+
+	// .shfl_dots
+	&_dots {
+		position: absolute;
+		top: 30%;
+		left: $shfl-bg-offset - 3;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		flex-direction: column;
+
+		.dot {
+			font-size: 1em;
+			width: 1em;
+			height: 1em;
+			border-radius: 50%;
+			background-color: $gray-200;
+			cursor: pointer; 
+			position: relative;
+
+			.tooltip {
+				position: absolute;
+				top: 50%;
+				right: 0;
+				width: auto;
+				font-size: .8rem;
+				line-height: 1em;
+				text-transform: uppercase;
+				letter-spacing: .15em;
+				font-weight: 600;
+				color: #000;
+				opacity: 0;
+				pointer-events: none;
+				white-space: nowrap;
+				text-align: right;
+				transform: translateY(-50%) translateX(0);
+				transition:
+					transform 300ms ease-out ,
+					opacity 300ms ease-out;
+			}
+
+			&:not(:last-child) {
+				margin-bottom: 1em;
+			}
+
+			&:hover {
+				background-color: darken($gray-200, 10%);
+				.tooltip {
+					opacity: 1;
+					transform: translateY(-50%) translateX(-2em);
+				}
+			}
+
+			&.active {
+				background-color: #000;
+				.tooltip {
+					opacity: 1;
+					transform: translateY(-50%) translateX(-2em);
+				}
+
+				&:hover {
+					.tooltip {
+						color: $primary-color;
+					}
+				}
+			}
+		}
+	}
+
+
+
+
+	// .shfl_sectionsContainer
+	&_sectionsContainer {
+		position: relative;
+		z-index: 10;
+		margin-left: $shfl-bg-offset;
+		width: calc( 100% - #{$shfl-bg-offset});
+		overflow: hidden;
+	}
+
+	// .shfl_section
+	&_section {
+		position: relative;
+		z-index: auto;
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-end;
+		width: 100%;
+
+		// .shfl_section_container
+		&_container {
+			padding-top: $nav-estimated-height;
+			padding-right: $shfl-bg-offset;
+			width: 100%;
+			height: 100vh;
+			display: flex;
+			align-items: stretch;
+			justify-content: center;
+		}
+
+		// .shfl_section_content
+		&_content {
+			width: 50%;
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+			padding: 0;
+			padding-top: $shfl-title-height;
+		}
+
+		// .shfl_section_graphic
+		&_graphic {
+			overflow: hidden;
+			width: 50%;
+		}
+
+
+		&:not(:only-child) {
+		&:not(:first-child) {
+			margin-top: -100vh;
+		}
+		}
+
+		&:last-child {
+			.shfl_sectionDecoy {
+				top: 30%;
+			}
+		}
+	}
+
+	// .shfl_sectionDecoy
+	&_sectionDecoy {
+		position: absolute;
+		top: 17%;
+		padding: 1em;
+		width: 100%;
+		z-index: 999;
+		pointer-events: none;
+		visibility: hidden;
+		outline: none !important;
+		&:before {
+			content: 'decoy';
+			font-size: 1em;
+			color: #FFF;
+			text-transform: uppercase;
+			letter-spacing: .15em;
+		}
+	}
+}
+
+// ===================================
+// CONTENT 
+// ===================================
+.shfl_section_content .content {
+	background-color: #fff;
+	padding: 1em;
+	// .content_header
+	&_header {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 4em;
+		margin-top: 0;
+		margin-bottom: 1rem;
+
+		.count {
+			font-size: 1em;
+			font-weight: 300;
+		}
+
+		.title {
+			font-size: .5em;
+			text-transform: uppercase;
+			letter-spacing: .25em;
+			font-weight: normal;
+			color: #000;
+			padding-left: .5em;
+
+			&:after {
+				content: '';
+				display: block;
+				width: 80%;
+				height: 3px;
+				margin-top: .25em;
+				background-color: $primary-color;
+			}
+		}
+	}
+
+	// .content_desc
+	&_desc {
+		font-size: 1.4em;
+		line-height: 2;
+	}
+}
+
+// ===================================
+// GRAPHIC
+// ===================================
+.shfl_section_graphic .graphic {
+	width: 100%;
+	margin-top: $shfl-title-height + 4;
+	height: calc( 100% - #{$shfl-title-height});
+	padding-bottom: 10em;
+
+	// .graphic_src
+	// &_src {
+	// 	padding: 5em;
+	// }
+
+	// .graphic_container
+	&_src ,
+	&_container {
+		width: 100%;
+		height: 100%;
+		display: flex;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		object-position: center center;
+	}
+}
+
+
+// ===================================
+// MEDIA: 1367px
+// ===================================
+
+$shfl-bg-offset-1367: 10vw;
+
+@media (max-width: 1367px) {
+
+	.shfl_background {
+		margin-left: $shfl-bg-offset-1367;
+		width: calc(100% - #{$shfl-bg-offset-1367});
+
+		// // .shfl_background_title
+		// &_title {
+		// 	width: 40%;
+		// }
+		// // .shfl_background_accent 
+		// &_accent {
+		// 	width: 60%;
+		// }
+	}
+
+	.shfl_sectionsContainer {
+		width: calc(100% - #{$shfl-bg-offset-1367});
+	}
+
+	.shfl_section {
+		padding-right: $shfl-bg-offset-1367;
+	}
+	
+	.shfl_section_container {
+		padding-right: 0;
+	}
+
+
+	.shfl_graphic {
+		left: $shfl-bg-offset-1367;
+	}
+
+	.shfl_dots {
+		top: 40%;
+		left: $shfl-bg-offset-1367;
+		.dot .tooltip {
+			white-space: normal;
+		}
+	}
+
+	.shfl_section_content {
+		width: calc(#{$shfl-section-content-width} - #{$shfl-bg-offset-1367});
+	}
+}
+
+
+
+
+// ===================================
+// MEDIA: HEIGHT 650px
+// ===================================
+@media (max-height: 768px) {
+	.shfl_dots {
+		top: 45%;
+	}
+}

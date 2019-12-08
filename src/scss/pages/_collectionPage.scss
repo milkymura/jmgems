@@ -1,0 +1,236 @@
+$nav-estimated-height: 97.2px;
+
+.strt_collectionList_section .collectionList {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+	color: #FFF;
+
+	padding: 5em 0;
+
+	&:before {
+		content: '';
+		@extend %absoluteFill;
+		z-index: 1;
+		background-color: #000;
+		opacity: .8;
+	}
+
+	.container {
+		position: relative;
+		z-index: 10;
+	}
+
+
+	.row-header {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		margin-bottom: 2em;
+
+		.title {
+			margin-top: 0;
+			margin-bottom: .75em;
+			text-transform: uppercase;
+			color: #FFF;
+			letter-spacing: .25em;
+			text-align: center;
+
+			&:after {
+				content: '';
+				display: block;
+				height: .1em;
+				width: 60%;
+				background-color: $primary-color;
+				margin: 0 auto;
+				margin-top: .5em;
+			}
+		}
+
+		.desc {
+			width: 100%;
+			max-width: 700px;
+			text-align: center;
+			margin: 0 auto;
+			font-weight: 100;
+			line-height: 1.5;
+			letter-spacing: .1em;
+		}
+	}
+
+	.row-content {
+		align-items: stretch;
+		background-color: rgba(#000,.75);
+		margin-bottom: 5em;
+	}
+
+
+	// .collectionList_moreCollectionBtn
+	&_moreCollectionBtn {
+		text-transform: uppercase;
+		color: #FFF;
+		padding: .75em 4em;
+		border: .15em solid  #FFF;
+
+		&:hover {
+			font-weight: bold;
+			color: #000;
+			background-color: #FFF;
+		}
+	}
+}
+
+
+// ==================================
+// 		COLLECTION CARD
+// ==================================
+.strt_collectionList_section .collectionList_card {
+	position: relative;
+
+	// .collectionList_cardBg
+	&Bg {
+		@extend %absoluteFill;
+		z-index: 1;
+		opacity: 0;
+		transition: opacity 300ms ease-out;
+		overflow: hidden;
+
+		// .collectionList_cardBg_src
+		&_src {
+			position: relative;
+			z-index: 1;
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+			background-position: 50% 50%;
+			transform-origin: center center;
+			transform: scale(1.15);
+			transition: transform 500ms ease-out;
+		}
+
+		// .collectionList_cardBg_color
+		&_color {
+			@extend %absoluteFill;
+			z-index: 5;
+			opacity: .8;
+		}
+	}
+
+	// .collectionList_cardContent
+	&Content {
+		position: relative;
+		z-index: 10;
+		padding: 8em 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+
+		// .collectionList_cardContent_graphic
+		&_graphic {
+			height: 20em;
+			img {
+				height: 100%;
+				width: 100%;
+				object-fit: contain;
+				object-position: 50% 50%;
+				display: block;
+				transform: translateY(0) scale(1);
+				transition: transform 300ms ease-out;
+			}
+		}
+
+		// .collectionList_cardContent_title
+		&_title {
+			color: #FFF;
+			width: 100%;
+			max-width: 300px;
+			letter-spacing: .15em;
+			margin: 0 auto;
+			display: block;
+			text-align: center;
+		}
+
+		// .collectionList_cardContent_subtitle
+		&_subtitle {
+			color: #fff;
+			width: 100%;
+			max-width: 300px;
+			letter-spacing: .15em;
+			margin: 1em auto;
+			display: block;
+			text-align: center;
+		}
+	}
+}
+
+.strt_collectionList_section .collectionList_card:hover {
+	.collectionList_cardBg {
+		opacity: 1;
+	}
+
+	.collectionList_cardBg_src {
+		transform: scale(1);
+	}
+
+	.collectionList_cardContent_graphic img {
+		transform: translateY(-5%) scale(1.15);
+	}
+
+	.collectionList_cardContent_title ,
+	.collectionList_cardContent_subtitle {
+		color: #000;
+		font-weight: normal;
+	}
+}
+
+.strt_collectionList_section .collectionList_card.is_darkbg_onhover:hover {
+	.collectionList_cardContent_title ,
+	.collectionList_cardContent_subtitle {
+		color: #FFF;
+	}
+
+}
+
+
+
+@media (max-width: 1025px) {
+	.strt_collectionList_section .collectionList {
+		.container {
+			max-width: 1000px;
+		}
+
+		.collectionList_cardContent {
+			padding: 5em 0;
+		}
+
+		.collectionList_cardContent_graphic {
+			height: 15em;
+		}
+	}
+}
+
+@media (max-width: 769px) {
+	.strt_collectionList_section .collectionList {
+		.row-content {
+			flex-direction: column;
+
+			.col {
+				max-width: 100%;
+
+				&:nth-child(2) {
+					order: 1;
+				}
+
+				&:first-child {
+					order: 2;
+				}
+
+				&:last-child {
+					order: 3;
+				}
+			}
+		}
+	}
+}

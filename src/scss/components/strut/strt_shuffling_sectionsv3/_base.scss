@@ -1,0 +1,335 @@
+$nav-estimated-height: 97.2px;
+
+// ==============================
+// MAIN PARTS
+// ==============================
+.shflv3 {
+	position: relative;
+
+	// .shflv3_decoy
+	&_decoy {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: auto;
+		z-index: 99;
+		pointer-events: none;
+		visibility: hidden;
+	}
+
+	// .shflv3_pinContainer 
+	&_pinContainer {
+		position: relative;
+		z-index: 10;
+		height: 100vh;
+		padding-top: $nav-estimated-height;
+	}
+
+}
+// ==============================
+// DECOY PARTS
+// ==============================
+.shflv3_decoy {
+	background-color: #BCDDFF;
+
+	// .shflv3_decoy_item
+	&_item {
+		font-size: 1em;
+		padding: 1em;
+		background-color: red;
+		&:before {
+			content: 'test';
+			color: #FFF;
+			line-height: 1em;
+			text-transform: uppercase;
+			font-weight: bold;
+			letter-spacing: .25em;
+		}
+	}
+}
+
+// ==============================
+// CONTAINER PARTS
+// ==============================
+$section-container-offset: 20vw;
+
+$section-title-height: 10rem;
+$section-title-width: 20rem;
+
+.shflv3_pinContainer:before {
+	content: '';
+	position: absolute;
+	top: $nav-estimated-height + 50;
+	right: 0;
+	z-index: 1;
+	width: calc( 100% - #{$section-title-width} - #{( $section-container-offset / 2 )});
+	height: $section-title-height * 2;
+	background-color: $gray-100;
+}
+
+.shflv3_container {
+	position: relative;
+	width: calc( 100% - #{$section-container-offset});
+	height: 100%;
+	margin: 0 auto;
+}
+
+.shflv3 {
+
+	// ==============================
+	// shflv3_dotsContainer
+	// ==============================
+	&_dotsContainer {
+		position: absolute;
+		top: $nav-estimated-height + 20;
+		right: 100%;
+	}
+
+	// shflv3_dots
+	&_dots {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		flex-direction: column;
+
+		.dot {
+			font-size: 1em;
+			width: 1em;
+			height: 1em;
+			border-radius: 50%;
+			background-color: $gray-200;
+			cursor: pointer; 
+			position: relative;
+
+			.tooltip {
+				position: absolute;
+				top: 50%;
+				right: 0;
+				width: auto;
+				font-size: .8rem;
+				line-height: 1em;
+				text-transform: uppercase;
+				letter-spacing: .15em;
+				font-weight: 600;
+				color: #000;
+				opacity: 0;
+				pointer-events: none;
+				white-space: normal;
+				text-align: right;
+				transform: translateY(-50%) translateX(0);
+				transition:
+					transform 300ms ease-out ,
+					opacity 300ms ease-out;
+			}
+
+			&:not(:last-child) {
+				margin-bottom: 1em;
+			}
+
+			&:hover {
+				background-color: darken($gray-200, 10%);
+				.tooltip {
+					opacity: 1;
+					transform: translateY(-50%) translateX(-2em);
+				}
+			}
+
+			&.active {
+				background-color: #000;
+				.tooltip {
+					opacity: 1;
+					transform: translateY(-50%) translateX(-2em);
+				}
+
+				&:hover {
+					.tooltip {
+						color: $primary-color;
+					}
+				}
+			}
+		}
+	}
+
+
+	// ==============================
+	// .shflv3_titleContainer 
+	// ==============================
+	&_titleContainer {
+		position: absolute;
+		top: 50px;
+		left: 0;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		width: $section-title-width;
+		height: $section-title-height;
+	}
+
+	// .shflv3_title
+	&_title {
+		width: 100%;
+		padding: 0 1em;
+		font-size: 2em;
+		font-weight: 400;
+		line-height: 1.25;
+		letter-spacing: .25em;
+		text-transform: uppercase;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	// ==============================
+	// .shflv3_owlContainer
+	// ==============================
+	&_owlContainer {
+		height: 100%;
+		width: 100%;
+	}
+
+	// .shflv3_owl
+	&_owl {
+		width: 100%;
+		height: 100%;
+
+		.owl-stage-outer ,
+		.owl-stage ,
+		.owl-item {
+			height: 100%;
+		}
+
+		// .owl-item {
+		// 	visibility: hidden;
+		// }
+
+		// .owl-item.active {
+		// 	visibility: visible;
+		// }
+	}
+
+
+	// .shflv3_owlSlide
+	&_owlSlide {
+		width: 100%;
+		height: 100%;
+
+		// ==================================
+		// .shflv3_owlSlide_container
+		// ==================================
+		&_container {
+			width: 100%;
+			height: 100%;
+			padding: 0 1em;
+			display: flex;
+			align-items: stretch;
+			justify-content: center;
+		}
+
+		// ==================================
+		// .shflv3_owlSlide_graphic
+		// ==================================
+		&_graphic {
+			padding-top: calc( #{$section-title-height} + 50px );
+			padding-right: 1em;
+			padding-bottom: 2rem;
+			width: 50%;
+		}
+		// .shflv3_owlSlide_graphic .graphic
+		&_graphic .graphic {
+			height: 100%;
+			width: 100%;
+			// .graphic_container
+			&_container {
+				width: 100%;
+				height: 100%;
+			}
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+				object-position: center center;
+			}
+		}
+
+		// ==================================
+		// .shflv3_owlSlide_content
+		// ==================================
+		&_content {
+			width: 50%;
+			height: 100%;
+			padding-left: 1em;
+			padding-top: 10vh;
+		}
+
+		// .shflv3_owlSlide_content
+		&_content .content {
+			// .content_header
+			&_header {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 4em;
+				margin-top: 0;
+				margin-bottom: 1rem;
+
+				.count {
+					font-size: 1em;
+					font-weight: 300;
+				}
+
+				.title {
+					font-size: .5em;
+					text-transform: uppercase;
+					letter-spacing: .25em;
+					font-weight: normal;
+					color: #000;
+					padding-left: .5em;
+
+					&:after {
+						content: '';
+						display: block;
+						width: 80%;
+						height: 3px;
+						margin-top: .25em;
+						background-color: $primary-color;
+					}
+				}
+			}
+
+			// .content_desc
+			&_desc {
+				font-size: 1.4em;
+				line-height: 2;
+			}
+		}
+	}
+
+}
+
+@media (max-width: 1537px) {
+	.shflv3_owlSlide_content .content .content_desc {
+		font-size: 1em;
+	}
+}
+
+// ===================================
+// MEDIA: ipadpro
+// ===================================
+@media #{$media-ipadPro2-portrait} {
+	.shflv3_owlSlide_container {
+		flex-direction: column;
+	}
+
+	.shflv3_owlSlide_graphic {
+		width: 100%;
+		padding: 15vh 0 0 0;
+	}
+
+	.shflv3_owlSlide_content {
+		width: 100%;
+		padding-top: 1em;
+		padding-right: 1em;
+		padding-left: 1em;
+	}
+}

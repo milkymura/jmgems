@@ -1,0 +1,237 @@
+.dna_cta_small {
+	background-color: transparent !important;
+
+	.container {
+		max-width: 100%;
+		padding: 0;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+
+		.row {
+			position: relative;
+			z-index: 5;
+		}
+	}
+
+
+
+	.col-graphic {
+		img {
+			width: 100%;
+		}
+	}
+}
+
+// =====================================
+// IS DARK CONTENT
+// =====================================
+.dna_cta_small .container.is_darkContent {
+	.col-header ,
+	.col-content {
+		color: $text-color-white;
+	}
+}
+
+
+// =====================================
+// AUTO MOTIVE CTA
+// =====================================
+.dna_cta_small .strt_cta-automotive.container  {
+	overflow: hidden;
+	height: 70vh;
+
+	$beforeOffset: 15vh;
+
+	&:before {
+		top: $beforeOffset;
+		height: calc( 100% - #{( $beforeOffset * 2 )});
+	}
+
+	.row {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+
+	.col-content {
+		padding-left: 15vw;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	.col-header {
+		font-size: 2rem;
+		font-weight: normal;
+		letter-spacing: .25em;
+		margin-top: 0;
+		width: auto;
+
+		&:after {
+			content: '';
+			width: 80%;
+			margin-top: .25em;
+			height: 2px;
+			background-color: #000;
+			display: block;
+		}
+	}
+
+	.col-desc {
+		line-height: 2;
+		font-size: 1em;
+		line-height: 2em;
+	}
+
+	.s_content-button {
+		@extend %strtPrimaryBtn;
+		background-image: none;
+		min-width: 10em;
+	}
+
+
+	.col-graphic {
+		position: absolute;
+		top: 0;
+		right: -60%;
+		max-width: unset;
+		height: 100%;
+		img {
+			width: auto;
+			height: 100%;
+			max-width: unset;
+		}
+	}
+}
+
+// =====================================
+// ELEPHANT
+// =====================================
+.dna_cta_small .strt_cta-elephant.container  {
+
+	min-height: 70vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&:before {
+		background-color: #000;
+		opacity: .5;
+	}
+
+	.col-content {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		padding-top: 5em;
+		padding-bottom: 5em;
+	}
+
+	.col-header {
+		text-transform: uppercase;
+		letter-spacing: .25em;
+		font-weight: normal;
+	}
+
+	.col-header ,
+	.col-desc {
+		text-align: center;
+	}
+
+	.col-desc {
+		font-size: 1em;
+		line-height: 2;
+		max-width: 80em;
+	}
+
+	.s_content-button {
+		@extend %strtPrimaryBtn;
+		background-image: none;
+		min-width: 10em;
+	}
+}
+
+
+@media #{$media-ipadPro2-portrait} {
+
+
+	.dna_cta_small .strt_cta-elephant.container {
+		min-height: 30em;
+	}
+
+}
+
+@media (max-width: 1024px) {
+	.dna_cta_small .strt_cta-automotive.container {
+		height: 40em; 
+
+		$beforeOffset-ipad2: 10em;
+
+		&:before {
+			top: $beforeOffset-ipad2;
+			height: calc( 100% - #{( $beforeOffset-ipad2 * 2 )});
+		}
+
+	}
+}
+
+@media (max-width: 769px) {
+	.dna_cta_small .strt_cta-automotive.container {
+		min-height: 0; 
+
+		.row {
+			flex-direction: column;
+		}
+
+		.col-content {
+			padding-left: 0;
+			max-width: 600px;
+			margin: 0 auto;
+			padding: 0 1em;
+		}
+
+		.col-graphic {
+			right: -80%;
+			img {
+				transform: none !important;
+			}
+		}
+	}
+
+	.dna_cta_small .strt_cta-elephant.container {
+		min-height: 0; 
+	}
+}
+
+@media (max-width: 415px) {
+	.dna_cta_small .strt_cta-automotive.container {
+		height: auto;
+		&:before {
+			top: 1em;
+		}
+		.col-graphic {
+			position: relative;
+			right: 0;
+		}
+
+		.col-content {
+			padding: 2em;
+		}
+
+		.s_content-button {
+			width: 100%;
+			margin: 0;
+		}
+	}
+}

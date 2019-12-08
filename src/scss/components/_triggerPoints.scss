@@ -1,0 +1,37 @@
+$test-mode: true;
+
+.triggerPoints {
+	content: '';
+	@extend %absoluteFill;
+	z-index: 9999;
+	@if ( $test-mode ) {
+		visibility: visible;
+	} @else {
+		visibility: hidden;
+	}
+}
+
+.triggerPoint {
+	position: absolute;
+	font-size: 1rem;
+	background-color: red;
+	padding: 1em;
+	display: block;
+	color: #FFF;
+}
+
+#shopify-section-svn-sliderproduct-hero {
+	#triggerHide {
+		bottom: 36%;
+		left: 2rem;
+	}
+}
+
+.template-index {
+	#snapNavigation {
+		top: 100px;
+	}
+}
+#snapNavigation {
+	top: 0;
+}

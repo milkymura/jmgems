@@ -1,0 +1,165 @@
+// ========================
+// THEME COLORS
+// ========================
+$primary-color: #DCC699;
+$secondary-color: #EFB40F;
+$tertiary-color: #F75F23;
+
+$primary-dark-color: #1A2438;
+
+$gradient-primary: linear-gradient(to right, #00DAF4 20%, #006AF2 100%);
+$gradient-cta: linear-gradient(to left, #00DAF4 20%, #006AF2 100%);
+$gradient-secondary: linear-gradient(to right, $secondary-color 50%, $tertiary-color 100%);
+$gradient-announcement-load: linear-gradient(to right,transparent 1% ,rgba(#FFF,.15) 15% , rgba(#FFF,.25) 50% ,rgba(#FFF,.15) 85% ,transparent 100%);
+$gradient-announcement-load-bg: $secondary-color;
+
+// ========================
+// BASIC COLORS
+// ========================
+
+$lightblack-backup: #1A1A1A;
+$lightblack: #20262B;
+
+$black: #000000;
+$gray: #20262B;
+$lightgray: #F9F9F9;
+$darkgray: #A8A8A8;
+
+$gray-200: #D8D8D8;
+$gray-100: #F1F1F1;
+
+$red: #FF4444;
+$yellow: #FFD544;
+$green: #5BFB2A;
+$teal: #1FC8B6;
+$blue: #0060FF;
+$purple: #902BEE;
+$white: #FFF;
+$jade: #008B98;
+
+$disabled: #D7D7D7;
+
+$text-colors : (
+	red: #F42434,
+	yellow: #EEE147,
+	green: #2C9A40,
+	teal: #62CCCA,
+	blue: #3C98CC,
+	purple: #CE559A,
+	white: #FFF
+);
+
+// ========================
+// STRUT COLORS
+// ========================
+$strut-black: #000000;
+$strut-white: #FFFFFF;
+$strut-blue: #253459;
+
+// ========================
+// SYSTEM COLORS
+// ========================
+$text-color: $black;
+$text-color-white: $white;
+
+// ========================
+// BUTTON COLORS
+// ========================
+$btn-colors: (
+	primary: $primary-color ,
+	secondary: $secondary-color ,
+	tertiary: $tertiary-color ,
+	black: $black,
+	gray: #A8A8A8,
+	white: $white,
+	green: $green,
+	red: $red,
+	jade: $jade
+);
+
+// ========================
+// FONTS
+// ========================
+$base-font-size: 14px;
+$font-family: 'Mont';
+
+// ========================
+// NAVIGATION
+// ========================
+
+// ========================
+// MOBILE NAVIGATION
+// ========================
+
+// ========================
+// PAGE
+// ========================
+
+// ========================
+// FOOTER
+// ========================
+$footer-color-bg: $black;
+$footer-color-copyright: $black;
+
+// ========================
+// CART CONTAINER
+// ========================
+$cart-bg: #FFF;
+// ========================
+// EASINGS
+// ========================
+$biezer: cubic-bezier(0, 0.61, 0.4, 1);
+$easing: 200ms $biezer;
+$easing-slow: .5s $biezer;
+
+
+// ========================
+// GRID
+// ========================
+$container-width: 1366px;
+$grid-columns: 12;
+$grid-screens: (
+	sm : 512px,
+	md : 1024px,
+	lg : 1280px,
+	xl : 1446px
+);
+
+// ========================
+// MEDIA QUERY
+// ========================
+$media-ipad1 : 'only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1)';
+$media-ipad1-portait : 'only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1)';
+$media-ipad1-landscape : 'only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1)';
+
+$media-ipad3 : 'only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2)';
+$media-ipad3-portrait : 'only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2)';
+$media-ipad3-landscape : 'only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2)';
+
+$media-ipadPro1: 'only screen and (min-device-width: 834px) and (max-device-width: 1112px) and (-webkit-min-device-pixel-ratio: 2)';
+$media-ipadPro1-portrait: 'only screen and (min-device-width: 834px) and (max-device-width: 834px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2)';
+$media-ipadPro1-landscape : 'only screen and (min-device-width: 1112px) and (max-device-width: 1112px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2)';
+
+$media-ipadPro2: 'only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2)';
+$media-ipadPro2-portrait: 'only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2)';
+$media-ipadPro2-landscape: 'only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2)';
+
+$media-iphone4: 'only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)';
+$media-iphone4-portrait: 'only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)';
+$media-iphone4-landscape: 'only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape)';
+
+$media-iphone5: 'only screen and (min-device-width: 320px) and (max-device-width: 568px)and (-webkit-min-device-pixel-ratio: 2)';
+$media-iphone5-portrait: 'only screen and (min-device-width: 320px) and (max-device-width: 568px)and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)';
+$media-iphone5-landscape: 'only screen and (min-device-width: 320px) and (max-device-width: 568px)and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape)';
+
+$media-iphone678: 'only screen and (min-device-width: 375px) and (max-device-width: 667px)and (-webkit-min-device-pixel-ratio: 2)';
+$media-iphone678-portrait: 'only screen and (min-device-width: 375px) and (max-device-width: 667px)and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)';
+$media-iphone678-landscape: 'only screen and (min-device-width: 375px) and (max-device-width: 667px)and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape)';
+
+$media-iphone678plus: 'only screen and (min-device-width: 414px) and (max-device-width: 736px)and (-webkit-min-device-pixel-ratio: 3)';
+$media-iphone678plus-portrait: 'only screen and (min-device-width: 414px) and (max-device-width: 736px)and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait)';
+$media-iphone678plus-landscape: 'only screen and (min-device-width: 414px) and (max-device-width: 736px)and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape)';
+
+$media-iphoneX: 'only screen and (min-device-width: 375px) and (max-device-width: 812px)and (-webkit-min-device-pixel-ratio: 3)';
+$media-iphoneX-portrait: 'only screen and (min-device-width: 375px) and (max-device-width: 812px)and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait)';
+$media-iphoneX-landscape: 'only screen and (min-device-width: 375px) and (max-device-width: 812px)and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape)';

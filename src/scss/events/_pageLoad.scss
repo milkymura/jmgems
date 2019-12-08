@@ -1,0 +1,19 @@
+ 
+#svn-sound.template-index ,
+#about-us.template-page {
+	.shopify-section {
+		&:not(#shopify-section-svn-header) {
+			opacity: 0;
+			visibility: hidden;
+			transition:
+				visibility $easing-slow ,
+				opacity $easing-slow ;
+
+			&.ready {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+	
+}

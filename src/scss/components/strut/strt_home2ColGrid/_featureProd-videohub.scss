@@ -1,0 +1,30 @@
+// .strt_featureProd-videohub {
+// 	.col-graphic_img {
+// 		bottom: 0;
+// 		right: -20%;
+
+// 		height: auto;
+// 		width: 80%;
+
+// 		img {
+// 			width: 100%;
+// 		}
+// 	}
+// }
+
+.strt_featureProd-videohub {
+	.col-graphic_curtain_y {
+		background-color: #f6f6f6 !important;
+	}
+
+	.col-graphic_img {
+		img {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: auto;
+			transform: translateX(-20%);
+		}
+	}
+}

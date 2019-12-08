@@ -1,0 +1,323 @@
+.btn {
+	display: inline-block;
+	padding: .75em 2em;
+	font-size: 1em;
+	text-decoration: none !important;
+	line-height: 1;
+	cursor: pointer;
+
+	@each $name,$value in $btn-colors {
+
+		&-bg-#{$name} {
+			background-color: $value;
+			color: determine-text-color($value);
+			&:hover {
+				background-color: darken($value,10);
+			}
+		}
+
+		&-inverted-#{$name} {
+			background-color: transparent;
+			color: $value;
+			border: .15em solid $value;
+			&:hover {
+				color: determine-text-color($value);
+				background-color: darken($value,10);
+			}
+		}
+	}
+
+	// .btn-special-primary
+	&-special-primary {
+		text-transform: uppercase;
+		background: $gradient-primary;
+		color: $text-color-white;
+		font-weight: 600;
+		.text {
+			color: inherit;
+		}
+
+		&:hover {
+			color: $text-color-white;
+		}
+	}
+
+	// .btn-transparent-white
+	&-transparent-white {
+		background-color: rgba(#fff, .25);
+		font-weight: 600;
+		color: rgba($text-color-white,.8);
+		font-size: 1.25em;
+
+		&:hover {
+			color: $text-color-white;
+		}
+	}
+
+	// .btn-disabled
+	&-disabled {
+		background-color: $disabled;
+		color: darken($disabled,20%);
+		pointer-events: none;
+	}
+
+	// .btn-combo
+	&-combo {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0;
+
+		.text {
+			flex-shrink: 1;
+			flex-grow: 1;
+			font-weight: 500;
+			padding: 1em;
+			padding-right: 0;
+		}
+
+		i {
+			font-size: 1em;
+			flex-shrink: 0;
+			opacity: .8;
+			padding: 1em;
+		}
+
+		&:hover .wtf {
+			opacity: 1;
+		}
+	}
+}
+
+
+
+button {
+	outline: none !important;
+}
+
+
+
+@keyframes spinAddToCart {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.btn-addtocart {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: nowrap;
+
+	.text {
+		position: relative;
+		z-index: 1;
+		white-space: nowrap;
+		display: flex;
+		flex-shrink: 0;
+	}
+
+	// .process {
+	// 	position: absolute;
+	// 	z-index: 10;
+	// 	top: 50%;
+	// 	right: 0;
+	// 	font-size: 1rem;
+	// 	height: 1em;
+	// 	width: 0;
+
+	// 	transform: translateX(-1em);
+	// 	visibility: hidden;
+	// 	opacity: 0;
+	// 	position: relative;
+
+	// 	transition: 
+	// 		transform $easing ,
+	// 		visibility $easing ,
+	// 		opacity $easing;
+
+	// 	.wtfr {
+	// 		font-size: 1em;
+	// 		width: 1em;
+	// 		height: 1em;
+	// 		display: block;
+	// 		transform-origin: center center;
+	// 	}
+	// }
+
+
+	// &.processing {
+	// 	pointer-events: none;
+	// 	.process {
+	// 		transform: translateX(.25em);
+	// 		visibility: visible;
+	// 		opacity: 1;
+	// 		.wtfr {
+	// 			animation-name: spinAddToCart;
+	// 			animation-timing-function: linear;
+	// 			animation-iteration-count: infinite;
+	// 			animation-fill-mode: both;
+	// 			animation-duration: .15s;
+	// 		}
+	// 	}
+	// }
+}
+
+// ===============================
+// STRUT BASIC PRIMARY BUTTONS
+// ===============================
+$btnBorder: .1em;
+%strtPrimaryBtn {
+	font-size: 1rem;
+	padding: .5em 1em;
+	border: $btnBorder solid #000;
+	text-transform: uppercase;
+	font-weight: 600;
+	letter-spacing: .15em;
+	margin: 0 .25em;
+	color: #FFF;
+	background-color: #000;
+	text-align: center;
+
+	transition: 
+		color 300ms ease-out ,
+		border-color 300ms ease-out ,
+		background-color 300ms ease-out ; 
+	cursor: pointer;
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: -$btnBorder;
+		left: -$btnBorder;
+		width: calc(100% + #{( $btnBorder * 2 )});
+		height: calc(100% + #{( $btnBorder * 2 )});
+		pointer-events: none;
+		transition: box-shadow 300ms ease-out;
+	}
+
+	&:hover {
+		color: #FFF;
+		&:before {
+			box-shadow: 0 0 0 .25em $primary-color;
+		}
+	}
+}
+
+// ===============================
+// STRUT BUTTONS
+// ===============================
+$btnBorder: .1em;
+
+%buttonConfig {
+	font-size: 1em;
+	padding: .5em 1em;
+	border: $btnBorder solid #000;
+	text-transform: uppercase;
+	font-weight: 600;
+	letter-spacing: .15em;
+	margin: 0 .25em;
+	text-align: center;
+	transition: 
+		color 300ms ease-out ,
+		border-color 300ms ease-out ,
+		background-color 300ms ease-out ; 
+	cursor: pointer;
+	position: relative;
+	min-width: 8rem;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: -$btnBorder;
+		left: -$btnBorder;
+		width: calc(100% + #{( $btnBorder * 2 )});
+		height: calc(100% + #{( $btnBorder * 2 )});
+		pointer-events: none;
+		transition: box-shadow 300ms ease-out;
+	}
+}
+
+
+.strt_buttons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+
+	// .strt_buttons_primary
+	&_primary {
+		@extend %buttonConfig;
+		color: #FFF;
+		background-color: #000;
+
+		&:before {
+			box-shadow: 0 0 0 0 $primary-color;
+		}
+
+		&:hover {
+			color: #FFF;
+			&:before {
+				box-shadow: 0 0 0 .25em $primary-color;
+			}
+		}
+	}
+
+	// .strt_buttons_secondary
+	&_secondary {
+		@extend %buttonConfig;
+		color: #000;
+		font-weight: 700;
+		&:hover {
+			font-weight: 700;
+			background-color: $primary-color;
+			color: #000;
+		}
+	}
+
+	// .strt_buttons-inverted
+	&-inverted {
+		.strt_buttons_primary {
+			background-color: #fff;
+			border-color: #FFF;
+			color: #000;
+			font-weight: 700;
+			&:before {
+				display: none;
+			}
+
+			&:hover {
+				color: #FFF;
+				background-color: $primary-color;
+			}
+		}
+
+		.strt_buttons_secondary {
+			font-weight: 600;
+			border-color: #FFF;
+			color: #FFF;
+		}
+	}
+
+
+
+	@media (max-width: 415px) {
+		flex-wrap: wrap;
+		> a {
+			width: 100%;
+			text-align: center;
+			margin-bottom: .5em;
+		}
+	}
+}
+
+
+
+
+
+
+

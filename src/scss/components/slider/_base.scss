@@ -1,0 +1,67 @@
+// ========================
+// DNA SLIDER VARS
+// ========================
+$slider-btn: #000;
+
+.d_slider_carousel {
+	position: relative;
+	overflow: hidden;
+
+	.owl-stage {
+		height: 100%;
+	}
+
+	.owl-nav {
+		font-size: 1.5rem;
+		.owl-prev ,
+		.owl-next {
+			position: absolute;
+			top: 50%;
+			z-index: 10;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+
+			font-size: 1em;
+			height: 2em;
+			width: 2em;
+			line-height: 1;
+			margin: -1em 0 0 0;
+			border-radius: 0;
+			color: #FFF;
+			background-color: rgba($slider-btn,.75) !important;
+
+			transition: 
+				background-color 300ms ease-out;
+
+			&:hover {
+				color: $primary-color;
+				border: 1px solid $primary-color;
+				background-color: rgba($slider-btn,.8) !important;
+			}
+		}
+
+		.owl-prev {
+			left: 0;
+		}
+		.owl-next {
+			right: 0;
+		}
+	}
+
+
+	.owl-dot.active {
+		span {
+			background-color: $tertiary-color !important;
+		}
+	}
+
+	// .d_slider_carousel_item
+	&_item {
+		position: relative;
+	}
+}
+
+

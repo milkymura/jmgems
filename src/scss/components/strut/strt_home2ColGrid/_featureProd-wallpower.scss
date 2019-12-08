@@ -1,0 +1,27 @@
+// .strt_featureProd-wallpower {
+// 	.col-graphic_img {
+// 		bottom: 1em;
+// 		right: 1em;
+// 		height: 80%;
+
+// 		img {
+// 			height: 100%;
+// 			width: auto;
+// 		}
+// 	}
+// }
+
+.strt_featureProd-wallpower {
+	.col-graphic_curtain_y {
+		background-color: #000 !important;
+	}
+	.col-graphic_img {
+		img {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 60%;
+			transform: translate(-50%,-40%);
+		}
+	}
+}

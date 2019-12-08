@@ -1,0 +1,33 @@
+<ul class="menubarlist">
+	{% for link in linklists[menu_items].links %}
+    <li class=" menubarlist_item 
+      {% if link.active %} active {% endif %}
+      {% if link.links != blank %} submenu {% endif %}">
+
+      {% include 'tgs_nav_link', link: link %}
+
+      {% comment %}
+      ======================================
+        if there is submenu
+      ======================================
+      {% endcomment %}
+
+      {% if link.links != blank %}
+
+        <button class="menubarlist_sublist_toggler">
+          <i class="wtfr wtf-chevron-down"></i>
+        </button>
+
+        <ul class="menubarlist_sublist">
+          {% for sublink in link.links %}
+            <li class="menubarlist_sublist_item">
+              {% include 'tgs_nav_link', link: sublink %}
+            </li>
+          {% endfor %}
+        </ul>
+
+      {% endif %}
+
+    </li>
+	{% endfor %}
+</ul>

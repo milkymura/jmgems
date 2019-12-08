@@ -1,0 +1,283 @@
+<div class="tgs_footer_main">
+  <div class="container">
+    <div class="row">
+      {% for block in section.blocks %}
+        <div class="
+          footer_col col 
+          footer_col-{{ block.type }}
+          col-sm-{{ block.settings.column_width }}">
+
+          {% comment %}
+          ===================================
+            footer column header
+          ===================================
+          {% endcomment %}
+          {% if block.settings.footer_title != blank %}
+            <h1 class="footer_col-header">
+              {{ block.settings.footer_title }}
+            </h1>
+          {% endif %}
+
+          {% comment %}
+          ===================================
+            footer column content
+          ===================================
+          {% endcomment %}
+          <div class="footer_col-content">
+            {% case block.type %}
+              {% when 'menu' %}
+                {% assign menuHandle = block.settings.footer_menu %}
+                {% assign menuList = linklists[menuHandle].links %}
+                <ul class="footer_col-list">
+
+                  {% for link in menuList  %}
+                    <li class="footer_col-list-item {{ link.active }}">
+                      <a href="{{ link.url }}"
+                        {% if link.type == "http_link" %}
+                          target="_blank"
+                        {% endif %}>
+                        {{ link.title }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% when 'newsletter' %}
+                {% form 'customer' %}
+                    {{ form.errors | default_errors }}
+                    <div class="input-group">
+                      <input type="hidden" name="contact[tags]" value="newsletter">
+
+                      <h1 class="newsletter-form-header">
+                        {{ block.settings.newsletter_header }}
+                      </h1>
+                      <div class="newsletter-form-inputgrp">
+                        <input 
+                          type="email" 
+                          value="{% if customer %}{{ customer.email }}{% endif %}" 
+                          placeholder="{{ block.settings.newsletter_placeholder }}"
+                          name="contact[email]"
+                          id="Email"
+                          class=" input-group__field newsletter__input newsletter-form-input"
+                          autocorrect="off"
+                          autocapitalize="off"
+                          required>
+
+                        <button type="submit" class="btn btn-bg-primary" name="commit" id="Subscribe">
+                          <span class="text">
+                            {{ block.settings.newsletter_btn_text }}
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                {% endform %}
+              {% when 'htmlContent' %}
+                {{ block.settings.footer_htmlcontent }}
+              {% when 'graphicAndContent' %}
+                <div class="footer_graphic">
+                  <img 
+                    src="{{ block.settings.graphic.src | img_url: '300x'}}" 
+                    alt="{{ block.settings.graphic_alt }}" 
+                    class="footer_graphic-img">
+                </div>
+                <div class="footer_desc">
+                  {{ block.settings.desc }}
+                </div>
+            {% endcase %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<div class="tgs_footer_copyright">
+  <div class="container">
+    <div class="row">
+      <div class="col col-social col-sm-3">
+        <ul>
+          {% include 'footer_social-icons' %}
+        </ul>
+      </div>
+      <div class="col col-copyright col-sm-9">
+        <p>
+          © 2019 {{ shop.name }}. ALL RIGHTS RESERVED.
+          {% if section.settings.terms != blank %}
+            | <a href="{{ section.settings.terms }}">Terms of Services</a>
+          {% endif %}
+          {% if section.settings.privacy != blank %}
+            | <a href="{{ section.settings.privacy }}">Privacy Policy</a>
+          {% endif %}
+          {% if section.settings.refund != blank %}
+            | <a href="{{ section.settings.refund }}">Refund Policy</a>
+          {% endif %}
+          | Powered by 
+          <a target="_blank" href="https://www.dnamicro.com">{dna:micro}</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "TGS Footer",
+  "class": "tgs_footer",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Policies"
+    },
+    {
+      "type": "url",
+      "id": "terms",
+      "label": "Terms of Services link"
+    },
+    {
+      "type": "url",
+      "id": "privacy",
+      "label": "Privacy Policy link"
+    },
+    {
+      "type": "url",
+      "id": "refund",
+      "label": "Refund Policy"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "footer_title",
+          "label": "Footer Column Title"
+        },
+        {
+          "type": "link_list",
+          "id": "footer_menu",
+          "label": "Menu"
+        },
+        {
+          "type": "range",
+          "id": "column_width",
+          "label": "Column Size",
+          "step": 1,
+          "min": 1,
+          "max": 12,
+          "default": 3
+        }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "name": "newsletter",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Newsletter Settings"
+        },
+        {
+          "type": "range",
+          "id": "column_width",
+          "label": "Column Size",
+          "step": 1,
+          "min": 1,
+          "max": 12,
+          "default": 3
+        },
+        {
+          "type": "html",
+          "id": "newsletter_header",
+          "label": "change newsletter header",
+          "default": "Sign up to our Newsletter"
+        },
+        {
+          "type": "text",
+          "id": "newsletter_placeholder",
+          "label": "change newsletter placeholder",
+          "default": "Enter Email address"
+        },
+        {
+          "type": "text",
+          "id": "newsletter_btn_text",
+          "label": "change newsletter button text",
+          "default": "Sign Up"
+        }
+      ]
+    },
+    {
+      "type": "htmlContent",
+      "name": "htmlContent",
+      "settings": [
+        {
+          "type": "text",
+          "id": "footer_title",
+          "label": "Footer Column Title"
+        },
+        {
+          "type": "html",
+          "id": "footer_htmlcontent",
+          "label": "html content"
+        },
+        {
+          "type": "range",
+          "id": "column_width",
+          "label": "Column Size",
+          "step": 1,
+          "min": 1,
+          "max": 12,
+          "default": 3
+        }
+      ]
+    },
+    {
+      "type": "graphicAndContent",
+      "name": "Graphic and content",
+      "settings": [
+        {
+          "type": "text",
+          "id": "footer_title",
+          "label": "Footer Column Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "graphic",
+          "label": "upload any graphic"
+        },
+        {
+          "type": "text",
+          "id": "graphic_alt",
+          "label": "upload any graphic alt"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "enter any description"
+        },
+        {
+          "type": "range",
+          "id": "column_width",
+          "label": "Column Size",
+          "step": 1,
+          "min": 1,
+          "max": 12,
+          "default": 3
+        }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "TGS Footer",
+    "category": "THEGOODSHIT",
+    "blocks": [
+      {
+        "type": "menu"
+      },
+      {
+        "type": "newsletter"
+      }
+    ]
+  }]
+}
+{% endschema %}

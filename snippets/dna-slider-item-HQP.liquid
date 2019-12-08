@@ -1,0 +1,143 @@
+{% comment %}
+================================
+	ASSIGNMENTS
+================================
+{% endcomment %}
+{% assign bgImg = s_bg | img_url: '2000x' %}
+
+
+<div class="
+	d_slider_carousel_item
+	d_slider_carousel_item-{{ s_type }}
+	{{ s_prefix }}-d_slider_carousel_item
+
+	{% if s_isdarkbg %}
+		darkbg
+	{% endif %} "
+
+	data-productid="{{ s_product.id }}"
+	data-defaultvariantid="{{ s_product.selected_or_first_available_variant.id }}">
+
+	<div class="s_content-bg" style=" 
+		background-color: {{ s_bg_color }} ;
+		background-image: url({{ s_bg_img | img_url : '1000x' }});">
+	</div>
+
+	<div class="container">
+		{% if s_content_pos == 'left' %}
+			<div class="s_content col-{{ s_content_size }}">
+
+				{% if s_htmlcontent != blank %}
+					<div class="s_content-html">
+						{{ s_htmlcontent }}
+					</div>
+				{% endif %}
+
+				<div class="s_content-actions">
+					{% if s_button_url != blank %}
+
+						{% assign link_arr = s_button_url | split: '/' %}
+						{% assign link_type = link_arr[1] %}
+						{% assign link_handle = link_arr[2] %}
+
+						{% comment %}
+						==========================
+						if link is a product
+						link make it add to cart
+						==========================
+						{% endcomment %}
+
+
+						{% if link_type ==  'products' and s_quickpurchase %}
+							{% assign  prod = all_products[link_handle]  %}
+							{% if prod.available %}
+								<button
+									class="btn btn-special-primary btn-addtocart"
+									data-productid="{{ prod.id }}"
+									data-defaultvariantid="{{ prod.selected_or_first_available_variant.id }}">
+									<span class="text">{{ s_button_text }}</span>
+								</button>
+							{% else %}
+								<button
+									class="btn btn-disabled">
+									Out of Stock
+								</button>
+							{% endif %}
+
+						{% else %}
+
+							<a href="{{  s_button_url }} " 
+								class="btn btn-special-primary s_content-button"
+								{% if s_newtab %}
+									target="_blank"
+								{% endif %}>
+								{{ s_button_text }}
+							</a>
+
+						{% endif %}
+					{% endif %}
+				</div>
+			</div>
+			<div class="s_graphic col-{{ s_graphic_size }}">
+				<img src="{{ s_graphic | img_url : '500x' }}" alt="">
+			</div>
+		{% else %}
+			<div class="s_graphic col-{{ s_graphic_size }}">
+				<img src="{{ s_graphic | img_url : '500x' }}" alt="">
+			</div>
+			<div class="s_content col-{{ s_content_size }}">
+
+				{% if s_htmlcontent != blank %}
+					<div class="s_content-html">
+						{{ s_htmlcontent }}
+					</div>
+				{% endif %}
+
+				<div class="s_content-actions">
+					{% if s_button_url != blank %}
+
+						{% assign link_arr = s_button_url | split: '/' %}
+						{% assign link_type = link_arr[1] %}
+						{% assign link_handle = link_arr[2] %}
+
+						{% comment %}
+						==========================
+						if link is a product
+						link make it add to cart
+						==========================
+						{% endcomment %}
+
+
+						{% if link_type ==  'products' and s_quickpurchase %}
+							{% assign  prod = all_products[link_handle]  %}
+							{% if prod.available %}
+								<button
+									class="btn btn-special-primary btn-addtocart"
+									data-productid="{{ prod.id }}"
+									data-defaultvariantid="{{ prod.selected_or_first_available_variant.id }}">
+									<span class="text">{{ s_button_text }}</span>
+								</button>
+							{% else %}
+								<button
+									class="btn btn-disabled">
+									Out of Stock
+								</button>
+							{% endif %}
+
+						{% else %}
+
+							<a href="{{  s_button_url }} " 
+								class="btn btn-special-primary s_content-button"
+								{% if s_newtab %}
+									target="_blank"
+								{% endif %}>
+								{{ s_button_text }}
+							</a>
+
+						{% endif %}
+					{% endif %}
+				</div>
+			</div>
+		{% endif %}
+	</div>
+</div>

@@ -1,0 +1,155 @@
+$nav-estimated-height: 97.2px;
+
+$thumb-height: 8rem;
+
+.tgs_gallerySlider {
+	height: calc( 100vh - #{$nav-estimated-height: 97.2px;});
+	background-color: #000;
+
+	// .tgs_gallerySlider_header
+	&_header {
+		position: absolute;
+		top: 2rem;
+		left: 20%;
+		z-index: 10;
+		transform: translateX(-50%);
+		font-size: 2em;
+		text-transform: uppercase;
+		background-color: #000;
+		padding: 1em;
+
+		.title {
+			width: auto;
+			margin: 0;
+			font-weight: normal;
+			letter-spacing: .25em;
+			color: #FFF;
+			text-align: left;
+		}
+	}
+
+	// .tgs_gallerySlider_container
+	&_container {
+		position: relative;
+		z-index: 1;
+		height: 100%;
+	}
+
+	// .tgs_gallerySlider_carousel
+	&_carousel {
+		height: 100% !important;
+	}
+
+	// .tgs_gallerySlider_item
+	&_item {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		img {
+			width: auto;
+			max-width: unset;
+		}
+	}
+
+	.lSSlideOuter {
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-start;
+		flex-direction: column;
+		height: 100%;
+
+		.lSSlideWrapper {
+			flex-shrink: 1;
+			flex-grow: 1;
+			height: calc( 100% - #{$thumb-height} );
+		}
+
+		.lSAction {
+			.lSPrev ,
+			.lSNext {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background-color: #333;
+				color: #FFF;
+				width: 2em;
+				height: 2em;
+				margin-top: -1em;
+				font-size: 2em;
+				opacity: 1 !important;
+
+				&:hover {
+					background-color: $primary-color;
+				}
+			}
+		}
+
+		.lSPager {
+			flex-shrink: 0;
+			height: $thumb-height;
+			margin: 0 !important;
+
+			li {
+				border-radius: 0 !important;
+				opacity: .5;
+
+				height: 100%;
+
+				a, img {
+					height: 100%;
+					width: 100%;
+				}
+
+				img {
+					object-fit: cover;
+					object-position: center center;
+				}
+
+				&.active ,
+				&:hover {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 1025px) {
+	.tgs_gallerySlider {
+
+		// .tgs_gallerySlider_header
+		&_header {
+			top: 1rem;
+			left: 1rem;
+			transform: none !important;
+			.title {
+				font-size: 1em;
+			}
+		}
+
+		// .tgs_gallerySlider_item
+		&_item {
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: 50% 50%;
+			}
+		}
+	}
+}
+
+@media (max-width: 737px) {
+	.tgs_gallerySlider {
+
+		// .tgs_gallerySlider_header
+		&_header {
+			font-size: 1.5em;
+			.title {
+				width: auto;
+			}
+		}
+	}
+}

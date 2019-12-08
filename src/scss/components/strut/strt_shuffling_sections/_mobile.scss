@@ -1,0 +1,83 @@
+.page-sm-strutShufflingSections-destroyed .shfl {
+
+	// .shfl_pinned
+	&_pinned {
+		display: none;
+	}
+
+	// .shfl_sectionsContainer
+	&_sectionsContainer {
+		position: relative;
+		width: 100%;
+		margin-left: 0;	
+	}
+
+	// .shfl_section
+	&_section {
+		position: relative;
+		width: 100%;
+		height: auto;
+		padding-top: 0;
+		padding-right: 0;
+
+		// .shfl_section_container
+		&_container {
+			padding-top: 0;
+			flex-direction: column;
+			height: auto;
+		}
+
+		// .shfl_section_graphic
+		&_graphic {
+			width: 100%;
+			padding-bottom: 0;
+			.graphic {
+				margin-top: 0;
+				height: 100%;
+			}
+
+			.graphic_container {
+				opacity: 1 !important;
+				transform: none !important;
+			}
+		}
+
+		// .shfl_section_content
+		&_content {
+			position: relative;
+			z-index: 10;
+			width: 100%;
+			max-width: 600px;
+			margin: 0 auto;
+			margin-top: -5em;
+			background-color: #fff;
+			padding: 2em 4em;
+			.content {
+				opacity: 1 !important;
+				transform: none !important;
+			}
+
+			.content_desc * {
+				opacity: 1 !important;
+				transform: none !important;
+			}
+		}
+
+		&:not(:only-child):not(:first-child) {
+			margin-top: 0;
+		}
+
+	}
+
+
+	// accent stuff
+	// .shfl_section:nth-child(even)
+	&_section:nth-child(even) {
+		&:before {
+			left: auto;
+			right: 0;
+		}
+	}
+}
+
+

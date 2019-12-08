@@ -1,0 +1,6 @@
+<a href="{{ link.url }}"
+	{% if link.type == "http_link" %}
+		target="_blank"
+	{% endif %}>
+	{{ link.title | escape }}
+</a>

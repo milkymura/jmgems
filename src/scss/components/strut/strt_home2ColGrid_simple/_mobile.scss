@@ -1,0 +1,46 @@
+.page-sm-strutTwoColSectionSimple-destroyed {
+	.strt_home2ColGrid_simple {
+
+		// .strt_home2ColGrid_simple_overlay
+		&_overlay {
+			transform: none !important;
+		}
+
+		.row-header ,
+		.col-content_container ,
+		.col-graphic_img {
+			opacity: 1 !important;
+			transform: none !important;
+		}
+	}
+}
+
+@media (max-width: 415px) {
+	.page-sm-strutTwoColSectionSimple-destroyed {
+		.strt_home2ColGrid_simple {
+			padding-top: 0;
+
+			.container {
+				padding-top: 1em;
+			}
+
+			.col-graphic {
+				padding: 0;
+			}
+
+			.col-content {
+				margin-top: 0;
+				padding-right: 1em;
+				padding-left: 1em;
+			}
+
+			.col_description {
+				font-size: 1em;
+			}
+
+			.row-header {
+				margin-bottom: 2em;
+			}
+		}
+	}
+}

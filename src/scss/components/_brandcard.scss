@@ -1,0 +1,89 @@
+.brandcard  {
+	width: 100%;
+	position: relative;
+	padding: 1em;
+	// .brandcard-media
+	&-media {
+		width: 100%;
+		display: table;
+		padding-top: 100%;
+		position: relative;
+		// .brandcard-media-container
+		&-container {
+			@extend %absoluteFill;
+			z-index: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+		}
+
+		// .brandcard-media-actions
+		&-actions {
+			@extend %absoluteFill;
+			z-index: 10;
+			opacity: 0;
+			visibility: hidden;
+			background-color: rgba(#000,.8);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 1em;
+			transition:
+				opacity $easing ,
+				visibility $easing ;
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+			display: block;
+			transform: scale(1);
+			transition: transform $easing-slow;
+		}
+
+		&:hover {
+			.brandcard-media-actions {
+				opacity: 1;
+				visibility: visible;
+			}
+
+			img {
+				transform: scale(1.5);
+			}
+		}
+	}
+
+	// .brandcard-header
+	&-header {
+		width: 100%;
+		text-align: center;
+		font-size: 1.5em;
+		color: $text-color;
+		text-transform: uppercase;
+		font-weight: 600;
+		margin: 1em 0;
+		a {
+			color: inherit;
+		}
+
+		&:hover {
+			color: $primary-color;
+		}
+	}
+
+	// .brandcard-btn
+	&-btn {
+		width: 80%;
+		position: relative;
+		padding: .5em 1em;
+		color: $text-color-white;
+		margin: 0 auto;
+		display: block;
+
+		a {
+			@extend %absoluteFill;
+			opacity: 0;
+		}
+	}
+}

@@ -1,0 +1,462 @@
+<div class="tgs_slider_container">
+	<div
+		id="{{ section.settings.slide_id }}-slide"
+		class="{{ section.settings.slide_class }} 
+			tgs_slider_carousel
+			{{ section.settings.slide_prefix }}-tgs_slider_carousel
+			owl-carousel owl-theme"
+		data-slidenav={{ section.settings.slide_nav }}
+		data-slidedots="true"
+		data-slideloop={{ section.settings.slide_loop }}
+		data-autoplay={{ section.settings.slide_autoplay }}
+		data-autoplaytimeout={{ section.settings.slide_autoplay_timeout }}
+		data-animatein={{ section.settings.slide_animateIn }}
+		data-animateout={{ section.settings.slide_animateOut }}
+		>
+
+		{% for block in section.blocks %}
+
+			{% if block.type == 'product' %}
+
+				{% include 'dna-slider-item-product'
+					, s_type : block.type
+					, s_product : all_products[block.settings.product_id]
+					, s_desc : block.settings.desc
+					, s_content_size: block.settings.content_width
+					, s_bg_color : block.settings.bg_color
+					, s_prefix : section.settings.slide_prefix
+					, s_isdarkbg : block.settings.is_darkbg
+					, s_colorstop_1 : block.settings.colorstop_1
+					, s_colorstop_2 : block.settings.colorstop_2
+				%}
+			{% elsif block.type == 'banner' %}
+				{% include 'dna-slider-item-banner'
+					, s_type : block.type
+					, s_bg : block.settings.image
+					, s_bg_color : block.settings.bg_color
+					, s_header : block.settings.header
+					, s_subheader : ''
+					, s_desc : block.settings.desc
+					, s_button_text : block.settings.button_text
+					, s_button_url : block.settings.button_url
+					, s_link_text : block.settings.opt_text
+					, s_link_url : block.settings.opt_url
+					, s_extras : ''
+					, s_graphic_src: block.settings.graphic_src
+					, s_graphic_size: block.settings.graphic_width
+					, s_content_size: block.settings.content_width
+					, s_prefix : section.settings.slide_prefix
+					, s_isdarkbg : block.settings.is_darkbg
+				%}
+			{% elsif block.type == 'HtmlQuickPurchase' %}
+				{% include 'dna-slider-item-HQP'
+					, s_type : block.type
+					, s_bg : block.settings.image
+					, s_bg_color : block.settings.bg_color
+					, s_bg_img: block.settings.bg_image
+					, s_isdarkbg : block.settings.is_darkbg
+					, s_htmlcontent : block.settings.htmlcontent
+					, s_button_text : block.settings.button_text
+					, s_button_url : block.settings.button_url
+					, s_newtab : block.settings.is_newtab
+					, s_quickpurchase : block.settings.is_quickpurchase
+					, s_graphic : block.settings.graphic_img
+					, s_content_size: block.settings.content_width
+					, s_graphic_size: block.settings.graphic_width
+					, s_content_pos: block.settings.content_position
+					, s_prefix : section.settings.slide_prefix
+				%}
+			{% endif %}
+
+		{% endfor %}
+	</div>
+</div>
+
+{% schema %}
+{
+	"name": "TGS Slider",
+	"class": "tgs_slider_section",
+	"max_blocks": 6,
+	"settings": [
+		{
+			"type": "text",
+			"id": "slide_id",
+			"label": "slider id"
+		},
+		{
+			"type": "text",
+			"id": "slide_class",
+			"label": "slider custom class"
+		},
+		{
+			"type": "text",
+			"id": "slide_prefix",
+			"label": "prefix slide class name"
+		},
+		{
+			"type": "checkbox",
+			"id": "slide_nav",
+			"label": "show slide nav",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "slide_loop",
+			"label": "loop this slide?",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "slide_autoplay",
+			"label": "autoplay this slide?",
+			"default": true
+		},
+		{
+			"type": "select",
+			"id": "slide_autoplay_timeout",
+			"label": "Change slides every",
+			"info": "will only apply if autoplay is checked",
+			"options": [
+				{ "value": "3000", "label": "3 seconds" },
+				{ "value": "4000", "label": "4 seconds" },
+				{ "value": "5000", "label": "5 seconds" },
+				{ "value": "6000", "label": "6 seconds" },
+				{ "value": "7000", "label": "7 seconds" },
+				{ "value": "8000", "label": "8 seconds" },
+				{ "value": "9000", "label": "9 seconds" },
+				{ "value": "10000", "label": "10 seconds" }
+			],
+			"default": "5000"
+		},
+		{
+			"type": "select",
+			"id": "slide_animateIn",
+			"label": "Animation on slide enter",
+			"options": [
+				{ "group": "default", "value": "none", "label": "none" },
+				{ "group": "Bouncing", "value": "bounceIn", "label": "bounceIn" },
+				{ "group": "Bouncing", "value": "bounceInDown", "label": "bounceInDown" },
+				{ "group": "Bouncing", "value": "bounceInLeft", "label": "bounceInLeft" },
+				{ "group": "Bouncing", "value": "bounceInRight", "label": "bounceInRight" },
+				{ "group": "Bouncing", "value": "bounceInUp", "label": "bounceInUp" },
+				{ "group": "Fading", "value": "fadeIn", "label": "fadeIn" },
+				{ "group": "Fading", "value": "fadeInDown", "label": "fadeInDown" },
+				{ "group": "Fading", "value": "fadeInDownBig", "label": "fadeInDownBig" },
+				{ "group": "Fading", "value": "fadeInLeft", "label": "fadeInLeft" },
+				{ "group": "Fading", "value": "fadeInLeftBig", "label": "fadeInLeftBig" },
+				{ "group": "Fading", "value": "fadeInRight", "label": "fadeInRight" },
+				{ "group": "Fading", "value": "fadeInRightBig", "label": "fadeInRightBig" },
+				{ "group": "Fading", "value": "fadeInUp", "label": "fadeInUp" },
+				{ "group": "Fading", "value": "fadeInUpBig", "label": "fadeInUpBig" },
+				{ "group": "Flippers", "value": "flipInX", "label": "flipInX" },
+				{ "group": "Flippers", "value": "flipInY", "label": "flipInY" },
+				{ "group": "Sliding", "value": "slideInUp", "label": "slideInUp" },
+				{ "group": "Sliding", "value": "slideInDown", "label": "slideInDown" },
+				{ "group": "Sliding", "value": "slideInLeft", "label": "slideInLeft" },
+				{ "group": "Sliding", "value": "slideInRight", "label": "slideInRight" },
+				{ "group": "Zoom", "value": "zoomIn", "label": "zoomIn" },
+				{ "group": "Zoom", "value": "zoomInDown", "label": "zoomInDown" },
+				{ "group": "Zoom", "value": "zoomInLeft", "label": "zoomInLeft" },
+				{ "group": "Zoom", "value": "zoomInRight", "label": "zoomInRight" },
+				{ "group": "Zoom", "value": "zoomInUp", "label": "zoomInUp" }
+			],
+			"default": "none"
+		},
+		{
+			"type": "select",
+			"id": "slide_animateOut",
+			"label": "Animation on slide exit",
+			"options": [
+				{ "group": "default", "value": "none", "label": "none" },
+				{ "group": "Bouncing", "value": "bounceOut", "label": "bounceOut" },
+				{ "group": "Bouncing", "value": "bounceOutDown", "label": "bounceOutDown" },
+				{ "group": "Bouncing", "value": "bounceOutLeft", "label": "bounceOutLeft" },
+				{ "group": "Bouncing", "value": "bounceOutRight", "label": "bounceOutRight" },
+				{ "group": "Bouncing", "value": "bouneOutnUp", "label": "bounceOutUp" },
+				{ "group": "Fading", "value": "fadeOut", "label": "fadeOut" },
+				{ "group": "Fading", "value": "fadeOutDown", "label": "fadeOutDown" },
+				{ "group": "Fading", "value": "fadeOutDownBig", "label": "fadeOutDownBig" },
+				{ "group": "Fading", "value": "fadeOutLeft", "label": "fadeOutLeft" },
+				{ "group": "Fading", "value": "fadeOutLeftBig", "label": "fadeOutLeftBig" },
+				{ "group": "Fading", "value": "fadeOutRight", "label": "fadeOutRight" },
+				{ "group": "Fading", "value": "fadeOutRightBig", "label": "fadeOutRightBig" },
+				{ "group": "Fading", "value": "fadeOutUp", "label": "fadeOutUp" },
+				{ "group": "Fading", "value": "fadeOutUpBig", "label": "fadeOutUpBig" },
+				{ "group": "Flippers", "value": "flipOutX", "label": "flipOutX" },
+				{ "group": "Flippers", "value": "flipOutY", "label": "flipOutY" },
+				{ "group": "Sliding", "value": "slideOutUp", "label": "slideOutUp" },
+				{ "group": "Sliding", "value": "slideOutDown", "label": "slideOutDown" },
+				{ "group": "Sliding", "value": "slideOutLeft", "label": "slideOutLeft" },
+				{ "group": "Sliding", "value": "slideOutRight", "label": "slideOutRight" },
+				{ "group": "Zoom", "value": "zoomOut", "label": "zoomOut" },
+				{ "group": "Zoom", "value": "zoomOutDown", "label": "zoomOutDown" },
+				{ "group": "Zoom", "value": "zoomOutLeft", "label": "zoomOutLeft" },
+				{ "group": "Zoom", "value": "zoomOutRight", "label": "zoomOutRight" },
+				{ "group": "Zoom", "value": "zoomOutUp", "label": "zoomOutUp" }
+			],
+			"default": "none"
+		}
+	],
+	"blocks": [
+		{
+			"type": "product",
+			"name": "Product slide",
+			"settings": [
+				{
+					"type":"header",
+					"content": "Product Info",
+					"info": "product images should be png format"
+				},
+				{
+					"type": "product",
+					"id": "product_id",
+					"label": "Product"
+				},
+				{
+					"type":"header",
+					"content": "Product Content"
+				},
+				{
+					"type":"textarea",
+					"id":"desc",
+					"label": "Slide Description"
+				},
+				{
+					"type":"header",
+					"content": "background"
+				},
+				{
+					"type": "color",
+					"id": "bg_color",
+					"label": "Background Color"
+				},
+				{
+					"type": "checkbox",
+					"id": "is_darkbg",
+					"label": "is the background dark?"
+				},
+				{
+					"type":"header",
+					"content": "product background"
+				},
+				{
+					"type": "color",
+					"id": "colorstop_1",
+					"label": "Color Stop 1",
+					"default": "#00DAF4"
+				},
+				{
+					"type": "color",
+					"id": "colorstop_2",
+					"label": "Color Stop 2",
+					"default": "#006AF2"
+				}
+			]
+		},
+		{
+			"type": "banner",
+			"name": "Banner Slide",
+			"settings": [
+				{
+					"type":"header",
+					"content": "background"
+				},
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Background Image"
+				},
+				{
+					"type": "image_picker",
+					"id": "graphic_src",
+					"label": "Graphic Image"
+				},
+				{
+					"type": "range",
+					"id": "graphic_width",
+					"label": "Graphic Size",
+					"step": 1,
+					"min": 0,
+					"max": 12,
+					"default": 6
+				},
+				{
+					"type": "color",
+					"id": "bg_color",
+					"label": "Background Color"
+				},
+				{
+					"type":"header",
+					"content": "Content"
+				},
+				{
+					"type": "checkbox",
+					"id": "is_darkbg",
+					"label": "is the background dark?"
+				},
+				{
+					"type": "text",
+					"id": "header",
+					"label": "Slide Header"
+				},
+				{
+					"type": "text",
+					"id": "desc",
+					"label": "Slide Description"
+				},
+				{
+					"type": "text",
+					"id": "button_text",
+					"label": "Slide Button text"
+				},
+				{
+					"type": "url",
+					"id": "button_url",
+					"label": "Slide Button link"
+				},
+				{
+					"type": "text",
+					"id": "opt_text",
+					"label": "Slide optional text"
+				},
+				{
+					"type": "url",
+					"id": "opt_url",
+					"label": "Slide optional link"
+				},
+				{
+					"type": "header",
+					"content": "content grid"
+				},
+				{
+					"type": "range",
+					"id": "content_width",
+					"label": "Content Size",
+					"step": 1,
+					"min": 3,
+					"max": 12,
+					"default": 6
+				}
+			]
+		},
+		{
+			"type": "HtmlQuickPurchase",
+			"name": "Html with Quick purchase ",
+			"settings": [
+				{
+					"type":"header",
+					"content": "background"
+				},
+				{
+					"type": "image_picker",
+					"id": "bg_image",
+					"label": "Background Image"
+				},
+				{
+					"type": "color",
+					"id": "bg_color",
+					"label": "Background Color"
+				},
+				{
+					"type":"header",
+					"content": "Graphic Column"
+				},
+				{
+					"type": "image_picker",
+					"id": "graphic_img",
+					"label": "Graphic Media"
+				},
+				{
+					"type":"header",
+					"content": "Content Column"
+				},
+				{
+					"type": "checkbox",
+					"id": "is_darkbg",
+					"label": "is the background dark?"
+				},
+				{
+					"type": "html",
+					"id": "htmlcontent",
+					"label": "Html Content"
+				},
+				{
+					"type": "text",
+					"id": "button_text",
+					"label": "Slide Button text"
+				},
+				{
+					"type": "url",
+					"id": "button_url",
+					"label": "Slide Button link"
+				},
+				{
+					"type": "checkbox",
+					"id": "is_newtab",
+					"label": "redirect new tab",
+					"default": false
+				},
+				{
+					"type": "checkbox",
+					"id": "is_quickpurchase",
+					"label": "is quick purchase?",
+					"default": false
+				},
+				{
+					"type": "header",
+					"content": "grid"
+				},
+				{
+					"type": "select",
+					"id": "content_position",
+					"label": "Content position",
+					"options": [
+						{
+							"value": "left",
+							"label": "left"
+						},
+						{
+							"value": "right",
+							"label": "right"
+						}
+					]
+				},
+				{
+					"type": "range",
+					"id": "content_width",
+					"label": "Content Size",
+					"step": 1,
+					"min": 3,
+					"max": 12,
+					"default": 6
+				},
+				{
+					"type": "range",
+					"id": "graphic_width",
+					"label": "Graphic Size",
+					"step": 1,
+					"min": 3,
+					"max": 12,
+					"default": 6
+				}
+			]
+		}
+	],
+	"presets": [{
+		"name": "dna slider",
+		"category": "DNA MICRO",
+		"settings": {
+			"slide_autoplay": true,
+			"slide_autoplay_timeout": "5000"
+		},
+		"blocks": [
+			{
+				"type": "banner"
+			},
+			{
+				"type": "product"
+			}
+		]
+	}]
+}
+{% endschema %}

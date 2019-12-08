@@ -1,0 +1,50 @@
+.d_logolinks_section {
+	background-color: #fff !important;
+	.row {
+		text-align: center;
+		justify-content: center;
+
+		.col-title {
+			display: inline-block;
+			position: relative;
+			font-size: 2em;
+			letter-spacing: .15em;
+			text-transform: uppercase;
+			text-align: center;
+			line-height: 1;
+			margin-bottom: 1em;
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: calc( 100%  + .5em);
+				left: 50%;
+				width: 50%;
+				height: .20em;
+				display: block;
+				transform: translateX(-50%);
+				background: $gradient-primary;
+			}
+		}
+	}
+
+	.row-brands {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		text-align: center;
+		width: 80%;
+		margin: 0 auto;
+		a {
+			padding: .25em;
+			display: inline-block;
+			margin: 1em;
+		}
+
+		img {
+			height: 50px;
+			width: auto;
+		}
+	}
+}

@@ -1,0 +1,145 @@
+.strt_brandMultisection {
+	.multisectionSection {
+		padding: 0;
+		.container {
+			padding: 1em;
+			max-width: 1366px;
+
+			.row {
+				.col-content {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					flex-direction: column;
+					text-align: center;
+
+					.col_title {
+						letter-spacing: .25em;
+						&:after {
+							content: "";
+							display: block;
+							margin: .25em auto 0;
+							width: 50%;
+							height: .1rem;
+							background-color: #dcc699;
+						}
+					}
+
+					.col_desc {
+						width: 80%;
+						line-height: 2;
+						margin-bottom: 2em;
+					}
+				}
+
+				.col-graphic {
+					display: flex;
+					align-items: flex-start;
+					justify-content: center;
+					padding: 1em;
+				}
+			}
+
+			.strt_buttons_primary {
+				display: none;
+			}
+		}
+	}
+
+	.sonance-section ,
+	.iport-section {
+		.container {
+			max-width: 100%;
+			padding: 0;
+
+			.col-graphic {
+				padding: 0 !important;
+
+				img {
+					width: 100%;
+				}
+			}
+		}
+	}
+	.sonance-section {
+		.container {
+			.col-content {
+				background-color: #000;
+				color: #fff;
+
+				.col_title {
+					color: #fff;
+					&:after {
+						background-color: #fff !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 1025px) {
+	.strt_brandMultisection .multisectionSection .container {
+		.col-content {
+			.col_title {
+				margin-top: .67em;
+			}
+		}
+	}
+}
+
+@media (max-width: 769px) {
+	.strt_brandMultisection .multisectionSection .container .row {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+
+		.col-content {
+			max-width: 100%;
+		}
+
+		.col-graphic {
+			max-width: 100%;
+		}
+	}
+
+	.strutLX-section ,
+	.automotive-section {
+		.container {
+			.row {
+				flex-direction: column-reverse !important;
+			}
+		}
+	}
+
+	.sonance-section ,
+	.iport-section {
+		.container .row {
+			.col-graphic {
+				max-width: 100%;
+			}
+		}
+	}
+}
+
+@media (max-width: 415px) {
+	.multisectionSection.sonance-section ,
+	.multisectionSection.iport-section {
+		.container {
+			padding: 1em;
+			max-width: 1366px;
+
+			.row {
+				padding: 1em !important;
+			}
+		}
+	}
+
+	.multisectionSection.sonance-section {
+		.container .row {
+			flex-direction: column;
+		}
+	}
+}

@@ -1,0 +1,111 @@
+.tabularDesc {
+	font-size: 1rem;
+	display: none;
+	width: 100%;
+
+	// .tabularDesc-tabs
+	&-tabs {
+		display: flex;
+		align-items: stretch;
+		justify-content: flex-start;
+		border-bottom: .2em solid $lightgray;
+		
+		// .tabularDesc-tabs-item
+		&-item {
+			position: relative;
+			font-size: 1em;
+			padding: .25em 1em;
+			color: rgba($text-color,.6);
+			text-align: center;
+			cursor: pointer;
+
+
+			.title {
+				font-size: 1em;
+				text-transform: uppercase;
+				font-weight: 600;
+				letter-spacing: .15em;
+				color: inherit !important;
+			}
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 100%;
+				left: 0;
+				font-size: .25em;
+				height: 1em;
+				width: 100%;
+				background: $gradient-primary;
+				transform-origin: center;
+				transform: scaleX(.8);
+				opacity: 0;
+				transition:
+					transform $easing-slow ,
+					opacity  $easing-slow ;
+			}
+
+			&:hover {
+				color: $text-color;
+			}
+
+			&.active {
+				color: $text-color;
+				&:before {
+					transform: scaleX(1);
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	// .tabularDesc-containers
+	&-containers {
+
+	}
+
+	// .tabularDesc-container
+	&-container {
+		display: none;
+		padding: 1em;
+		&.active {
+			display: block;
+		}
+	}
+}
+
+.tabularDesc.activated {
+	display: block;
+}
+
+
+
+// INDIVIDUALS TABS
+// ======================================
+.tab-product_description {
+	p {
+		margin-bottom: 0;
+	}
+
+	label {
+		text-transform: uppercase;
+		color: $text-color;
+		font-weight: 600;
+	}
+}
+
+.tab-product_specs {
+	p {
+		margin-bottom: 0;
+	}
+
+	label {
+		text-transform: uppercase;
+		color: $text-color;
+		font-weight: 600;
+		font-size: .8em;
+		margin-bottom: .5em;
+	}
+}
+
+

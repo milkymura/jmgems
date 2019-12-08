@@ -1,0 +1,8 @@
+./dist
+tmp/*
+node_modules
+.DS_Store
+.sass-cache
+update
+*.log
+theme.lock

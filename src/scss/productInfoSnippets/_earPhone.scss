@@ -1,0 +1,192 @@
+.prod-infoEarphone .prod {
+
+	// prod_features
+	&_features {
+		max-width: 1200px;
+		margin: 0 auto;
+		width: 100%;
+		text-align: center;
+
+		h1 {
+			margin: 3rem 0;
+		}
+
+		img {
+			margin: 3rem;
+			width: 50%;
+			max-width: 100%;
+		}
+
+		ul {
+			margin: 0 auto;
+			li {
+				font-weight: 400;
+				line-height: 2;
+				opacity: .8;
+				color: #7A7372;
+			}
+		}
+	}
+
+// prod_uses
+	&_uses {
+		display: flex;
+		width: 100%;
+		margin: 3rem 0;
+
+		.col-content {
+			margin-left: 1rem;
+			max-width: calc( 50% - 10vw);
+
+			h1 {
+				max-width: 500px;
+				margin: 0 auto 1rem;
+			}
+
+			.btn-addtocart {
+				margin: 0 auto;
+			}
+
+			&_img {
+				max-width: 100%;
+				width: 50%;
+				margin: 2rem;
+			}
+		}
+	}
+
+	&_image {
+		display: flex;
+
+		.col-graphic-left {
+			margin-right: .5rem;
+			display: flex;
+			align-items: stretch;
+		}
+
+		.col-graphic-right {
+			display: flex;
+			align-items: stretch;
+		}
+	}
+}
+
+@media (max-width: 1025px) {
+	.prod-infoEarphone {
+		.prod_uses {
+			margin: 2rem;
+			align-items: center;
+			justify-content: center;
+
+			.col-content {
+				&_text {
+					max-width: 300px;
+					width: 100%;
+					margin: auto;
+
+					h1 {
+						font-size: 1.3rem;
+						padding: 1rem;
+						margin: 0 auto;
+					}
+
+					p {
+						font-size: 1rem;
+						font-weight: 400;
+						max-width: 300px;
+					}
+				}
+
+				&_img {
+					max-width: 150px;
+					width: 100%;
+					margin: auto;
+				}
+
+				.col-content_button {
+					width: 50%;
+					padding: 5px;
+					margin: auto;
+				}
+			}
+		}
+	} 
+}
+
+@media (max-width: 769px) {
+	.prod-infoEarphone {
+		.prod_uses {
+			flex-direction: column;
+			width: 100%;
+			padding: 0 0 2rem;
+			max-width: 500px;
+			margin: 0 auto 2rem;
+
+			.col-graphic {
+				max-width: 100%;
+				&-left {
+					display: block;
+				}
+			}
+
+			.col-content {
+				margin: 0 auto;
+				width: 100%;
+				max-width: 100%;
+
+				.col-content_img {
+					margin: 2rem;
+				}
+			}
+		}
+
+		.prod_image {
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+
+			.col-graphic-left , .col-graphic-right {
+				display: block;
+				max-width: 100%
+			}
+		}
+	}
+}
+
+@media (max-width: 426px) {
+	.prod-infoEarphone {
+		.prod_features_items {
+
+			h1 {
+				font-size: 1rem;
+			}
+
+			img {
+				max-width: 300px;
+				margin: auto;
+			}
+
+			ul {
+				max-width: 800px;
+				width: 100%;
+				padding: 1rem;
+				margin: 0;
+				li {
+					font-size: .8rem;
+				}
+			}
+		}
+
+		.prod_uses {
+			.col-content {
+				h1 {
+					font-size: 1rem;
+				}
+				p {
+					font-size: .8rem;
+				}
+			}
+		}
+	}
+}

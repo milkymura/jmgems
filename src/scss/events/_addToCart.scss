@@ -1,0 +1,14 @@
+html.processing_add_to_cart {
+	.btn-addtocart {
+		pointer-events: none;
+	}
+
+	.d_nav_announcement {
+		background-color:  $gradient-announcement-load-bg;
+
+		&:before {
+			opacity: 1;
+			animation-play-state: running;
+		}
+	}
+}

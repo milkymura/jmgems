@@ -1,0 +1,65 @@
+.support-pages {
+
+	padding: 4rem;
+
+	// support-pages-wrapper
+	&-wrapper {
+		margin-top: 1rem;
+		padding: 2rem;
+		background: #FFF;
+		box-shadow: 0 0 40px 30px rgba($black ,.03);
+	}
+
+	// support-pages-content
+	&-content {
+		max-width: 900px;
+		margin: 3em auto;
+	}
+
+	// support-pages-title
+	&-title {
+		font-size: 1.8rem;
+		text-transform: uppercase;
+		border-bottom: 1px solid $darkgray;
+		padding-bottom: .5em;
+	}
+
+	// support-pages-subtitle
+	&-subtitle {
+		font-size: 1.2rem;
+	}
+
+	// support-pages-steps
+	&-steps {
+		padding-left: 1em;
+		margin-top: 1em;
+	}
+}
+
+// CUSTOM STYLES
+// =========================
+.support-pages {
+
+	a.svn_btn-special {
+		border-radius: 0;
+	}
+
+	.steps-image {
+		text-align: center;
+	}
+}
+
+// STEPS
+.support-pages-steps {
+	li {
+		line-height: 2.5;
+	}
+
+	.list-alpha {
+		list-style: lower-alpha;
+	}
+
+	.list-roman {
+		list-style: lower-roman;
+	}
+}

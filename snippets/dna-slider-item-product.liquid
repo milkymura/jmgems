@@ -1,0 +1,189 @@
+{% comment %}
+================================
+	ASSIGNMENTS
+================================
+{% endcomment %}
+{% assign specialtag = '' %}
+{% assign productAddOn = '' %}
+
+{% comment %}
+================================
+	get title and product model
+================================
+{% endcomment %}
+{% assign newTitle = s_product.title | split: "-" %}
+{% assign p_title = newTitle[0] %}
+{% assign p_model = newTitle[1] %}
+
+{% comment %}
+================================
+	get special tag
+================================
+{% endcomment %}
+{% for tag in s_product.tags %}
+
+	{% assign newTag = tag | split: ":" %}
+	{% assign tagType = newTag[0] %}
+	{% assign tagVal = newTag[1] %}
+
+	{% if tagType == 'special-tag' %}
+		{% assign specialtag = tagVal 
+			| strip
+			| replace: "-", " " %}
+	{% elsif tagType == 'add-on' %}
+		{% assign productAddOn = tagVal
+			| strip
+			| replace: "-", " " %}
+	{% endif %}
+{% endfor %}
+
+{% comment %}
+================================
+	get image
+================================
+{% endcomment %}
+{% assign productImage = '' %}
+{% for image in s_product.images %}
+	{% if image.alt == 'slide-feature' %}
+		{% assign productImage = image.src | img_url: '800x800' %}
+	{% endif %}
+{% endfor %}
+
+{% if productImage == '' %}
+	{% assign productImage = s_product.featured_image.src | img_url: '800x800' %}
+{% endif %}
+
+
+{% comment %}
+================================
+	calculate discount
+================================
+{% endcomment %}
+
+{% assign discount = s_product.compare_at_price_min 
+	| minus: s_product.price 
+	| times: 100.0 
+	| divided_by: s_product.compare_at_price_min 
+	| money_without_currency 
+	| times: 100 
+	| replace: '.0', ''%}
+
+
+<div class="
+	d_slider_carousel_item 
+	d_slider_carousel_item-{{ s_type }}
+	{{ s_prefix }}-d_slider_carousel_item
+
+	{% if s_isdarkbg %}
+		darkbg
+	{% endif %} "
+	"
+	data-productid="{{ s_product.id }}"
+	data-defaultvariantid="{{ s_product.selected_or_first_available_variant.id }}">
+
+	<div class="s_content-bg" style="background-color: {{ s_bg_color }}">
+	</div>
+	<div class="container">
+		<div class="s_content">
+
+
+			{% if p_model != blank %}
+				<h5 class="s_content-modelname">
+					{{ p_model }}
+				</h5>
+			{% endif %}
+
+
+			{% if p_title != blank %}
+				<h1 class="s_content-title">
+					<a href="{{ s_product.url }}">
+						{{ p_title }}
+					</a>
+
+					{% if s_product.compare_at_price_max > s_product.price %}
+						<div class="s_content-title-discount">
+							<span class="percent">
+								{{ discount }}%
+							</span>
+							<span class="text">
+								off
+							</span>
+						</div>
+					{% endif %}
+				</h1>
+			{% endif %}
+
+			{% if specialtag != blank %}
+				<h6 class="s_content-stag">
+					{{ specialtag }}
+				</h6>
+			{% endif %}
+
+
+			{% if s_desc != blank %}
+				<p class="s_content-desc">
+					{{ s_desc }}
+				</p>
+			{% endif %}
+
+			{% comment %}
+				<div class="s_content-tags tag">
+					{% if s_product.type %}
+						<span class="tag-item">
+							{{ s_product.type }}
+						</span>
+					{% endif %}
+
+					{% if s_product.vendor %}
+						<span class="tag-item">
+							{{ s_product.vendor }}
+						</span>
+					{% endif %}
+				</div>
+			{% endcomment %}
+
+
+			<div class="s_content-row row">
+				<p class="price">
+					{{ s_product.price | money }}
+				</p>
+
+				{% if s_product.compare_at_price_max > 0 %}
+					<p class="compare_at_price">
+						{{ s_product.compare_at_price_max | money }}
+					</p>
+				{% endif %}
+
+				{% if productAddOn != blank %}
+					<p class="addOns">
+						{{ productAddOn }}
+					</p>
+				{% endif %}
+			</div>
+
+			{% if s_product.available %}
+				<button
+					class="btn btn-special-primary btn-addtocart"
+					data-productid="{{ s_product.id }}"
+					data-defaultvariantid="{{ s_product.selected_or_first_available_variant.id }}">
+					<span class="text">Order Now</span>
+				</button>
+			{% else %}
+				<button
+					class="btn btn-disabled">
+					Out of Stock
+				</button>
+			{% endif %}
+
+
+
+
+		</div>
+		<div class="s_graphic">
+			<div class="s_graphic-container">
+				<div class="s_graphic-container-bg" style="background: linear-gradient(to right, {{ s_colorstop_1 }} 20%, {{ s_colorstop_2 }} 100%)"></div>
+				<img src="{{ productImage }}" alt="" class="s_graphic-container-item">
+			</div>
+		</div>
+	</div>
+</div>

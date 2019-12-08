@@ -1,0 +1,85 @@
+<div id="newslettermsg_modal" class="newslettermsg_modal success">
+	<div class="newslettermsg_modal-container">
+		<div class="newslettermsg_modal-close">
+			<button id="newslettermsg_modal-close">
+				<i class="wtfl wtf-times"></i>
+			</button>
+		</div>
+		<div class="newslettermsg_modal-bg">
+			<img src="{{ section.settings.modal_bg.src | img_url: '800x' }}" alt="">
+		</div>
+		<div class="newslettermsg_modal-content">
+			<div class="content newslettermsg-content-success">
+				<h1 class="content-title">{{ section.settings.success_header }}</h1>
+				<p class="content-desc">{{ section.settings.success_desc }}</p>
+				<a 
+					href="{{ section.settings.success_btn_link }}"
+					class="strt_buttons_primary" >
+					<span class="text">
+						{{ section.settings.success_btn_text }}
+					</span>
+				</a>
+			</div>
+			<div class="content newslettermsg-content-error">
+				<h1 class="content-title">{{ section.settings.error_header }}</h1>
+				<p class="content-desc">{{ section.settings.error_desc }}</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% schema %}
+{
+	"name": "TGS Newsletter Modal",
+	"class": "tgs_newsletter_msg_modal",
+	"settings": [
+		{
+			"type": "image_picker",
+			"id": "modal_bg",
+			"label": "change modal bg"
+		},
+		{
+			"type": "header",
+			"content": "Success Message"
+		},
+		{
+			"type": "text",
+			"id": "success_header",
+			"label": "change success header"
+		},
+		{
+			"type": "textarea",
+			"id": "success_desc",
+			"label": "change success description"
+		},
+		{
+			"type": "url",
+			"id": "success_btn_link",
+			"label": "change button link"
+		},
+		{
+			"type": "text",
+			"id": "success_btn_text",
+			"label": "change button text"
+		},
+		{
+			"type": "header",
+			"content": "Error Message"
+		},
+		{
+			"type": "text",
+			"id": "error_header",
+			"label": "change error header"
+		},
+		{
+			"type": "textarea",
+			"id": "error_desc",
+			"label": "change error description"
+		}
+	],
+	"presets": [{
+		"name": "TGS Newsletter Modal",
+		"category": "THEGOODSHIT"
+	}]
+}
+{% endschema %}

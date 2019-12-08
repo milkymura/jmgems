@@ -1,0 +1,207 @@
+$fontName: 'Mont';
+$path: "";
+
+@font-face {
+    font-family: $fontName;
+    src: url('#{$path}/Mont-Regular.eot');
+    src: url('#{$path}/Mont-Regular.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/Mont-Regular.woff2') format('woff2'),
+        url('#{$path}/Mont-Regular.woff') format('woff'),
+        url('#{$path}/Mont-Regular.ttf') format('truetype'),
+        url('#{$path}/Mont-Regular.svg#Mont-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: $fontName;
+    src: url('#{$path}/Mont-HeavyItalic.eot');
+    src: url('#{$path}/Mont-HeavyItalic.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/Mont-HeavyItalic.woff2') format('woff2'),
+        url('#{$path}/Mont-HeavyItalic.woff') format('woff'),
+        url('#{$path}/Mont-HeavyItalic.ttf') format('truetype'),
+        url('#{$path}/Mont-HeavyItalic.svg#Mont-HeavyItalic') format('svg');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: $fontName;
+    src: url('#{$path}/Mont-Light.eot');
+    src: url('#{$path}/Mont-Light.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/Mont-Light.woff2') format('woff2'),
+        url('#{$path}/Mont-Light.woff') format('woff'),
+        url('#{$path}/Mont-Light.ttf') format('truetype'),
+        url('#{$path}/Mont-Light.svg#Mont-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: $fontName;
+    src: url('#{$path}/Mont-RegularItalic.eot');
+    src: url('#{$path}/Mont-RegularItalic.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/Mont-RegularItalic.woff2') format('woff2'),
+        url('#{$path}/Mont-RegularItalic.woff') format('woff'),
+        url('#{$path}/Mont-RegularItalic.ttf') format('truetype'),
+        url('#{$path}/Mont-RegularItalic.svg#Mont-RegularItalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Mont Heavy DEMO';
+    src: url('#{$path}/Mont-HeavyDEMO.eot');
+    src: url('#{$path}/Mont-HeavyDEMO.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/Mont-HeavyDEMO.woff2') format('woff2'),
+        url('#{$path}/Mont-HeavyDEMO.woff') format('woff'),
+        url('#{$path}/Mont-HeavyDEMO.ttf') format('truetype'),
+        url('#{$path}/Mont-HeavyDEMO.svg#Mont-HeavyDEMO') format('svg');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: $fontName;
+    src: url('#{$path}/Mont-BlackItalic.eot');
+    src: url('#{$path}/Mont-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/Mont-BlackItalic.woff2') format('woff2'),
+        url('#{$path}/Mont-BlackItalic.woff') format('woff'),
+        url('#{$path}/Mont-BlackItalic.ttf') format('truetype'),
+        url('#{$path}/Mont-BlackItalic.svg#Mont-BlackItalic') format('svg');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: $fontName;
+    src: url('#{$path}/Mont-SemiBold.eot');
+    src: url('#{$path}/Mont-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/Mont-SemiBold.woff2') format('woff2'),
+        url('#{$path}/Mont-SemiBold.woff') format('woff'),
+        url('#{$path}/Mont-SemiBold.ttf') format('truetype'),
+        url('#{$path}/Mont-SemiBold.svg#Mont-SemiBold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: $fontName;
+    src: url('#{$path}/Mont-Bold.eot');
+    src: url('#{$path}/Mont-Bold.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/Mont-Bold.woff2') format('woff2'),
+        url('#{$path}/Mont-Bold.woff') format('woff'),
+        url('#{$path}/Mont-Bold.ttf') format('truetype'),
+        url('#{$path}/Mont-Bold.svg#Mont-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: $fontName;
+    src: url('#{$path}/Mont-Thin.eot');
+    src: url('#{$path}/Mont-Thin.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/Mont-Thin.woff2') format('woff2'),
+        url('#{$path}/Mont-Thin.woff') format('woff'),
+        url('#{$path}/Mont-Thin.ttf') format('truetype'),
+        url('#{$path}/Mont-Thin.svg#Mont-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: $fontName;
+    src: url('#{$path}/Mont-BoldItalic.eot');
+    src: url('#{$path}/Mont-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/Mont-BoldItalic.woff2') format('woff2'),
+        url('#{$path}/Mont-BoldItalic.woff') format('woff'),
+        url('#{$path}/Mont-BoldItalic.ttf') format('truetype'),
+        url('#{$path}/Mont-BoldItalic.svg#Mont-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: $fontName;
+    src: url('#{$path}/Mont-SemiBoldItalic.eot');
+    src: url('#{$path}/Mont-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/Mont-SemiBoldItalic.woff2') format('woff2'),
+        url('#{$path}/Mont-SemiBoldItalic.woff') format('woff'),
+        url('#{$path}/Mont-SemiBoldItalic.ttf') format('truetype'),
+        url('#{$path}/Mont-SemiBoldItalic.svg#Mont-SemiBoldItalic') format('svg');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: $fontName;
+    src: url('#{$path}/Mont-ExtraLightItalic.eot');
+    src: url('#{$path}/Mont-ExtraLightItalic.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/Mont-ExtraLightItalic.woff2') format('woff2'),
+        url('#{$path}/Mont-ExtraLightItalic.woff') format('woff'),
+        url('#{$path}/Mont-ExtraLightItalic.ttf') format('truetype'),
+        url('#{$path}/Mont-ExtraLightItalic.svg#Mont-ExtraLightItalic') format('svg');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: $fontName;
+    src: url('#{$path}/Mont-Heavy.eot');
+    src: url('#{$path}/Mont-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/Mont-Heavy.woff2') format('woff2'),
+        url('#{$path}/Mont-Heavy.woff') format('woff'),
+        url('#{$path}/Mont-Heavy.ttf') format('truetype'),
+        url('#{$path}/Mont-Heavy.svg#Mont-Heavy') format('svg');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: $fontName;
+    src: url('#{$path}/Mont-Black.eot');
+    src: url('#{$path}/Mont-Black.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/Mont-Black.woff2') format('woff2'),
+        url('#{$path}/Mont-Black.woff') format('woff'),
+        url('#{$path}/Mont-Black.ttf') format('truetype'),
+        url('#{$path}/Mont-Black.svg#Mont-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: $fontName;
+    src: url('#{$path}/Mont-ExtraLight.eot');
+    src: url('#{$path}/Mont-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/Mont-ExtraLight.woff2') format('woff2'),
+        url('#{$path}/Mont-ExtraLight.woff') format('woff'),
+        url('#{$path}/Mont-ExtraLight.ttf') format('truetype'),
+        url('#{$path}/Mont-ExtraLight.svg#Mont-ExtraLight') format('svg');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: $fontName;
+    src: url('#{$path}/Mont-ThinItalic.eot');
+    src: url('#{$path}/Mont-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/Mont-ThinItalic.woff2') format('woff2'),
+        url('#{$path}/Mont-ThinItalic.woff') format('woff'),
+        url('#{$path}/Mont-ThinItalic.ttf') format('truetype'),
+        url('#{$path}/Mont-ThinItalic.svg#Mont-ThinItalic') format('svg');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: $fontName;
+    src: url('#{$path}/Mont-LightItalic.eot');
+    src: url('#{$path}/Mont-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/Mont-LightItalic.woff2') format('woff2'),
+        url('#{$path}/Mont-LightItalic.woff') format('woff'),
+        url('#{$path}/Mont-LightItalic.ttf') format('truetype'),
+        url('#{$path}/Mont-LightItalic.svg#Mont-LightItalic') format('svg');
+    font-weight: 300;
+    font-style: italic;
+}
+

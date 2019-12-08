@@ -1,0 +1,246 @@
+{% assign bgImage = section.settings.bg_image %}
+{% assign bgColor = section.settings.bg_color %}
+{% assign overlayBgColor = section.settings.is_overlaybgcolor %}
+{% assign bgColorOpacity = section.settings.overlaybgcolor_opacity %}
+
+{% assign contentColor = section.settings.content_color %}
+
+
+{% assign graphicWidth =  section.settings.graphic_width %}
+{% assign contentWidth =  section.settings.content_width %}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    position: relative;
+  }
+
+  #shopify-section-{{ section.id }}:before {
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    {% if bgImage %}
+      background-image: url(" {{ bgImage | img_url: '1000x' }} ");
+      background-position: center center;
+      background-size: cover;
+      background-repear: no-repeat;
+    {% endif %}
+  }
+
+  #shopify-section-{{ section.id }} .container:before {
+    background-color: {{ bgColor }};
+    {% if overlayBgColor %}
+      opacity: {{ bgColorOpacity | times: 1.00 | divided_by: 100 }};
+      z-index: 10;
+    {% else %}
+      z-index: 1;
+    {% endif %}
+  }
+
+  #shopify-section-{{ section.id }} .container {
+    position: relative;
+    z-index: 20;
+  }
+
+  #shopify-section-{{ section.id }} .col-header ,
+  #shopify-section-{{ section.id }} .col-subheader ,
+  #shopify-section-{{ section.id }} .col-desc {
+    color: {{ contentColor }} ;
+  }
+
+</style>
+
+<div class="container {{ section.settings.uniqueClassWrapper }} 
+    {% if section.settings.is_darkContent %}
+      is_darkContent
+    {% endif %}
+  ">
+  <div class="row">
+
+    {% if section.settings.graphic_position == 'left' and graphicWidth > 0 %}
+      <div class="col col-graphic col-{{ graphicWidth }}">
+        <img src="{{ section.settings.graphic | img_url : '500x' }}" alt="">
+      </div>
+    {% endif %}
+
+    <div class="col col-content col-{{ contentWidth }}">
+      {% if section.settings.header != blank %}
+        <h1 class="col-header">
+          {{ section.settings.header }}
+        </h1>
+      {% endif %}
+
+      {% if section.settings.subheader != blank %}
+        <h2 class="col-subheader">
+          {{ section.settings.subheader }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.desc != blank %}
+        <p class="col-desc">
+          {{ section.settings.desc }}
+        </p>
+      {% endif %}
+
+      {% include  'link-or-qp'
+        , buttonLink : section.settings.button_link
+        , buttonText : section.settings.button_text 
+        , isNewTab : section.settings.is_newtab
+        , isQuickPurchase : section.settings.is_quickpurchase
+      %}
+    </div>
+
+    {% if section.settings.graphic_position == 'right' and graphicWidth > 0 %}
+      <div class="col col-graphic col-{{ graphicWidth }}">
+        <img src="{{ section.settings.graphic | img_url : '1500x' }}" alt="">
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "TGS CTA Small",
+  "class": "tgs_cta_small",
+  "settings": [
+    {
+      "type": "text",
+      "id":"uniqueClassWrapper",
+      "label": "Unique Class Wrapper"
+    },
+    {
+      "type": "header",
+      "content": "background"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "change background"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "change background"
+    },
+    {
+      "type": "checkbox",
+      "id": "is_overlaybgcolor",
+      "label": "overlay background color",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "overlaybgcolor_opacity",
+      "label": "background color overlay opacity",
+      "step": 10,
+      "min": 0,
+      "max": 100,
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "content column"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Column Content Size",
+      "step": 1,
+      "min": 0,
+      "max": 12,
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "is_darkContent",
+      "label": "is dark content",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "header",
+      "label": "change cta header"
+    },
+    {
+      "type": "text",
+      "id": "subheader",
+      "label": "change cta subheader"
+    },
+    {
+      "type": "textarea",
+      "id": "desc",
+      "label": "change cta desc"
+    },
+    {
+      "type": "color",
+      "id": "content_color",
+      "label": "content text colors"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "change button text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "change button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "is_quickpurchase",
+      "label": "quick purchase",
+      "info": "Applied if link is a product",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "is_newtab",
+      "label": "link to new tab",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "graphic column"
+    },
+    {
+      "type": "range",
+      "id": "graphic_width",
+      "label": "Column Content Size",
+      "step": 1,
+      "min": 0,
+      "max": 12,
+      "default": 3
+    },
+    {
+      "type": "image_picker",
+      "id": "graphic",
+      "label": "cta graphic"
+    },
+    {
+      "type": "text",
+      "id": "graphic_alt",
+      "label": "cta graphic alt"
+    },
+    {
+      "type": "select",
+      "id": "graphic_position",
+      "label": "Graphic position",
+      "options": [
+        {"value": "left","label": "left"},
+        {"value": "right","label": "right"}
+      ],
+      "default": "left"
+    }
+  ],
+  "presets": [{
+    "name": "dna cta small",
+    "category": "THEGOODSHIT"
+  }]
+}
+{% endschema %}

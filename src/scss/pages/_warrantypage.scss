@@ -1,0 +1,28 @@
+body#warranty {
+
+	.svn-page-container {
+		padding: 2em 1em;
+	}
+
+	#warranty-form {
+		width: 100%;
+		max-width: 900px;
+		margin: 0 auto;
+
+		.row-submit {
+			margin-top: 2em;
+			.col {
+				text-align: center;
+			}
+		}
+	}
+
+}
+
+body#warranty-registration {
+
+	.svn-page-container {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+}

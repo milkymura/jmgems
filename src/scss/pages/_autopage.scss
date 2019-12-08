@@ -1,0 +1,158 @@
+#strut-automotive {
+	.herohome-d_slider_carousel_item {
+		.s_content-header:before {
+			content: "STRUT";
+		}
+	}
+}
+
+.strt_auto_wheelcollections {
+	padding: 10rem 0;
+
+	.col-content {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		flex-direction: column;
+		max-width: 1024px;
+		margin: 0 auto;
+	}
+
+	.col_title {
+		display: inline-block;
+		margin-top: 0;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: .25em;
+
+		&:after {
+			content: '';
+			display: block;
+			margin: .25em auto 0;
+			width: 80%;
+			height: .1rem;
+			background-color: $primary-color;
+		}
+	}
+
+	.col_desc {
+		text-align: center;
+		width: 80%;
+	}
+
+	.col_action {
+		margin-top: 2em;
+		width: auto;
+		display: flex;
+	}
+}
+
+.strt_auto_launchport {
+	width: 100%;
+	padding: 2.5rem 0;
+
+	.col-content {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.col_title {
+		letter-spacing: .25em;
+		margin-top: 0;
+		&:after {
+			content: '';
+			display: block;
+			margin: .25em auto 0;
+			width: 80%;
+			height: .1rem;
+			background-color: $primary-color;
+		}
+	}
+
+	.col_description {
+		width: 80%;
+		line-height: 2;
+		margin-bottom: 2em;
+	}
+
+	.col-graphic {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1em;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center center;
+		}
+	}
+}
+
+
+$displace: 2.5rem;
+
+.strt_auto_lx {
+	width: 100%;
+	padding: 2.5rem 0;
+
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: $displace;
+		left: 0;
+		z-index: 1;
+		width: 75%;
+		height: calc(100% - #{($displace * 2)});
+		background-color: $gray-100;
+	}
+
+	.container {
+		position: relative;
+		z-index: 10;
+		max-width: 100%;
+		padding: 0;
+	}
+
+	.col-content {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		flex-direction: column;
+		padding-left: 15vw;
+	}
+
+
+	.col_title {
+		margin-top: 0;
+		&:after {
+			content: '';
+			display: block;
+			margin-top: .25em;
+			width: 80%;
+			height: .1rem;
+			background-color: $primary-color;
+		}
+	}
+
+	.col_description {
+		width: 80%;
+		line-height: 2;
+		margin-bottom: 2em;
+	}
+
+	.col-graphic {
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: right;
+		}
+	}
+}

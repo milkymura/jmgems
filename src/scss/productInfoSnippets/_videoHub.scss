@@ -1,0 +1,211 @@
+.prod-infoVideoHub .prod {
+
+	// prod_features
+	&_features {
+		width: 100%;
+		position: relative;
+		z-index: 0;
+		display: flex;
+		align-items: stretch;
+		justify-content: center;
+
+		.col_image {
+			display: block;
+			text-align: right;
+			z-index: 1;
+			position:relative;
+			&:after {
+				z-index: 0;
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 400px;
+				bottom: 0;
+				background-color: #F2F2F2;
+				width: calc(100% - 400px);
+			}
+
+			img {
+				z-index: 2;
+				position: relative;
+			}
+		}
+
+		.col_content {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: center;
+			font-weight: 400;
+			color: #7A7372;
+			line-height: 4;
+		}
+	}
+
+// prod_graphic
+	&_graphic {
+		width: 100%;
+		display: flex;
+		justify-content: flex-start;
+		align-items: stretch;
+
+		.col-graphic-left {
+			min-height: 500px;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+
+		.col-graphic-right {
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+			margin-left: .5rem;
+		}
+	}
+
+// prod_uses
+	&_uses {
+		max-width: 1200px;
+		margin: 0 auto;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+
+		.col_content {
+			min-height: 300px;
+
+			h1 {
+				margin-bottom: 2rem;
+			}
+		}
+
+		.col_image {
+			padding: 0 5rem;
+		}
+
+		.btn-addtocart {
+			margin: 2rem auto;
+		}
+	}
+}
+
+@media (max-width: 1025px) {
+	.prod-infoVideoHub {
+		.prod_features {
+			.col_content {
+				line-height: 2;
+			}
+
+			.col_image:after {
+				z-index: 0;
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 200px;
+				bottom: 0;
+				background-color: #f2f2f2;
+				width: calc(100% - 200px);
+				max-width: 100%;
+			}
+		}
+	}
+}
+
+@media (max-width: 769px) {
+	.prod-infoVideoHub .prod {
+		&_features {
+			flex-direction: column;
+
+			.col_image {
+				width: 100%;
+				max-width: 100%;
+
+				&:after {
+					z-index: 0;
+					content: "";
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 50%;
+					left: 0;
+					background-color: #f2f2f2;
+					max-width: 100%;
+					width: 100%;
+				}
+			}
+
+			.col_content {
+				width: 100%;
+				max-width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+
+		&_uses {
+			max-width: 500px;
+			margin: 0 auto;
+			justify-content: center;
+			align-items: center;
+
+			.col_image {
+				padding: 0;
+				margin: 2rem 0;
+			}
+		}
+
+		&_graphic .col-graphic-right {
+			max-width: 100%;
+		}
+	}
+}
+
+@media (max-width: 426px) {
+	.prod-infoVideoHub .prod {
+
+		&_features {
+
+			h1 {
+				font-size: 1rem;
+			}
+
+			ol {
+				max-width: 350px;
+				width: 100%;
+				padding: 1.5rem;
+				margin: 0;
+				li {
+					font-size: .8rem;
+					color: #7a7372;
+				}
+			}
+		}
+
+		&_uses {
+			.col_image {
+				padding: 0;
+			}
+
+			.col_content {
+				min-height: unset;
+				padding: 2rem;
+
+				h1 {
+					font-size: 1rem;
+				}
+				p {
+					font-size: .8rem;
+				}
+			}
+		}
+
+		&_graphic {
+			.col-graphic-left {
+				min-height: 200px;
+			}
+		}
+	}
+}

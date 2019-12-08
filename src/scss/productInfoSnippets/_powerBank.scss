@@ -1,0 +1,201 @@
+.prod-infoPowerBank .prod {
+
+	// prod_features
+	&_features {
+		max-width: 1200px;
+		margin: 0 auto;
+		width: 100%;
+		text-align: center;
+
+		img {
+			margin: 3rem 0;
+		}
+
+		ul {
+			margin: 0 auto;
+
+			li {
+				color: #7A7372;
+				line-height: 3;
+				font-weight: 400;
+			}
+		}
+	}
+
+// prod_uses
+	&_uses {
+		width: 100%;
+		display: flex;
+		align-items: stretch;
+		position: relative;
+		padding: 0;
+		margin: 2rem 0 0;
+
+		.col-graphic {
+			display: flex;
+			 align-items: center;
+			 justify-content: flex-end;
+			 z-index: 2;
+
+			 img {
+			 	margin-right: -10rem;
+			 }
+		}
+
+		.col-content {
+			background-color: #f2f2f2;
+			position: relative;
+			z-index: 1;
+
+			&:after {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				bottom: 0;
+				background-image: url("STRUT-LX-POWERBANK-bgimage-min.png");
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+
+			h1 {
+				margin: 2rem;
+				color: #1E1E1E;
+			}
+
+			.col-content_img {
+				margin-left: 0;
+				z-index: 2;
+				margin: 2rem 0;
+			}
+
+			.btn-addtocart {
+				margin-top: 5rem;
+				margin: 2rem;
+				z-index: 2;
+			}
+		}
+	}
+
+	@media (max-width: 1441px) {
+		&_uses {
+			.col-content:after {
+				background-position: 30% 50%;
+			}
+		}
+	}
+
+	@media (max-width: 1025px) {
+		&_uses {
+			.col-content:after {
+				background-position: 50% 50%;
+			}
+
+			.col-graphic img {
+				margin-right: -5rem;
+			}
+		}
+	}
+
+	@media (max-width: 769px) {
+
+		&_features {
+			&_items {
+				max-width: 800px;
+				margin: 0 auto;
+
+				img {
+					margin: 0;
+				}
+
+				ul {
+					margin: 0;
+				}
+			}
+		}
+
+		&_uses {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			.col-graphic {
+				max-width: 60%;
+				justify-content: center;
+
+				img {
+					margin-right: 0;
+				}
+			}
+
+			.col-content {
+				max-width: 100%;
+
+				&:after {
+					background-position: 10% 50%;
+				}
+
+				&_img {
+					display: block;
+					text-align: center;
+
+					img {
+						width: 100%;
+						max-width: 70%;
+						padding: 2rem;
+					}
+				}
+
+				.col-content_text {
+					width: 100%;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					background-color: #fff;
+					z-index: 2;
+				}
+
+				.col-content_button {
+					margin: 2rem;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 426px) {
+		&_uses {
+			.col-graphic {
+				max-width: 100%;
+			}
+			.col-content {
+				text-align: center;
+
+				.col-content_text {
+					h1 {
+						font-size: 1rem;
+					}
+					p {
+						font-size: .8rem;
+					}
+				}
+
+				.col-content_button {
+					margin: 2rem auto;
+				}
+			}
+		}
+
+		&_features {
+			h1 {
+				font-size: 1rem;
+			}
+			ul li {
+				font-size: .8rem;
+			}
+		}
+	}
+}

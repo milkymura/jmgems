@@ -1,0 +1,20 @@
+.cc_filter {
+
+	// .cc_filter_group
+	&_group {
+		padding: .5em;
+
+		// .cc_filter_group_header
+		&_header {
+			padding: .25em;
+			font-size: 1.25em;
+			border-bottom: .1em solid  rgba($darkgray,.5);
+			margin-bottom: 1em;
+		}
+	}
+
+	// .cc_filter_btn
+	&_btn {
+		width: 100%;
+	}
+}

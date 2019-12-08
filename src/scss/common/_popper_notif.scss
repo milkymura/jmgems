@@ -1,0 +1,117 @@
+.popper_notif {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 999;
+	visibility: hidden;
+
+	// .popper_notif-container
+	&-container {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	// .popper_notif-contents
+	&-contents {
+		opacity: 0;
+		position: relative;
+		max-width: 45rem;
+		width: 100%;
+		margin: 0 auto;
+		overflow: hidden;
+		background-color: #fff;
+		padding: 1em 2em;
+		border-radius: 0;
+		box-shadow: 0 0 1em 1em rgba(#000,.15);
+	}
+
+	// .popper_notif-close
+	&-close {
+		position: absolute;
+		top: 50%;
+		right: 1em;
+		font-size: 1em;
+		width: 1em;
+		height: 1em;
+		margin-top: -.5em;
+		line-height: 1;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		cursor: pointer;
+
+		&:hover {
+			color: $tertiary-color;
+		}
+	}
+
+	// .popper_notif-msg
+	&-msg {
+		margin-bottom: 0;
+		margin-top: 0;
+		line-height: 1;
+		font-size: 1em;
+		text-align: center;
+	}
+}
+
+
+// POSITIONS
+// ================================================
+
+.popper_notif[data-position="bottom"] {
+	.popper_notif-container {
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: auto;
+	}
+}
+
+.popper_notif[data-position="top"] {
+	.popper_notif-container {
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: auto;
+	}
+}
+
+.popper_notif[data-position="left"] {
+	.popper_notif-container {
+		top: 0;
+		left: 0;
+		width: auto;
+		height: 100%;
+	}
+}
+
+.popper_notif[data-position="right"] {
+	.popper_notif-container {
+		top: 0;
+		right: 0;
+		width: auto;
+		height: 100%;
+	}
+}
+
+
+.popper_notif.popper--error {
+	.popper_notif-msg {
+		color: $red;
+	}
+}
+
+// EVENTS
+// ================================================
+html.popper_notif_opened {
+	.popper_notif {
+		visibility: visible;
+	}
+}

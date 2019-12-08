@@ -1,0 +1,287 @@
+.prod-infoWallPower .prod {
+
+	// .prod_features
+	&_features {
+		width: 100%;
+		position: relative;
+		z-index: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+
+		&-header {
+			display: none;
+		}
+
+		&_content {
+			width: 100%;
+			display: flex;
+			justify-content: flex-start;
+			align-items: stretch;
+		}
+
+		.col_image {
+			z-index: 1;
+			position:relative;
+			display: block;
+			text-align: right;
+		}
+
+		.col_content {
+			padding-left: 6vw;
+			font-weight: 400;
+			color: #7A7372;
+			line-height: 2;
+
+			h1:after {
+				margin: 0;
+			}
+
+			ul {
+				margin: 0;
+				line-height: 2;
+				font-weight: 400;
+				text-align: left;
+				li {
+					letter-spacing: 1px;
+					line-height: 3;
+				}
+			}
+		}
+
+
+	}
+
+	// .prod_uses
+	&_uses {
+		width: 100%;
+		display: flex;
+
+		.col-graphic {
+			width: 50%;
+			padding-left: 10vw;
+		}
+
+		.col-content {
+			position: relative;
+			padding: 2rem 0;
+			background-color: #f2f2f2;
+			margin-left: .5rem;
+
+			h1 {
+				max-width: 500px;
+				margin: 0 auto;
+			}
+
+			.col-content_text {
+				width: 100%;
+			}
+
+			.col-content_img {
+				width: 100%;
+				display: block;
+				text-align: center;
+				margin: 2rem;
+
+				img {
+					height: auto;
+					max-height: 500px;
+				}
+			}
+
+			.btn-addtocart {
+				margin: 0 auto;
+			}
+		}
+	}
+}
+
+@media (max-width: 1441px) {
+	.prod-infoWallPower .prod_uses {
+		padding-left: 10vw;
+
+		.col-graphic {
+			padding: 0;
+			width: unset;
+			position: relative;
+
+			img {
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				}
+			}
+
+			.col-content {
+				&_text {
+					padding: 0 1rem;
+				}
+
+				.col-content_img img {
+					max-height: 300px;
+				}
+			}
+		}
+	}
+
+@media (max-width: 1025px) {
+	.prod-infoWallPower {
+		.prod_uses {
+			margin: 2rem 0;
+			.col-content {
+				&_text {
+					max-width: 300px;
+					width: 100%;
+					margin: auto;
+
+					h1 {
+						font-size: 1.5em;
+						padding: 1rem;
+						margin: 0 auto;
+					}
+
+					p {
+						font-size: 1rem;
+					}
+				}
+
+				&_img {
+					max-width: 200px;
+					width: 100%;
+					margin: auto;
+				}
+
+				.col-content_button {
+					width: 50%;
+					padding: 5px;
+					margin: auto;
+				}
+			}
+		}
+
+		.prod_features {
+			flex-direction: column-reverse;
+
+			.col_content {
+				width: 100%;
+				max-width: 100%;
+				text-align: center;
+
+				h1:after {
+					margin: auto;
+				}
+			}
+
+			.col_image {
+				width: 100%;
+				max-width: 100%;
+			}
+		}
+	} 
+}
+
+@media (max-width: 769px) {
+	.prod-infoWallPower {
+		.prod_uses {
+			flex-direction: column;
+			width: 100%;
+			padding: 0 0 2rem;
+			max-width: 500px;
+			margin: 0;
+			max-width: 100%;
+
+			.col-graphic {
+				max-width: 100%;
+				width: 100%;
+
+				img {
+					position: relative;
+				}
+
+			}
+
+			.col-content {
+				background-color: #fff;
+				margin: 0 auto;
+				padding: 2rem;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+				max-width: 100%;
+
+				&_text {
+					max-width: 100%;
+					h1 {
+						text-align: center;
+						padding: 1rem 0;
+					}
+					p {
+						color: #7a7372;
+					}
+				}
+
+				&_img {
+					max-width: 100%;
+				}
+			}
+		}
+
+		.prod_features {
+			flex-direction: column;
+			width: 100%;
+
+			&-header {
+				display: block;
+				border: 1;
+				text-align: center;
+			}
+
+			&_content {
+				flex-direction: column-reverse;
+				order: 3;
+			}
+
+			.col_content {
+				max-width: 100%;
+				text-align: center;
+				margin: 0 0 2rem;
+				h1 {
+					display: none;
+				}
+			}
+
+			.col_image {
+				margin: 0;
+				order: 2;
+			}
+		}
+	}
+}
+
+@media (max-width: 426px) {
+	.prod-infoWallPower {
+		.prod_features .col_content {
+			ul {
+				max-width: 800px;
+				width: 100%;
+				padding: 1rem;
+				margin: 0;
+				li {
+					font-size: .8rem;
+					color: #7a7372;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+

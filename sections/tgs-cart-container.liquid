@@ -1,0 +1,144 @@
+{% comment %}
+==========================================
+getting users also bought collection
+==========================================
+{% endcomment %}
+{% assign products  = collections[section.settings.extra_collection].products %}
+
+
+{% comment %}
+==========================================
+get all available product ids
+==========================================
+{% endcomment %}
+{% assign available_handles = '' %}
+{% assign count = 0 %}
+
+
+{% for product in products  %}
+  {% if product.available and count < 3 %}
+
+    {% assign available_handles = available_handles 
+      | append: ' '
+      | append: product.handle  %}
+
+    {% assign count = count | plus: 1 %}
+
+  {% endif %}
+{% endfor %}
+
+{% assign available_products =  available_handles | split: ' ' %}
+
+<div id="cartContainer" class="cartContainer">
+  <div id="cartContainer-close" class="cartContainer-close">
+    <i class="wtfl wtf-times"></i>
+  </div>
+  <div class="cartContainer-header">
+    <h1 class="title">
+      <a>
+        <span id="cartContainer-cart-count"></span>
+        Your Cart
+      </a>
+      {% comment %}<i class="wtfs wtf-spinner wtf-spin"></i>{% endcomment %}
+    </h1>
+    {% if section.settings.cart_description != blank %}
+      <p class="desc">
+        {{ section.settings.cart_description }}
+      </p>
+    {% endif %}
+  </div>
+  <div id="cartContainer-main" class="cartContainer-main">
+    <ul>
+
+    </ul>
+  </div>
+  <div class="cartContainer-footer">
+    <div class="container">
+      <div class="gtotal-row row">
+        <label>Total</label>
+        <span 
+          id="cartContainer-gTotal"
+          class="cartContainer-gTotal value">
+        </span>
+      </div>
+      {% comment %}
+        <div class="shipping-row row">
+          <label>Shipping</label>
+          <span class="value">Free</span>
+        </div>
+      {% endcomment %}
+      <div class="tax-row row">
+        <label>Tax</label>
+        <span class="value">
+          Tax calculated at checkout
+        </span>
+      </div>
+    </div>
+    <button
+      id="cartContainer-checkout"
+      class="strt_buttons_primary cartContainer-checkoutbtn">
+      Checkout
+    </button>
+    <div class="container cartContainer-collection">
+      <h1 class="cartContainer-collection-title">
+        {{ section.settings.extra_collection_header }}
+      </h1>
+      <div class="row cartContainer-collection-items">
+        
+        {% for handle in available_products %}
+
+          {% assign product = all_products[handle] %}
+          <div class="col-4 cartContainer-collection-item">
+
+            <div class="media">
+              <div class="graphic" style="background-image:url({{ product.featured_image.src | img_url: '120x' }})">
+                
+              </div>
+            </div>
+
+            <h1 class="title">
+              <a href="{{ product.url }}">
+                {{ product.title }}
+              </a>
+            </h1>
+
+            <span 
+              class="btn-addtocart"
+              data-productid="{{ product.id }}"
+              data-defaultvariantid="{{ product.selected_or_first_available_variant.id }}">
+              add to cart :
+              {{ product.price | money }}
+            </span>
+          </div>
+
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "TGS cart container",
+  "class": "TGS_cart_container",
+  "settings": [
+    {
+      "type":"html",
+      "id": "cart_description",
+      "label": "change description"
+    },
+    {
+      "type": "text",
+      "id": "extra_collection_header",
+      "label": "Extra Collection Header",
+      "default": "Customers also bought"
+    },
+    {
+      "type": "collection",
+      "id": "extra_collection",
+      "label": "Show extra collection",
+      "info": "only 3 products will be shown"
+    }
+  ]
+}
+{% endschema %}

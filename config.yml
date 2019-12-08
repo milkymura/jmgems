@@ -1,0 +1,19 @@
+production:
+  password: cac3ddcddc2ce4027fc4a8966735ca42
+  theme_id: "80043081764"
+  store: dev-jmgems.myshopify.com
+  timeout: 100s
+  ignore_files:
+    - config/settings_data.json
+    - src/
+    - playground/
+
+
+
+
+
+
+
+
+
+

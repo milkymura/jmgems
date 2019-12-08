@@ -1,0 +1,132 @@
+<style>
+	.tgs_nav_announcement {
+		background-color: {{ section.settings.announcement_color_bg }};
+	}
+	.tgs_nav_announcement-text {
+		color: {{ section.settings.announcement_color_text }};
+	}
+</style>
+
+
+<div class="tgs_nav_announcement">
+	<p class="tgs_nav_announcement-text">
+		{% if section.settings.announcement_link != blank %}
+			<a href="{{ section.settings.announcement_link }}">
+				{{ section.settings.announcement_text | strip }}
+			</a>
+		{% else %}
+			{{ section.settings.announcement_text }}
+		{% endif %}
+	</p>
+</div>
+
+<div class="row">
+	<div class="tgs_nav_container container">
+
+		<div class="tgs_nav_menuburger">
+			<div id="menuburger-toggle">
+			  <span></span>
+			</div>
+		</div>
+
+		<div class="tgs_nav_logo">
+			<a href="/">
+				<img 
+					src="{{ section.settings.logo | img_url: '200x' }}"
+					alt="">
+			</a>
+		</div>
+
+		<div class="tgs_nav_menubar menubar_menu">
+			{% include 'tgs_nav_menulist',
+				menu_items: section.settings.links_main
+			 %}
+		</div>
+
+		<div class="tgs_nav_actionbar">
+			<div class="nav_cart">
+				<div id="showCartContainer">
+					<span id="nav_cart_count"></span>
+					<i class="wtfs wtf-shopping-cart"></i>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="tgs_mobilenav">
+		<div class="tgs_mobilenav_container">
+			<div class="tgs_mobilenav_menu">
+				{% include 'tgs_nav_menulist',
+					menu_items: section.settings.links_main
+				%}
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+{% schema %}
+{
+	"name": "TGS Navigation",
+	"class": "tgs_nav",
+	"settings": [
+		{
+			"type": "header",
+			"content": "announcement"
+		},
+		{
+			"type": "text",
+			"id": "announcement_text",
+			"label": "Announcement text",
+			"default": "Announce something here"
+		},
+		{
+			"type": "url",
+			"id": "announcement_link",
+			"label": "Announcement link",
+			"info": "Optional"
+		},
+		{
+			"type": "color",
+			"id": "announcement_color_bg",
+			"label": "Bar Color",
+			"default": "#000000"
+		},
+		{
+			"type": "color",
+			"id": "announcement_color_text",
+			"label": "Bar text Color",
+			"default": "#FFFFFF"
+		},
+		{
+			"type": "header",
+			"content": "Logo"
+		},
+		{
+			"type": "image_picker",
+			"id": "logo",
+			"label": "Logo image"
+		},
+		{
+			"type": "header",
+			"content": "Content"
+		},
+		{
+			"type": "header",
+			"content": "Menu Links"
+		},
+		{
+			"type": "link_list",
+			"id": "links_main",
+			"label": "Main Menu",
+			"default": "main-menu"
+		}
+	],
+	"presets": [{
+		"name": "TGS Navigation",
+		"category": "THEGOODSHIT"
+	}]
+}
+{% endschema %}

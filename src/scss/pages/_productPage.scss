@@ -1,0 +1,9 @@
+.strutPageProduct {
+
+	opacity: 0;
+	transition: opacity 300ms ease-out;
+
+	&.ready {
+		opacity: 1 !important;
+	}
+}

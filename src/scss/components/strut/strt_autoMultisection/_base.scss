@@ -1,0 +1,56 @@
+.strt_autoMultisection {
+	.multisectionSection {
+		width: 100%;
+		padding: 2.5rem 0;
+
+		.col-content {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			text-align: center;
+		}
+
+		.col_title {
+			letter-spacing: .25em;
+			margin-top: 0;
+			&:after {
+				content: '';
+				display: block;
+				margin: .25em auto 0;
+				width: 80%;
+				height: .1rem;
+				background-color: $primary-color;
+			}
+		}
+
+		.col_desc {
+			width: 80%;
+			line-height: 2;
+			margin-bottom: 2em;
+		}
+
+		.col-graphic {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 1em;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center center;
+			}
+		}
+	}
+}
+
+
+@media (max-width: 415px) {
+	.strt_autoMultisection .multisectionSection.graphic-right {
+		.row {
+			flex-direction: column-reverse;
+		}
+	}
+}

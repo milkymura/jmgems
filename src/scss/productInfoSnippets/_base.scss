@@ -1,0 +1,176 @@
+html.container {
+	width: 100%;
+	max-width: none;
+	margin: 0;
+	padding: 0;
+}
+
+.prod {
+	padding: 1rem;
+}
+
+
+.prod_overview {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+	min-height: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	h1 {
+		position: relative;
+		color: #1E1E1E;
+		padding-bottom: 1rem;
+		font-weight: 500;
+		letter-spacing: 2px;
+		margin-top: 0;
+
+		&:after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 3px;
+			width: 100px;
+			background-color: #000;
+			border: 1px solid #000;
+			border-radius: 4px;
+			margin: 0 auto;
+		}
+	}
+
+	p {
+		font-weight: 400;
+		line-height: 2;
+		opacity: .8;
+		width: 100%;
+		max-width: 800px;
+		margin: 0 auto;
+		color: #7A7372;
+	}
+}
+
+.prod_variants {
+	position: relative;
+	z-index: 0;
+	width: 100%;
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		background-color: #F2F2F2;
+		height: 50%;
+	}
+
+	.prod-graphic {
+		z-index: 1;
+		position: relative;
+		text-align: center;
+		justify-content: center;
+	}
+}
+
+.prod_features {
+	h1 {
+		position: relative;
+		padding-bottom: 1rem;
+		color: #1E1E1E;
+		font-weight: 500;
+
+		&:after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 3px;
+			width: 100px;
+			background-color: #000;
+			border: 1px solid #000;
+			border-radius: 4px;
+			margin: 0 auto;
+		}
+	}
+}
+
+.prod_uses {
+
+	.col-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	h1 {
+		font-weight: 500;
+		letter-spacing: 2px;
+		opacity: .8; 
+		text-align: center;
+		width: 100%;
+	}
+
+	p {
+		text-align: center;
+		line-height: 2;
+		max-width: 400px;
+		margin: 0 auto;
+		color: #7a7372;
+		font-weight: 400;
+	}
+}
+
+.strutPageProduct {
+	.btn-addtocart {
+		background-color: #000;
+		color: #fff;
+		padding: 10px 50px;
+		font-weight: 600;
+		letter-spacing: 1px;
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+	}
+}
+
+
+@media (max-width: 1025px) {
+	.prod_overview {
+		margin: 0 auto;
+		max-width: 700px;
+
+		h1 {
+			font-size: 1.5rem;
+		}
+
+		p {
+			font-size: 1rem;
+		}
+	}
+}
+
+@media (max-width: 769px) {
+	.prod_overview {
+		max-width: unset;
+		padding: 1rem;
+	}
+}
+
+@media (max-width: 426px) {
+	.prod_overview {
+		min-height: 200px;
+		h1 {
+			font-size: 1rem;
+		}
+		p {
+			font-size: .8rem;
+		}
+	}
+}

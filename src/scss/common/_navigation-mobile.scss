@@ -1,0 +1,179 @@
+
+
+
+// ================================
+// DEFAULT
+// ================================
+.tgs_mobilenav {
+	display: none;
+}
+
+
+// ================================
+// MOBILE NAV BURGER
+// ================================
+
+
+
+#menuburger-toggle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1em;
+	cursor: pointer;
+
+	width: 3em;
+	height: 3em;
+
+	%bar {
+		display: block;
+		background: white;
+		font-size: 1em;
+		height: .15em;
+		width: 2em;
+		transition: all 0.5s ease-in-out;
+	}
+
+	span {
+		@extend %bar;
+		position: relative;
+
+		&:before {
+			content: '';
+			@extend %bar;
+			transform-origin: center;
+			position: absolute;
+			top: -.5em;
+		}
+
+		&:after {
+			content: '';
+			@extend %bar;
+			transform-origin: center;
+			position: absolute;
+			top: .5em;
+		}
+	}
+}
+
+#menuburger-toggle.active {
+	span {
+		background: transparent;
+		&:before {
+			top: 0;
+			transform: rotate(135deg);
+			background-color: #fff;
+		}
+		&:after {
+			top: 0;
+			transform: rotate(-135deg);
+			background-color: #fff;
+		}
+	}
+}
+
+
+
+// ================================
+// SHOW NAV
+// ================================
+$estimated-mobilenav-height: 97.2px;
+
+html.page-is-mobile .tgs_mobilenav {
+	display: flex;
+	padding-top: $estimated-mobilenav-height;
+
+	width: 100%;
+	height: 0%;
+	overflow: hidden;
+	background-color: #000;
+
+	// .tgs_mobilenav_container
+	&_container {
+		width: 100%;
+		height: 100%;
+		position: relative;
+	}
+
+	// .tgs_mobilenav_menu
+	&_menu {
+		@extend %absoluteFill;
+		padding: 1em;
+		width: 100%;
+		height: 100%;
+		overflow-y: auto;
+	}
+
+	.menubarlist {
+		width: 100%;
+		height: auto;
+
+		
+		// .menubarlist_item
+		&_item {
+			width: 100%;
+			padding: 2em .5em 2em 1.5em;
+			position: relative;
+			color: rgba(#FFF,.5);
+
+			a {
+				position: relative;
+				z-index: 10;
+				font-size: 1.5em;
+				color: inherit;
+				text-transform: uppercase;
+				letter-spacing: .25em;
+			}
+
+			counter-increment: menu;
+			&:before {
+				content: counter(menu); 
+				position: absolute;
+				z-index: 1;
+				top: .5em;
+				left: .5em;
+				font-size: 1em;
+				height: 1em;
+				line-height: 1;
+				font-weight: normal;
+				color: #FFF;
+				opacity: .5;
+			}
+
+			&:not(:last-child) {
+				&:after {
+					content: '';
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+					height: .1em;
+					background-color: #fff;
+					opacity: .1;
+				}
+			}
+		}
+
+
+		&_item.active {
+			color: $primary-color;
+		}
+	}
+}
+
+html.page-is-mobile.show-mobile-nav {
+	.tgs_mobilenav {
+		padding-bottom: 3rem;
+	}
+}
+
+
+// ================================
+// SHOW DROPDOWN NAV
+// ================================
+html.show-mobile-nav {
+	body {
+		overflow: hidden !important;
+		position: fixed;
+	}
+}

@@ -1,0 +1,40 @@
+{
+  "name": "jmgems",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "push": "theme deploy --env=production",
+    "pull": "theme download --env=production",
+    "start": "concurrently \"gulp\" \"theme open --env=production && theme watch --env=production\" ",
+    "playground": "gulp playground"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.dnamicro.net:Jab/shopify-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "autoprefixer": "^7.2.1",
+    "browser-sync": "^2.18.13",
+    "concurrently": "^3.5.1",
+    "cssnano": "^3.10.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify": "^3.1.0",
+    "gulp-order": "^1.1.1",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.1",
+    "gulp-uglify-es": "^1.0.4",
+    "gulp-util": "^3.0.8",
+    "postcss-cli": "^4.1.0",
+    "postcss-cssnext": "^3.0.2",
+    "uglify-es": "^3.3.9"
+  }
+}

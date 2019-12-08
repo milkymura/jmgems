@@ -1,0 +1,339 @@
+<textarea class="jsonStorage" type="text">
+  {{ product | json }}
+</textarea>
+
+
+{% assign main_slide_nav  = section.settings.main_slide_nav %}
+{% assign main_slide_dots  = section.settings.main_slide_dots %}
+{% assign main_slide_loop  = section.settings.main_slide_loop %}
+{% assign main_slide_autoplay  = section.settings.main_slide_autoplay %}
+{% assign main_slide_autoplay_timeout  = section.settings.main_slide_autoplay_timeout %}
+
+{% assign thumb_items  = section.settings.thumb_items %}
+
+{% assign prod_images = product.images %}
+
+{% assign current_variant = product.selected_or_first_available_variant  %}
+{% assign description = product.description  %}
+{% assign disclaimer = section.settings.disclaimer  %}
+
+
+<form class="container product_order_form">
+  <div class="row row-main">
+
+    <div class="col col-md-6 col-media">
+
+      <div class="product_variant_carousel">
+        <div class="product_mainSlider">
+          <div class="mainSlider_owl owl-carousel owl-theme">
+            {% for variant in product.variants %}
+              <div 
+                class="mainSlider_owl_item" 
+                data-option1="{{ variant.option1 }}"
+                data-option2="{{ variant.option2 }}"
+                data-option3="{{ variant.option3 }}"
+                data-slidekey="{{ forloop.index }}">
+                <img 
+                  src="{{ variant.image.src | img_url: 'master' }}" 
+                  alt="{{ variant.title }}">
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <div class="col col-md-6 col-content">
+
+      {% comment %}
+      ===============================================
+            PAGE SHARE
+      ===============================================
+      {% include 'page_share' %}
+      {% endcomment %}
+
+
+      {% comment %}
+      ===============================================
+            PRODUCT HEADER
+      ===============================================
+      {% endcomment %}
+      <div class="col-content-header">
+
+        {% comment %}
+        <h1 class="product-type"> 
+          {{ product.type }} 
+        </h1>
+        {% endcomment %}
+
+        {% comment %}
+        <h1 class="product-vendor"> 
+          {{ product.vendor }} 
+        </h1>
+        {% endcomment %}
+        <h1 class="product-title"> 
+          {{ product.title }} 
+        </h1>
+        {% for tag in product.tags %}
+          {% if tag == 'coming-soon' %}
+            <span>Coming Spring 2020</span>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+
+
+      {% comment %}
+      ===============================================
+            PRODUCT PRICE
+      ===============================================
+      {% endcomment %}
+      <div class="col-content-price">
+        <div class="product_price" 
+          data-origprice="{{ current_variant.price }}">
+          $
+          <span class="price">
+            {{ current_variant.price | money_without_currency }}
+          </span>
+        </div>
+      </div>
+
+      {% comment %}
+      ===============================================
+            PRODUCT DESCRIPTION
+      ===============================================
+      {% endcomment %}
+      <div class="col-content-desc">
+        <label>Description</label>
+        <div class="desc_container">
+          {{ description }}
+        </div>
+      </div>
+
+
+      {% comment %}
+      ===============================================
+            PRODUCT FORM
+      ===============================================
+      {% endcomment %}
+      <div class="col-content-form">
+        <div class="row">
+
+          <input type="text" class="options-combo" value="{{ product.selected_or_first_available_variant.title }}">
+
+          {% if product.options_with_values.size > 0 %}
+            {% for product_option in product.options_with_values %}
+              <div class="col form-grp col-form-grp-{{ product_option.name }}">
+                <label>
+                  {{ product_option.name }}
+                </label>
+                <select 
+                  name="option{{ forloop.index }}"
+                  class="options-modifier"
+                  data-combokey="{{ forloop.index | minus: 1 }}"
+                  data-optiontype="{{ product_option.name }}">
+                  {% for value in product_option.values %}
+                    <option 
+                      value="{{ value }}"
+                      {% if product_option.selected_value == value %}
+                        selected{% endif 
+                      %}>
+                      {{ value }}
+                    </option>
+                  {% endfor %}
+                </select>
+              </div>
+            {% endfor %}
+          {% endif %}
+
+
+          {% if product.available %}
+            <div class="col form-grp">
+              <label> Qty </label>
+              <input
+                class="options-qty"
+                type="number"
+                name="quantity"
+                value="1"
+                min="1" />
+            </div>
+          {% endif %}
+
+        </div>
+
+        <div class="row">
+          <div class="col form-grp">
+            {% if product.available %}
+
+              {% assign isPreorder = false %}
+
+              {% for tag in product.tags %}
+              {% if tag == 'preorder' %}
+                {% assign isPreorder = true %}
+              {% endif %}
+              {% endfor %}
+
+
+              {% if isPreorder == true %}
+                <input 
+                  class="product_submit_btn" 
+                  type="submit" 
+                  value="Pre-order Now" 
+                />
+              {% else %}
+                <input 
+                  class="product_submit_btn"
+                  type="submit"
+                  value="Add to Cart"
+                />
+              {% endif %}
+
+
+            {% else %}
+              <button
+                class="btn btn-disabled">
+                Out of Stock
+              </button>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      {% comment %}
+      ===============================================
+            COLORS
+      ===============================================
+      {% endcomment %}
+      {% if product.options_with_values.size > 0 %}
+      {% for product_option in product.options_with_values %}
+      {% if product_option.name == 'Color' %}
+        <div class="col-colorpicker">
+          <label class="col-colorpicker_lbl">
+            Available in colors: 
+          </label>
+
+          <div class="col-colorpicker_grp">
+
+            {% for value in product_option.values %}
+              <div class="
+                col-colorpicker_grp_item
+                col-colorpicker_grp_item-{{ value }}
+                {% if product_option.selected_value == value %}
+                  selected
+                {% endif %}"
+                data-tooltip="{{ value }}">
+              </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
+
+
+
+      {% comment %}
+      ===============================================
+            DISCLAIMER
+      ===============================================
+      {% endcomment %}
+      {% if disclaimer != blank %}
+        <div class="col-content-disclaimer">
+          <label>Disclaimer</label>
+          <p>
+            {{ disclaimer }}
+          </p>
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+
+  <div class="row row-desc">
+    
+  </div>
+</form>
+
+{% schema %}
+{
+  "name": "TGS Product",
+  "class": "tgs_product_template",
+  "settings": [
+    {
+      "type": "header",
+      "content": "main slider"
+    },
+    {
+      "type": "checkbox",
+      "id": "main_slide_nav",
+      "label": "show slide nav",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "main_slide_dots",
+      "label": "show slide dots",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "main_slide_loop",
+      "label": "loop this slide?",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "main_slide_autoplay",
+      "label": "autoplay this slide?",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "main_slide_autoplay_timeout",
+      "label": "Change slides every",
+      "info": "will only apply if autoplay is checked",
+      "options": [
+        { "value": "5000", "label": "5 seconds" },
+        { "value": "6000", "label": "6 seconds" },
+        { "value": "7000", "label": "7 seconds" },
+        { "value": "8000", "label": "8 seconds" },
+        { "value": "9000", "label": "9 seconds" },
+        { "value": "10000", "label": "10 seconds" }
+      ],
+      "default": "7000"
+    },
+    {
+      "type": "header",
+      "content": "thumbnail slider"
+    },
+    {
+      "type": "range",
+      "id": "thumb_items",
+      "label": "Content Size",
+      "step": 1,
+      "min": 3,
+      "max": 6,
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "content"
+    },
+    {
+      "type": "textarea",
+      "id": "disclaimer",
+      "label": "disclaimer"
+    },
+    {
+      "type": "checkbox",
+      "id": "social_sharing_products",
+      "label": "Enable product sharing",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

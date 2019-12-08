@@ -1,0 +1,45 @@
+$burger-color: $text-color;
+
+.burger {
+	width: 33px;
+	height: 100%;
+	cursor: pointer;
+
+	// .burger-brick
+	&-brick {
+		height: 4px;
+		background: $burger-color;
+		transition: 0.3s ease-out;
+		transform-origin: center;
+
+		&:not(:last-child) {
+			margin-bottom: 6px;
+		}
+	}
+}
+
+
+#nav-menu-toggler.open {
+	.burger-brick {
+		&:first-child {
+			transform: rotate(405deg);
+			margin-bottom: -4px;
+		}
+		&:last-child {
+			transform: rotate(-405deg);
+		}
+		&.middle {
+			margin-bottom: -4px;
+			transform: scale(0);
+		}
+	}
+
+	&:hover {
+		.burger-brick {
+			background-color: $secondary-color;
+		}
+	}
+}
+
+
+

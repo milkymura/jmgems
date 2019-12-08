@@ -1,0 +1,10 @@
+html#svn .svn-page {
+	// .svn-page-container
+	&-container {
+		display: block;
+		width: 100%;
+		overflow-x: hidden;
+		min-height: 100vh;
+		height: auto;
+	}
+}

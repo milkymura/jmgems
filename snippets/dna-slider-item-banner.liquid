@@ -1,0 +1,67 @@
+{% comment %}
+================================
+	ASSIGNMENTS
+================================
+{% endcomment %}
+{% assign bgImg = s_bg | img_url: '2000x' %}
+
+
+<div class="
+	d_slider_carousel_item
+	d_slider_carousel_item-{{ s_type }}
+	{{ s_prefix }}-d_slider_carousel_item
+
+	{% if s_isdarkbg %}
+		darkbg
+	{% endif %} "
+
+	data-productid="{{ s_product.id }}"
+	data-defaultvariantid="{{ s_product.selected_or_first_available_variant.id }}">
+
+	<div class="s_content-bg" style="background-image: url({{ bgImg }}); background-color: {{ s_bg_color }} ">
+	</div>
+	<div class="container">
+		<div class="s_content col-{{ s_content_size }}">
+
+			{% if s_header != blank %}
+				<h1 class="s_content-header">{{ s_header }}</h1>
+			{% endif %}
+
+			{% if s_subheader != blank %}
+				<h3 class="s_content-subheader">{{ s_subheader }} </h3>
+			{% endif %}
+
+			{% if s_desc != blank %}
+				<p class="s_content-desc">{{ s_desc }}</p>
+			{% endif %}
+
+			<div class="s_content-actions">
+				{% if s_button_url != blank %}
+					<a href="{{  s_button_url }} " 
+						class="btn btn-special-primary s_content-button">
+						{{ s_button_text }}
+					</a>
+				{% endif %}
+
+				{% if s_link_url != blank %}
+					or
+					<a href="{{  s_link_url }}" class="s_content-link">
+						{{ s_link_text }}
+					</a>
+				{% endif %}
+			</div>
+			
+			{% if s_extras != blank %}
+				<div class="s_content-extras">
+					{{ s_extras }}
+				</div>
+			{% endif %}
+		</div>
+
+		{% if s_graphic_size != 0 %}
+			<div class="s_graphic col-{{ s_graphic_size }}">
+				<img src="{{ s_graphic_src | img_url: 'master' }}" alt="">
+			</div>
+		{% endif %}
+	</div>
+</div>

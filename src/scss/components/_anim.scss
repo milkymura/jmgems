@@ -1,0 +1,7 @@
+.anim {
+	opacity: 0;
+
+	&.animDone {
+		opacity: 1;
+	}
+}

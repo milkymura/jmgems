@@ -1,0 +1,67 @@
+#by-categories {
+	#page-categories-hero {
+		background: transparent !important;
+		> .container {
+			background-color: #fff;
+			padding-bottom: 1em;
+		}
+	}
+
+	.link_collection_item-content {
+		.link_collection_item-graphic {
+			z-index: 1;
+		}
+
+		&:before {
+			content: '';
+			@extend %absoluteFill;
+			opacity: .9;
+			z-index: 5;
+		}
+
+		.link_collection_item-title {
+			z-index: 10;
+		}
+	}
+
+
+	// colors
+	.link_collection_item {
+		&:nth-child(5n+1) {
+			.link_collection_item-content:before {
+				background-color: #F75F23;
+			}
+		}
+		&:nth-child(5n+2) {
+			.link_collection_item-content:before {
+				background-color: #EFB40F;
+			}
+		}
+		&:nth-child(5n+3) {
+			.link_collection_item-content:before {
+				background-color: #008B98;
+			}
+		}
+		&:nth-child(5n+4) {
+			.link_collection_item-content:before {
+				background-color: #ff4d4d;
+			}
+		}
+		&:nth-child(5n+5) {
+			.link_collection_item-content:before {
+				background-color: #2383EE;
+			}
+		}
+	}
+}
+
+
+
+@media (max-width: 737px) {
+	#page-categories-hero {
+		> .container {
+			padding: 0;
+		}
+	}
+}
+

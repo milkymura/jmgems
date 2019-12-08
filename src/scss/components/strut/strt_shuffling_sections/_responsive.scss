@@ -1,0 +1,28 @@
+@media only screen 
+	and (max-width: 1200px) 
+	and (min-height: 1025px) {
+
+	.shfl_background_title {
+		font-size: 2rem;
+	}
+
+	.shfl_section_graphic {
+		.graphic_src {
+			padding: 1em;
+		}
+	}
+
+	.shfl_section_content {
+		padding-top: 4rem;
+		width: calc(80% - 10vw);
+	}
+
+}
+
+@media (max-height: 1367px) {
+	.shfl_section_content {
+		.content .content_desc {
+			font-size: 1em;
+		}
+	} 
+}

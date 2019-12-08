@@ -1,0 +1,87 @@
+.page-sm-strutShufflingSectionsv2-destroyed .shflv2 {
+	// .shflv2_pinned
+	&_pinned {
+		display: none;
+	}
+
+	// .shflv2_sectionsContainer
+	&_sectionsContainer {
+		margin-left: 0;
+		width: 100%;
+	}
+
+	// .shflv2_section
+	&_section {
+		width: 100%;
+
+		// .shflv2_section_container
+		&_container {
+			padding-top: 0;
+			height: auto;
+			flex-direction: column-reverse
+		}
+
+		// .shflv2_section_content
+		&_content {
+			width: 100%;
+			padding-right: 0;
+
+			.content {
+				margin: 0 auto;
+				margin-top: -5em;
+				padding: 4em;
+				max-width: 600px;
+				background-color: #fff;
+				box-shadow: 0 1em 1em 0 rgba(#000,.05);
+				transform: none !important;
+				> * {
+					opacity: 1 !important;
+					transform: none !important;
+				}
+			}
+		}
+
+		// .shflv2_section_graphic
+		&_graphic {
+			height: 30em;
+			padding: 2em;
+			width: 100%;
+
+			.graphic_img {
+				opacity: 1 !important;
+				transform: none !important;
+			}
+		}
+
+		// shflv2_section_graphicAccent
+		&_graphicAccent {
+			display: none;
+		}
+	}
+
+	.content_curtain_x ,
+	.content_curtain_y ,
+	.graphic_curtain_x ,
+	.graphic_curtain_y {
+		display: none;
+	}
+
+
+	.content_actions {
+		width: 100%;
+	}
+
+}
+
+@media (max-width: 415px) {
+	.page-sm-strutShufflingSectionsv2-destroyed .shflv2_section_content {
+		.content {
+			padding: 2em;
+			box-shadow: none;
+		}
+
+		.content_header {
+			font-size: 2em;
+		}
+	}
+}

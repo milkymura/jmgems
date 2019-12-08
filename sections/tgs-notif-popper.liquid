@@ -1,0 +1,50 @@
+<div id="tgs_popper_notif" class="tgs_popper_notif" 
+	data-position="{{ section.settings.popper_position }}"
+	data-timeout="{{ section.settings.popper_timeout }}">
+	<div class="tgs_popper_notif-container">
+		<div class="tgs_popper_notif-contents">
+			<h1 class="tgs_popper_notif-msg">
+			</h1>
+			<div class="tgs_popper_notif-close">
+				<i class="wtfs wtf-times"></i>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% schema %}
+{
+	"name": "TGA Notification Popper",
+	"class": "tgs_notif_popper",
+	"settings": [
+		{
+			"type": "range",
+			"id": "popper_timeout",
+			"label": "Popper timout in seconds",
+			"step": 1,
+			"min": 1,
+			"max": 5,
+			"default": 1
+		},
+		{
+			"type": "select",
+			"id": "popper_position",
+			"label": "popper position",
+			"info": "change the position of the popper notif",
+			"options": [
+				{ "value": "top", "label": "top" },
+				{ "value": "left", "label": "left" },
+				{ "value": "right", "label": "right" },
+				{ "value": "bottom", "label": "bottom" }
+			],
+			"default": "bottom"
+		}
+	],
+	"presets": [
+		{
+			"name": "TGS Notification Popper",
+			"category": "THEGOODSHIT"
+		}
+	]
+}
+{% endschema %}

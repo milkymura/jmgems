@@ -1,0 +1,64 @@
+.terms-page {
+
+	// terms-page-content
+	&-content {
+		max-width: 900px;
+		margin: 3em auto;
+	}
+
+	// terms-page-title
+	&-title {
+		font-size: 1.8rem;
+		text-transform: uppercase;
+		border-bottom: 1px solid $darkgray;
+		padding-bottom: .5em;
+	}
+
+	// terms-page-subtitle
+	&-subtitle {
+		font-size: 1.3rem;
+		margin-bottom: 1rem;
+	}
+
+	// terms-page-details
+	&-details {
+		margin: 1em 0;
+	}
+}
+
+// CUSTOM STYLES
+// ========================
+.terms-page {
+	ul {
+		list-style-type: disc;
+		margin: 0;
+		padding-left: 2em;
+
+		li {
+			line-height: 1.8;
+		}
+	}
+
+	span {
+		line-height: 2;
+	}
+}
+
+.terms-page-details {
+
+	.details-label {
+		margin-bottom: 1rem;
+		font-weight: 600;
+
+		&.no-margin {
+			margin-bottom: 0;
+		}
+	}
+}
+
+html#svn .terms-page p {
+	font-weight: normal;
+	letter-spacing: normal;
+	line-height: 1.8;
+	margin-bottom: 1em;
+}

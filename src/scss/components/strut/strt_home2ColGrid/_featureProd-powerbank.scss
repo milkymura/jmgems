@@ -1,0 +1,29 @@
+// .strt_featureProd-powerbank {
+// 	.col-graphic_img {
+// 		bottom: 0;
+// 		right: 0;
+// 		height: 80%;
+
+// 		img {
+// 			height: 100%;
+// 			width: auto;
+// 		}
+// 	}
+// }
+
+.strt_featureProd-powerbank {
+
+	.col-graphic_img {
+		img {
+			position: absolute;
+			left: 50%;
+			bottom: 0;
+			width: 80%;
+			transform: translateX(-50%) translateY(30%);
+		}
+	}
+
+	.col-graphic_curtain_y {
+		background-color: #f6f6f6 !important;
+	}
+}

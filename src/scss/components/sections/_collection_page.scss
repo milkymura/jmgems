@@ -1,0 +1,271 @@
+.d_collection_page {
+	background-color: transparent !important;
+
+	> .container {
+		padding: 0 1em 2em 1em;
+		background-color: #fff;
+	}
+}
+
+
+// BANNER
+// =================================
+
+.d_collection_page .row-banner {
+	width: 100%;
+	margin-bottom: 1em;
+}
+
+
+.d_collection_page .collectionBanner {
+	width: 100%;
+	height: auto;
+	min-height: 12em;
+	background-size: cover;
+	background-position: center bottom;
+	position: relative;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&:before {
+		content: '';
+		@extend %absoluteFill;
+		background: $gradient-cta;
+		display: block;
+		z-index: 1;
+		opacity: .8;
+	}
+
+	.container {
+		position: relative;
+		z-index: 10;
+		text-align: center;
+		color: $text-color-white;
+
+		h1 {
+			color: inherit;
+		}
+	}
+}
+
+// MAIN FILTER
+// =================================
+.d_collection_page .row-collection-main-filter {
+	width: 100%;
+}
+
+.d_collection_page .collectionMainFilter {
+	width: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+	padding: .5em 1em;
+
+	// .collectionMainFilter-field
+	&-field {
+		width: 100%;
+		padding: 0 .5em;
+		flex-shrink: 1;
+		flex-grow: 1;
+
+		&:first-child {
+			max-width: 16em;
+		}
+
+		&:last-child {
+			max-width: 40em;
+		}
+	}
+
+	// .collectionMainFilter-label
+	&-label {
+		font-weight: 500;
+		color: $text-color;
+		text-align: center;
+	}
+
+	.jumpstart-selector {
+		width: 100%;
+		max-width: 20em;
+	}
+
+	.price_slider {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 1em;
+
+		// .price_slider-min
+		// .price_slider-max
+		&-min ,
+		&-max {
+			width: 9ch;
+			flex-shrink: 0;
+			border: none;
+			padding: 0;
+			font-weight: 500;
+			color: $text-color;
+			pointer-events: none;
+		}
+
+		// .price_slider-min
+		&-min {
+			margin-right: 1em;
+			text-align: right;
+		}
+		// .price_slider-max
+		&-max {
+			margin-left: 2em;
+			text-align: left;
+		}
+
+		$handle-size: 1.5rem;
+		.slider {
+			font-size: 1rem;
+			height: .5em;
+			flex-shrink: 1;
+			flex-grow: 1;
+			border: none;
+			background-color: tint($primary-color,80);
+		}
+
+		.noUi-connect {
+			background: $gradient-primary;
+		}
+
+		.noUi-handle {
+			height: $handle-size;
+			width: $handle-size;
+			margin-top: -($handle-size / 2.75);
+			top: 50%;
+			border-radius: 50%;
+			outline: none !important;
+			border: none;
+			background-color: $primary-color;
+			box-shadow: none;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			&:before , 
+			&:after {
+				display: none;
+			}
+		}
+	}
+}
+
+
+// CATEGORY FILTER
+// =================================
+.collectionCategoryFilter {
+	background-color: $lightgray;
+	border-radius: .15em;
+	padding: 1em;
+
+	label {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+
+	input[type="checkbox"] {
+		height: auto;
+	}
+}
+
+
+@media (max-width: 1025px) {
+	.d_collection_page .collectionBanner {
+		min-height: 15em;
+	}
+}
+
+@media (max-width: 769px) {
+	.d_collection_page {
+		.collectionMainFilter {
+			flex-direction: column;
+			align-items: flex-start;
+
+			// .collectionMainFilter-field
+			&-field:first-child ,
+			&-field:last-child {
+				max-width: 100%;
+			}
+
+			.jumpstart-selector {
+				max-width: 100%;
+			}
+		}
+	}
+}
+
+@media (max-width: 737px) {
+	.d_collection_page {
+
+		> .container {
+			padding: 0;
+		}
+
+		.row-banner {
+			margin-bottom: 0;
+		}
+
+		.collectionBanner {
+			min-height: 10em;
+		}
+
+		.col-collection-category-filter {
+			display: none;
+		}
+
+		.col-container {
+			max-width: 100%;
+		}
+
+		.collectionMainFilter {
+			background-color: $lightgray;
+
+			// .collectionMainFilter-field
+			&-field:first-child {
+				margin-bottom: 1em;
+			}
+
+			.price_slider {
+				margin: 0;
+			}
+		}
+
+		.productcard-parent {
+			padding: .5em;
+		}
+	}
+}
+
+@media (max-width: 415px) {
+	.d_collection_page {
+		.price_slider {
+			align-items: stretch;
+			flex-direction: column;
+			.slider {
+				margin: 2em 0;
+				width: 100%;
+			}
+
+			// .price_slider-min
+			// .price_slider-max
+			&-min ,
+			&-max {
+				font-size: 2em;
+				text-align: center;
+				margin-left: 0;
+				margin-right: 0;
+			}
+		}
+	}
+}

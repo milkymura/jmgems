@@ -1,0 +1,176 @@
+.launchport_page {
+	#hero {
+		position: relative;
+		width: 100%;
+		height: auto;
+		min-height: 490px;
+		background-image: url('launchPort_hero_bg.png');
+		background-size: cover;
+		background-position: 50% 50%;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&:before {
+			content: '';
+			@extend %absoluteFill;
+			background-color: #000;
+			opacity: .8;
+			z-index: 1;
+		}
+
+		.container {
+			position: relative;
+			z-index: 10;
+		}
+
+		.section_header {
+			font-size: 3.5rem;
+			text-transform: uppercase;
+			color: #FFF;
+			line-height: 1.5;
+			font-weight: 300;
+			letter-spacing: .25em;
+			margin-top: 0;
+		}
+
+		.section_subheader {
+			color: #fff;
+			font-weight: inherit;
+			font-size: 1.5rem;
+			line-height: 1;
+			margin-bottom: .5em;
+			padding: .25em .5em;
+			padding-left: 0;
+			letter-spacing: .25em;
+		}
+	}
+
+	.multisectionSection {
+		padding: 4em 0;
+
+		.row {
+			align-items: center;
+		}
+
+		.col-graphic {
+			padding: 1rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+
+		.col-content {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			padding: 2rem;
+		}
+
+		.col_title {
+			text-align: center;
+			text-transform: uppercase;
+			letter-spacing: .25em;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+
+			&:after {
+				content: '';
+				display: block;
+				margin: .25em auto 0;
+				width: 50%;
+				height: .1rem;
+				background-color: $primary-color;
+			}
+		}
+
+		.col_desc {
+			font-size: 1.15em;
+			text-align: center;
+			line-height: 2;
+			font-weight: normal;
+			width: 90%;
+		}
+	}
+}
+
+@media (max-width: 1025px) {
+	.launchport_page {
+		.container {
+			max-width: 900px;
+		}
+
+		#hero {
+			.section_header {
+				font-size: 2.5rem;
+			}
+			.section_subheader {
+				font-size: 1rem;
+			}
+		}
+
+		.multisectionSection {
+			padding: 2em 0;
+			.col-content {
+				padding: 1rem;
+			}
+			.col_desc {
+				font-size: 1em;
+				width: 100%;
+			}
+		}
+	}
+}
+
+@media (max-width: 769px) {
+	.launchport_page {
+		.container {
+			max-width: 600px;
+		}
+
+		#hero {
+			min-height: 0;
+			padding: 2rem 0;
+
+			.section_header {
+				font-size: 2rem;
+			}
+			.section_subheader {
+				font-size: 1rem;
+			}
+		}
+
+		.multisectionSection {
+			padding: 2em 0;
+			.col-content {
+				padding: 0;
+			}
+			.col_title {
+				font-size: 1.15em;
+			}
+			.col_desc {
+				font-size: 1em;
+			}
+
+		}
+	}
+}
+
+@media (max-width: 415px) {
+	.launchport_page {
+		.multisectionSection.graphic-right {
+			.row {
+				flex-direction: column-reverse;
+			}
+		}
+	}
+}

@@ -1,0 +1,259 @@
+$shoppingcart-form: '#your-shopping-cart #cart-form';
+
+$cartImg-size: 150px;
+// $cartQty-size: 180px;
+// $cartImgQty-size: $cartQty-size + $cartImg-size;
+
+#your-shopping-cart {
+	.header__custom {
+		padding: 0;
+		.wrapper {
+			margin: 0 auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			padding: 0;
+			min-height: 35vh;
+
+			.cart-count {
+				padding-top: 1rem;
+				font-size: 1.2rem;
+				font-weight: 600;
+				text-transform: uppercase;
+				color: #7a7a7a;
+			}
+		}
+
+		h1 {
+			font-size: 2em;
+			letter-spacing: .25em;
+			text-transform: uppercase;
+			position: relative;
+
+			&:after {
+				content: "";
+				width: 80%;
+				display: flex;
+				margin: 0 auto;
+				margin-top: 1rem;
+				height: .15em;
+				background-color: $primary-color;
+			}
+		}
+
+		hr {
+			display: none;
+		}
+	}
+
+}
+
+
+#{$shoppingcart-form} {
+	padding: 1rem 0;
+
+	.cart-row {
+		padding: .65rem .65rem 0;
+		display: flex;
+		justify-content: flex-start;
+		align-items: stretch;
+	}
+	.cart-item__title {
+		font-size: 1rem;
+		margin-bottom: 0;
+
+		a {
+			color: #000;
+			border-bottom: 1px solid transparent;
+
+			&:hover {
+				border-bottom: 1px solid #000;
+			}
+		}
+	}
+	.cart-img {
+		width: $cartImg-size;
+		img {
+			width: 100%;
+			max-width: 100px;
+		}
+	}
+
+	.cart-content {
+		width: calc(100% - #{$cartImg-size});
+		display: flex;
+		justify-content: flex-start;
+		align-items: stretch;
+	}
+	
+	.cart-content_group {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: stretch;
+	}
+
+	.cart_bottom  {
+		margin-top: 20px;
+		.btn__update {
+			margin-right: .5rem;
+		}
+
+		.cart__subtotal {
+			font-size: 1.8rem;
+		}
+	}
+
+	.cart-item__variant-title {
+		margin: 0;
+		color: darken($primary-color, 25%);
+		text-transform: uppercase;
+		letter-spacing: .25em;
+		font-weight: 700;
+		margin-bottom: .65rem;
+		opacity: 1;
+	}
+
+	.cart-item__line-price {
+		font-size: 1.5rem;
+		line-height: 1.4;
+	}
+
+	.cart__subtotal-holder {
+		margin: 1rem 1rem 1.5rem;
+	}
+
+
+	.cart-qty {
+		position: relative;
+		width: 100%;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		max-width: 180px;
+		// flex-direction: column;
+
+		// .cart-qty-input
+		&-input {
+			position: relative;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+		}
+
+		label, .count {
+			position: relative;
+			display: block;
+			font-size: 1.14286em;
+			color: #7a7a7a;
+		}
+
+		.count {
+			margin: 0;
+			right: 0;
+			top: 0;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			margin-left: .5em;
+			background-color: #fff;
+			outline: none!important;
+			color: #000;
+			font-size: 1em;
+			padding: .5em;
+			width: 5em;
+			text-align: left;
+			line-height: 1;
+			height: auto;
+		}
+
+		// // .cart-qty-quantity
+		// &-quantity {
+		// 	width: 100%;
+		// 	display: flex;
+		// 	justify-content: flex-start;
+		// 	align-items: center;
+		// 	// flex-direction: column;
+
+			
+		// }
+
+		.remove {
+			right: 0;
+			top: 0;
+			height: 30px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			margin: 0;
+
+			span {
+				color: #7a7a7a;
+				padding-left: .5rem;
+				font-weight: 600;
+				font-size: .9rem;
+
+				&:not(.text) {
+					display: none;
+				}
+			}
+
+			&:hover {
+				span {
+					color: #f44;
+				}
+			}
+		}
+	}
+
+
+
+	@media(max-width: 769px) {
+		.cart-img {
+			display: block;
+		}
+	}
+
+	@media (max-width: 670px) {
+		.cart-img {
+			margin: 0;
+
+			img {
+				max-width: 100%;
+			}
+		}
+		.cart-content {
+			flex-direction: column;
+			padding-bottom: 1.5rem;
+		}
+
+		.cart-content_group {
+			padding-bottom: 1.5rem;
+		}
+	}
+
+	@media (max-width: 502px) {
+		padding: 0;
+		.cart-row {
+			flex-direction: column;
+		}
+		.cart-img {
+			margin: 0 auto;
+		}
+
+		.cart-content {
+			width: 100%;
+		}
+
+		.cart-qty {
+			flex-direction: column;
+			align-items: flex-start;
+			.remove {
+				margin-top: .65rem;
+			}
+		}
+	}
+}
+

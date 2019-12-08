@@ -1,0 +1,37 @@
+html#svn .svn_newsletter_other {
+	font-size: 1rem;
+	.container {
+		padding: 3em 1em;
+	}
+
+	.row {
+		> .col {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+
+	.col-header {
+		margin-bottom: 0;
+		font-size: 2em;
+		.newsletter-form-label {
+			margin-bottom: 0;
+			font-size: 1em;
+		}
+	}
+
+	.col-form {
+		.contact-form {
+			width: 100%;
+			margin-top: 0;
+		}
+		.svn_btn {
+			border-radius: 0 !important;
+		}
+		.newsletter-form-input {
+			color: $text-color-white;
+			font-size: 1.5em;
+		}
+	}
+}

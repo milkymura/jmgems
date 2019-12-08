@@ -1,0 +1,91 @@
+.dna_cta_small_newsletter {
+
+	&:before {
+		background-attachment: fixed;
+	}
+
+	.row {
+		display: flex;
+		align-items: stretch;
+		justify-content: flex-start;
+	}
+
+	.col-graphic {
+		position: relative;
+		img {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			height: calc(100% + 8em);
+			width: 100%;
+			object-fit: contain;
+			object-position: bottom center;
+			pointer-events: none;
+		}
+	}
+
+	.col-content {
+		padding: 2em 1em;
+	}
+
+	.col-header {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	.col-desc {
+		font-size: 1em;
+		margin: .5em 0;
+	}
+
+	.contact-form {
+		margin-top: 0;
+	}
+
+	.newsletter-form-inputgrp {
+		display: flex;
+		align-items: stretch;
+		justify-content: flex-start;
+
+		.newsletter-form-input {
+			flex-grow: 1;
+			flex-shrink: 1;
+			border-radius: 0;
+			background-color: #E0E0E0;
+			outline: none !important;
+			margin-bottom: 0 !important;
+		}
+
+		.btn {
+			background-color: #000;
+			font-weight: 600;
+			letter-spacing: .15em;
+			white-space: nowrap;
+			border-radius: 0;
+		}
+	}
+}
+
+@media (max-width: 415px) {
+	.dna_cta_small_newsletter {
+		.row {
+			align-items: flex-start;
+			flex-direction: column;
+		}
+		.col-content {
+			max-width: 100%;
+		}
+
+		.col-graphic {
+			display: none;
+		}
+
+		.newsletter-form-inputgrp {
+			flex-direction: column;
+
+			.btn {
+				padding: 1em 2em;
+			}
+		}
+	}
+}

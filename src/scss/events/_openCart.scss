@@ -1,0 +1,12 @@
+.open_cart_container {
+	body {
+		overflow-y: hidden;
+	}
+	#PageContainer:before {
+		opacity: 0.8;
+		visibility: visible;
+	}
+	.cartContainer {
+		transform: translateX(0);
+	}
+}

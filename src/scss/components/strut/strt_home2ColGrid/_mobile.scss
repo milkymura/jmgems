@@ -1,0 +1,61 @@
+.page-sm-strutTwoColSection-destroyed .strt_home2ColGrid {
+
+	.container {
+		height: auto;
+	}
+
+	.row {
+		display: flex;
+	}
+
+	.col-graphic {
+		max-width: 100%;
+		padding-top: 60%;
+	}
+
+	.col-content {
+		max-width: 600px;
+		width: 100%;
+		margin: 0 auto;
+		padding: 5em 0;
+		transform: none !important;
+	}
+
+	.graphic-position-right .row {
+		flex-direction: column-reverse;
+	}
+
+	.graphic-position-left .row {
+		flex-direction: column;
+	}
+
+	.col-content_curtain_x ,
+	.col-content_curtain_y ,
+	.col-graphic_curtain_x ,
+	.col-graphic_curtain_y {
+		display: none;
+	}
+
+	.col_title ,
+	.col_description ,
+	.strt_buttons ,
+	.col-content-inverted ,
+	.col-graphic_src {
+		opacity: 1 !important;
+		transform: none !important;
+	}
+}
+
+
+@media (max-width: 415px) {
+	.page-sm-strutTwoColSection-destroyed .strt_home2ColGrid {
+		.col-content {
+			padding: 2em;
+		}
+
+		.strt_buttons {
+			width: 100%;
+		}
+	}
+}
+

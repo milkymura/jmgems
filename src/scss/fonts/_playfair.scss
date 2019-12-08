@@ -1,0 +1,148 @@
+$fontName: 'Playfair Display';
+$fontName-SC: 'Playfair Display';
+$path: "";
+
+@font-face {
+    font-family: $fontName;
+    src: url('#{$path}/PlayfairDisplay-Italic.eot');
+    src: url('#{$path}/PlayfairDisplay-Italic.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/PlayfairDisplay-Italic.woff2') format('woff2'),
+        url('#{$path}/PlayfairDisplay-Italic.woff') format('woff'),
+        url('#{$path}/PlayfairDisplay-Italic.ttf') format('truetype'),
+        url('#{$path}/PlayfairDisplay-Italic.svg#PlayfairDisplay-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: $fontName-SC;
+    src: url('#{$path}/PlayfairDisplaySC-Italic.eot');
+    src: url('#{$path}/PlayfairDisplaySC-Italic.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/PlayfairDisplaySC-Italic.woff2') format('woff2'),
+        url('#{$path}/PlayfairDisplaySC-Italic.woff') format('woff'),
+        url('#{$path}/PlayfairDisplaySC-Italic.ttf') format('truetype'),
+        url('#{$path}/PlayfairDisplaySC-Italic.svg#PlayfairDisplaySC-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: $fontName-SC
+    src: url('#{$path}/PlayfairDisplaySC-Bold.eot');
+    src: url('#{$path}/PlayfairDisplaySC-Bold.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/PlayfairDisplaySC-Bold.woff2') format('woff2'),
+        url('#{$path}/PlayfairDisplaySC-Bold.woff') format('woff'),
+        url('#{$path}/PlayfairDisplaySC-Bold.ttf') format('truetype'),
+        url('#{$path}/PlayfairDisplaySC-Bold.svg#PlayfairDisplaySC-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: $fontName;
+    src: url('#{$path}/PlayfairDisplay-Bold.eot');
+    src: url('#{$path}/PlayfairDisplay-Bold.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/PlayfairDisplay-Bold.woff2') format('woff2'),
+        url('#{$path}/PlayfairDisplay-Bold.woff') format('woff'),
+        url('#{$path}/PlayfairDisplay-Bold.ttf') format('truetype'),
+        url('#{$path}/PlayfairDisplay-Bold.svg#PlayfairDisplay-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('#{$path}/PlayfairDisplay-Regular.eot');
+    src: url('#{$path}/PlayfairDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/PlayfairDisplay-Regular.woff2') format('woff2'),
+        url('#{$path}/PlayfairDisplay-Regular.woff') format('woff'),
+        url('#{$path}/PlayfairDisplay-Regular.ttf') format('truetype'),
+        url('#{$path}/PlayfairDisplay-Regular.svg#PlayfairDisplay-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: $fontName-SC;
+    src: url('#{$path}/PlayfairDisplaySC-Regular.eot');
+    src: url('#{$path}/PlayfairDisplaySC-Regular.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/PlayfairDisplaySC-Regular.woff2') format('woff2'),
+        url('#{$path}/PlayfairDisplaySC-Regular.woff') format('woff'),
+        url('#{$path}/PlayfairDisplaySC-Regular.ttf') format('truetype'),
+        url('#{$path}/PlayfairDisplaySC-Regular.svg#PlayfairDisplaySC-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: $fontName-SC;
+    src: url('#{$path}/PlayfairDisplaySC-BlackItalic.eot');
+    src: url('#{$path}/PlayfairDisplaySC-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/PlayfairDisplaySC-BlackItalic.woff2') format('woff2'),
+        url('#{$path}/PlayfairDisplaySC-BlackItalic.woff') format('woff'),
+        url('#{$path}/PlayfairDisplaySC-BlackItalic.ttf') format('truetype'),
+        url('#{$path}/PlayfairDisplaySC-BlackItalic.svg#PlayfairDisplaySC-BlackItalic') format('svg');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: $fontName;
+    src: url('#{$path}/PlayfairDisplay-BlackItalic.eot');
+    src: url('#{$path}/PlayfairDisplay-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/PlayfairDisplay-BlackItalic.woff2') format('woff2'),
+        url('#{$path}/PlayfairDisplay-BlackItalic.woff') format('woff'),
+        url('#{$path}/PlayfairDisplay-BlackItalic.ttf') format('truetype'),
+        url('#{$path}/PlayfairDisplay-BlackItalic.svg#PlayfairDisplay-BlackItalic') format('svg');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('#{$path}/PlayfairDisplay-BoldItalic.eot');
+    src: url('#{$path}/PlayfairDisplay-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/PlayfairDisplay-BoldItalic.woff2') format('woff2'),
+        url('#{$path}/PlayfairDisplay-BoldItalic.woff') format('woff'),
+        url('#{$path}/PlayfairDisplay-BoldItalic.ttf') format('truetype'),
+        url('#{$path}/PlayfairDisplay-BoldItalic.svg#PlayfairDisplay-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: $fontName-SC;
+    src: url('#{$path}/PlayfairDisplaySC-BoldItalic.eot');
+    src: url('#{$path}/PlayfairDisplaySC-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/PlayfairDisplaySC-BoldItalic.woff2') format('woff2'),
+        url('#{$path}/PlayfairDisplaySC-BoldItalic.woff') format('woff'),
+        url('#{$path}/PlayfairDisplaySC-BoldItalic.ttf') format('truetype'),
+        url('#{$path}/PlayfairDisplaySC-BoldItalic.svg#PlayfairDisplaySC-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: $fontName-SC;
+    src: url('#{$path}/PlayfairDisplaySC-Black.eot');
+    src: url('#{$path}/PlayfairDisplaySC-Black.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/PlayfairDisplaySC-Black.woff2') format('woff2'),
+        url('#{$path}/PlayfairDisplaySC-Black.woff') format('woff'),
+        url('#{$path}/PlayfairDisplaySC-Black.ttf') format('truetype'),
+        url('#{$path}/PlayfairDisplaySC-Black.svg#PlayfairDisplaySC-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: $fontName;
+    src: url('#{$path}/PlayfairDisplay-Black.eot');
+    src: url('#{$path}/PlayfairDisplay-Black.eot?#iefix') format('embedded-opentype'),
+        url('#{$path}/PlayfairDisplay-Black.woff2') format('woff2'),
+        url('#{$path}/PlayfairDisplay-Black.woff') format('woff'),
+        url('#{$path}/PlayfairDisplay-Black.ttf') format('truetype'),
+        url('#{$path}/PlayfairDisplay-Black.svg#PlayfairDisplay-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+}
+

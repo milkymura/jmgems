@@ -1,0 +1,14 @@
+#shopify-section-svn-header.show {
+	background-color: $white;
+	box-shadow: 0 0 12px 1px rgba(#000,.25);
+	.svn_nav_menu-list-item {
+		font-weight: 900;
+		overflow: visible;
+		&:not(.active) {
+			color: $text-color;
+			.wtfl {
+				font-weight: 500;
+			}
+		}
+	}
+}
