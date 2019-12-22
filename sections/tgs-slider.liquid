@@ -18,7 +18,7 @@
 
 			{% if block.type == 'product' %}
 
-				{% include 'dna-slider-item-product'
+				{% include 'tgs-slider-item-product'
 					, s_type : block.type
 					, s_product : all_products[block.settings.product_id]
 					, s_desc : block.settings.desc
@@ -30,7 +30,7 @@
 					, s_colorstop_2 : block.settings.colorstop_2
 				%}
 			{% elsif block.type == 'banner' %}
-				{% include 'dna-slider-item-banner'
+				{% include 'tgs-slider-item-banner'
 					, s_type : block.type
 					, s_bg : block.settings.image
 					, s_bg_color : block.settings.bg_color
@@ -49,7 +49,7 @@
 					, s_isdarkbg : block.settings.is_darkbg
 				%}
 			{% elsif block.type == 'HtmlQuickPurchase' %}
-				{% include 'dna-slider-item-HQP'
+				{% include 'tgs-slider-item-HQP'
 					, s_type : block.type
 					, s_bg : block.settings.image
 					, s_bg_color : block.settings.bg_color
@@ -443,8 +443,8 @@
 		}
 	],
 	"presets": [{
-		"name": "dna slider",
-		"category": "DNA MICRO",
+		"name": "TGS Slider",
+		"category": "THEGOODSHIT",
 		"settings": {
 			"slide_autoplay": true,
 			"slide_autoplay_timeout": "5000"

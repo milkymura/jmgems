@@ -1,0 +1,81 @@
+<div class="container">
+    <div class="row row-content">
+        <div class="col">
+            {%  include 'tgs-section-header',
+                label: section.settings.header_label,
+                title: section.settings.header_title
+            %}
+            <div class="col_content">
+                {{ section.settings.content_html_desc }}
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="row row-images">
+        {% for block in section.blocks %}
+            <div class="
+                col col-md-{{ block.settings.image_width }}
+            ">
+                <img src="{{ block.settings.image | img_url: '1000x'}}">
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+	"name": "TGS Layout Style 1",
+	"class": "tgs_layout-1",
+	"settings": [
+		{
+			"type": "header",
+			"content": "content"
+        },
+        {
+			"type": "text",
+			"id": "header_label",
+			"label": "Header Label",
+			"default": "Header Label here"
+		},
+		{
+			"type": "text",
+			"id": "header_title",
+			"label": "Header",
+			"default": "Header Title here"
+		},
+		{
+			"type": "html",
+			"id": "content_html_desc",
+			"label": "Content Html Description"
+		}
+    ],
+    "max_blocks": 6,
+    "blocks": [
+        {
+            "type": "imgItem",
+            "name": "Image Item",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image Item"
+                },
+				{
+					"type": "range",
+					"id": "image_width",
+					"label": "Image Size",
+					"step": 1,
+					"min": 0,
+					"max": 12,
+					"default": 6
+				}
+            ]
+        }
+    ],
+	"presets": [{
+		"name": "TGS Layout Style 1",
+		"category": "THEGOODSHIT"
+	}]
+}
+{% endschema %}

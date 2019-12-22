@@ -1,7 +1,7 @@
 function initSliders() {
 
   function owlSliders() {
-    $('.d_slider_carousel').each(function(){
+    $('.tgs_slider_carousel').each(function(){
       const carousel = $(this)
       const {
         slidenav : nav ,
@@ -92,7 +92,7 @@ function initSliders() {
 
   function gallerySliders() {
 
-    $('.d_gallerySlider_carousel').each(function() {
+    $('.tgs_gallerySlider_carousel').each(function() {
       const $gallerySlider = $(this)
       const hasMorethan1 = $gallerySlider.children().length > 1
       const {
