@@ -1,0 +1,99 @@
+{% assign featured = section.settings.collection_list %}
+{% assign products_per_row = 4 %}
+{% assign rows = section.settings.rows %}
+{% assign total_products = products_per_row | times: rows %}
+
+<div class="container">
+    <div class="row row-content">
+        <div class="col col-center">
+            {%  include 'tgs-section-header',
+                label: section.settings.header_label,
+                title: section.settings.header_title
+            %}
+            <div class="col_content">
+                {{ section.settings.content_html_desc }}
+            </div>
+        </div>
+    </div>
+    
+    <div class="row row-images">
+        {% for product in collections[featured].products limit: total_products %}
+        {% include 'product-grid-item' %}
+        {% else %}
+        {% comment %}
+            If collection is empty, show onboarding state
+            For onboarding new users to your theme, we add some default products and onboarding tutorials to help populate their store
+        {% endcomment %}
+
+        {% unless onboardingLoaded %}
+            {% comment %}
+            Only load onboarding styles if they have not already been loaded.
+            {% endcomment %}
+            {% assign onboardingLoaded = true %}
+        {% endunless %}
+
+        <div class="grid__item">
+            <div class="grid grid--uniform">
+            {% for i in (1..total_products) %}
+                <div class="grid__item product medium-up--one-quarter small--one-half text-center">
+                <a href="/admin/products" class="product__image-wrapper">
+                    {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                    {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                </a>
+                <div class="product__title"><a href="/admin/products">{{ 'homepage.onboarding.product_title' | t | capitalize }}</a></div>
+                <div class="product__price">$19.99</div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="row row-center row-imagesActions">
+        <a
+            href="{{collections[featured].url}}"
+            class="btn btn-default btn-seeMore"
+        >
+            <span class="text">See More</span>
+        </a>
+    </div>
+</div>
+
+{% schema %}
+{
+	"name": "TGS Collection Items",
+	"class": "tgs_collection_items",
+	"settings": [
+        {
+			"type": "text",
+			"id": "header_label",
+			"label": "Header Label",
+			"default": "Header Label here"
+		},
+		{
+			"type": "text",
+			"id": "header_title",
+			"label": "Header",
+			"default": "Header Title here"
+		},
+		{
+            "type": "collection",
+			"id": "collection_list",
+			"label": "Collection List"
+		},
+        {
+            "type": "range",
+            "id": "rows",
+            "label": "Rows",
+            "min": 1,
+            "max": 10,
+            "step": 1,
+            "default": 1
+        }
+    ],
+	"presets": [{
+	    "name": "TGS Collection Items",
+		"category": "THEGOODSHIT"
+	}]
+}
+{% endschema %}

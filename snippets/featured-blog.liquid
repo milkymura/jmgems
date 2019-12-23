@@ -15,4 +15,11 @@
     {{ article.excerpt_or_content | strip_html | truncatewords: 30 }}
   </div>
 {% endif %}
-<p class="read-more"><a href="{{ article.url }}">{{ 'blogs.article.read_more' | t }} &rarr;</a></p>
+<p class="read-more">
+  <a href="{{ article.url }}" class="btn btn-default btn-seeMore">
+    <span class="text">
+        See More
+    </span>
+    <i class="wtfl wtf-chevron-right"></i>
+  </a>
+</p>
