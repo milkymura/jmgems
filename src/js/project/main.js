@@ -64,19 +64,19 @@ function smoothScrollToSection() {
 
 function globalScript(isSmoothScroll, isBgchange) {
 
-  initdnacomponent(isSmoothScroll, isBgchange)
-  cartFunctions()
-  initTabularDesc()
+  // initdnacomponent(isSmoothScroll, isBgchange)
+  // cartFunctions()
+  // initTabularDesc()
 
   // strut scripts
-  strutShufflingSections()
-  strutShufflingSectionsv2()
-  strutShufflingSectionsv3()
-  strutTwoColSection()
-  strutTwoColSectionSimple()
-  strutFeaturedProduct()
-  strutCarSection()
-  strutElephantSection()
+  // strutShufflingSections()
+  // strutShufflingSectionsv2()
+  // strutShufflingSectionsv3()
+  // strutTwoColSection()
+  // strutTwoColSectionSimple()
+  // strutFeaturedProduct()
+  // strutCarSection()
+  // strutElephantSection()
 
 
 

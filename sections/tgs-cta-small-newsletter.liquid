@@ -71,17 +71,10 @@
     {% endif %}
 
     <div class="col col-content col-{{ contentWidth }}">
-      {% if section.settings.header != blank %}
-        <h1 class="col-header">
-          {{ section.settings.header }}
-        </h1>
-      {% endif %}
-
-      {% if section.settings.subheader != blank %}
-        <h2 class="col-subheader">
-          {{ section.settings.subheader }}
-        </h2>
-      {% endif %}
+      {%  include 'tgs-section-header',
+        label: section.settings.subheader,
+        title: section.settings.header
+      %}
 
       {% if section.settings.desc != blank %}
         <p class="col-desc">
@@ -254,8 +247,8 @@
     }
   ],
   "presets": [{
-    "name": "dna cta small newsletter",
-    "category": "DNA MICRO"
+    "name": "TGS CTA Small Newsletter",
+    "category": "THEGOODSHIT"
   }]
 }
 {% endschema %}
