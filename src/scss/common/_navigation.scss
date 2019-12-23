@@ -16,7 +16,7 @@
 	left: 0;
 	z-index: 999;
 	width: 100%;
-	background-color: $black !important;
+	background-color: $white !important;
 
 	// .tgs_nav_announcement
 	&_announcement {
@@ -72,8 +72,8 @@
 	&_container {
 		display: flex;
 		align-items: center;
-		justify-content: flex-start;
-		padding: .5em !important;
+		justify-content: center;
+		padding: 1rem .5rem !important;
 	}
 
 	// .tgs_nav_menuburger
@@ -86,7 +86,7 @@
 		flex-shrink: 0;
 		a {
 			img {
-				height: 50px;
+				height: 120px;
 				width: auto;
 			}
 		}
@@ -94,7 +94,15 @@
 
 	// .tgs_nav_menubar
 	&_menubar {
-		margin-left: auto;
+		// .tgs_nav_menubar-left
+		&-left {
+			padding-right: 1rem;
+
+		}
+		// .tgs_nav_menubar-left
+		&-right {
+			padding-left: 1rem;
+		}
 	}
 
 	// .tgs_nav_actionbar
@@ -131,6 +139,7 @@
 	display: flex;
 	align-items: stretch;
 	justify-content: center;
+	padding: 0;
 
 	height: 100%;
 
@@ -141,22 +150,24 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: rgba($text-color-white,.75);
+		color: $text-color;
 		position: relative;
 
 		a {
+			font-size: 1rem;
 			text-transform: uppercase;
 			color: inherit;
 			letter-spacing: .25em;
+			font-weight: 600;
 		}
 
 		&:before {
 			content: '';
 			position: absolute;
 			top: calc( 100% + .5em );
-			left: 0;
-			width: 100%;
-			height: .05em;
+			left: 15%;
+			width: 70%;
+			height: .1em;
 			background-color: $primary-color;
 			transform: scaleX(0);
 			transform-origin: center;
@@ -165,7 +176,7 @@
 		}
 
 		&:hover {
-			color: $text-color-white;
+			color: $text-color;
 			&:before {
 				transform: scaleX(.75);
 			}

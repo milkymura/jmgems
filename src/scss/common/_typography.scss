@@ -1,4 +1,5 @@
 
+html ,
 :root {
 	font-size: $base-font-size !important;
 	font-family: $font-family;
@@ -40,6 +41,36 @@ html {
 			height: .15em;
 			display: block;
 			background: $gradient-secondary;
+		}
+	}
+
+	.sectionHeader {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		flex-direction: column;
+		text-align: center;
+		font-size: 1rem;
+		margin-bottom: 3em;
+
+		// .sectionHeader_label
+		&_label {
+			text-transform: uppercase;
+			color: #B9B9B9;
+			font-size: 1em;
+			margin-bottom: .5em;
+			line-height: 1;
+			letter-spacing: 0.25em;
+		}
+
+		// .sectionHeader_title
+		&_title {
+			font-family: $font-family-serif;
+			color: $primary-color;
+			font-size: 4em;
+			margin-top: 0;
+			margin-bottom: 0;
+			line-height: 1;
 		}
 	}
 }

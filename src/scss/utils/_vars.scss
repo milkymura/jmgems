@@ -2,7 +2,7 @@
 // THEME COLORS
 // ========================
 $primary-color: #DCC699;
-$secondary-color: #EFB40F;
+$secondary-color: #151D37;
 $tertiary-color: #F75F23;
 
 $primary-dark-color: #1A2438;
@@ -25,6 +25,7 @@ $gray: #20262B;
 $lightgray: #F9F9F9;
 $darkgray: #A8A8A8;
 
+$gray-300: #EFEFEF;
 $gray-200: #D8D8D8;
 $gray-100: #F1F1F1;
 
@@ -46,7 +47,8 @@ $text-colors : (
 	teal: #62CCCA,
 	blue: #3C98CC,
 	purple: #CE559A,
-	white: #FFF
+	white: #FFF,
+	default: #EFEFEF
 );
 
 // ========================
@@ -82,6 +84,7 @@ $btn-colors: (
 // ========================
 $base-font-size: 14px;
 $font-family: 'Mont';
+$font-family-serif: 'Playfair Display';
 
 // ========================
 // NAVIGATION

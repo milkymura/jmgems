@@ -1,5 +1,15 @@
 function initNav() {
 
+  function adjustMainWithNavHeight() {
+    const $nav = $('.tgs_nav')
+    const navHeight = $nav.innerHeight()
+    const $main = $('main.main-content')
+
+    console.log('[>> adjustMainWithNavHeight][navHeight] ==== ' , navHeight )
+    $main.css({ marginTop: navHeight + 'px' })
+
+  }
+
   function navScroll() {
     const controller = new ScrollMagic.Controller(),
           $header = $('#shopify-section-svn-header')
@@ -102,6 +112,7 @@ function initNav() {
     })
   }
 
+  adjustMainWithNavHeight()
   navScroll()
   toggleMobileNav()
 }
