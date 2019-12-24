@@ -82,23 +82,17 @@
 
 		// .s_content-link
 		&-link {
-			font-size: 1.25em;
+			font-size: 1rem;
 			margin-left: 1em;
+			line-height: 1;
 			white-space: nowrap;
 			position: relative;
-			padding: .25em .5em;
-			color: inherit !important;
-
-			&:before {
-				content: '';
-				position: absolute;
-				top: 100%;
-				left: 0;
-				width: 100%;
-				height: .2em;
-				background: $gradient-primary;
-				display: block;
-			}
+			padding: 1em 2em;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.25em;
+			color: $text-color-white !important;
+			border: 1px solid $text-color-white;
 		}
 	}
 
