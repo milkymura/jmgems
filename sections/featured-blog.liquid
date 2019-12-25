@@ -25,69 +25,77 @@
       {%- assign width = 'medium-up--one-third small--one-whole' -%}
   {% endcase %}
 
-  {% if section.settings.title != blank %}
-    <h2 class="small--text-center">{{ section.settings.title | escape }}</h2>
-  {% endif %}
-
-  {% unless blog.articles_count == 0 %}
-    <div class="grid grid--uniform">
-      {% for article in blog.articles limit: section.settings.post_limit %}
-        <div class="grid__item {{ width }} slide-up-animation animated">
-          <div class="featured-blog__post">
-
-            {% if section.settings.blog_show_image %}
-              {% unless article.image == blank %}
-                <a class="article__featured-link" href="{{ article.url }}">
-                  <noscript>
-                    {{ article.image | img_url: '1024x1024' | img_tag: article.title | escape }}
-                  </noscript>
-                  <div class="article__featured-image-wrapper" style="padding-top:{{ 1 | divided_by: article.image.aspect_ratio | times: 100}}%;">
-                    {% assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-                    <img class="article__featured-image lazyload"
-                      src="{{ article.image | img_url: '300x300' }}"
-                      data-src="{{ img_url }}"
-                      data-widths="[310, 360, 480, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                      data-aspectratio="{{ article.image.aspect_ratio }}"
-                      data-sizes="auto"
-                      alt="{{ article.title | escape }}">
-                  </div>
-                </a>
-              {% endunless %}
-            {% endif %}
-
-            {% unless section.settings.post_limit == 1 and section.settings.blog_show_image %}
-              {% include 'featured-blog', article: article %}
-            {% endunless %}
-
-          </div>
-        </div>
-
-        {% if section.settings.post_limit == 1 and section.settings.blog_show_image %}
+  <div class="container">
+    <div class="row row-header row-center">
+      <div class="col-md-8">
+          {%  include 'tgs-section-header',
+            label: 'Blogs & News',
+            title: "What's new"
+          %}
+      </div>
+    </div>
+    {% unless blog.articles_count == 0 %}
+      <div class="grid grid--uniform">
+        {% for article in blog.articles limit: section.settings.post_limit %}
           <div class="grid__item {{ width }} slide-up-animation animated">
             <div class="featured-blog__post">
-               {% include 'featured-blog', article: article %}
+  
+              {% if section.settings.blog_show_image %}
+                {% unless article.image == blank %}
+                  <a class="article__featured-link" href="{{ article.url }}">
+                    <noscript>
+                      {{ article.image | img_url: '1024x1024' | img_tag: article.title | escape }}
+                    </noscript>
+                    <div class="article__featured-image-wrapper" style="padding-top:{{ 1 | divided_by: article.image.aspect_ratio | times: 100}}%;">
+                      {% assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                      <img class="article__featured-image lazyload"
+                        src="{{ article.image | img_url: '300x300' }}"
+                        data-src="{{ img_url }}"
+                        data-widths="[310, 360, 480, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                        data-aspectratio="{{ article.image.aspect_ratio }}"
+                        data-sizes="auto"
+                        alt="{{ article.title | escape }}">
+                    </div>
+                  </a>
+                {% endunless %}
+              {% endif %}
+  
+              {% unless section.settings.post_limit == 1 and section.settings.blog_show_image %}
+                {% include 'featured-blog', article: article %}
+              {% endunless %}
+  
             </div>
           </div>
-        {% endif %}
+  
+          {% if section.settings.post_limit == 1 and section.settings.blog_show_image %}
+            <div class="grid__item {{ width }} slide-up-animation animated">
+              <div class="featured-blog__post">
+                 {% include 'featured-blog', article: article %}
+              </div>
+            </div>
+          {% endif %}
+  
+        {% endfor %}
+      </div>
+  
+    {% else %}
+      {% include 'onboarding-featured-blog' %}
+    {% endunless %}
+  
+    {% if blog == empty %}
+      {% include 'onboarding-featured-blog' %}
+    {% endif %}
+  
+    {% if section.settings.show_view_all %}
+      <div class="section-header text-center">
+        <a href="{{ blog.url }}" class="btn">
+          {{ 'blogs.article.view_all' | t }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
 
-      {% endfor %}
-    </div>
 
-  {% else %}
-    {% include 'onboarding-featured-blog' %}
-  {% endunless %}
-
-  {% if blog == empty %}
-    {% include 'onboarding-featured-blog' %}
-  {% endif %}
-
-  {% if section.settings.show_view_all %}
-    <div class="section-header text-center">
-      <a href="{{ blog.url }}" class="btn">
-        {{ 'blogs.article.view_all' | t }}
-      </a>
-    </div>
-  {% endif %}
 
 </div>
 
