@@ -1,0 +1,10 @@
+<div 
+    class="
+        tgs_responsive_media 
+        tgs_responsive_media-{{ type }}
+    "
+>
+    {% if type == 'image' %}
+        <img src="{{ src | img_url: '1000x'}}" alt="{{ alt }}">        
+    {% endif %}
+</div>

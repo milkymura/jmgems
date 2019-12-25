@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="row row-content">
-        <div class="col">
+    <div class="row row-content row-center">
+        <div class="col col-md-10">
             {%  include 'tgs-section-header',
                 label: section.settings.header_label,
                 title: section.settings.header_title
@@ -17,7 +17,10 @@
             <div class="
                 col col-md-{{ block.settings.image_width }}
             ">
-                <img src="{{ block.settings.image | img_url: '1000x'}}">
+                {% include 'tgs-responsive-media'
+                    type: 'image',
+                    src: block.settings.image 
+                %}
             </div>
         {% endfor %}
     </div>

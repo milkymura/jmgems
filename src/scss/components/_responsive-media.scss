@@ -1,0 +1,14 @@
+.tgs_responsive_media {
+    width: 100%;
+    position: relative;
+    padding-top: 100%;
+}
+
+.tgs_responsive_media-image {
+    img {
+        @extend %absoluteFill;
+        object-fit: cover;
+        object-position: center center;
+    }
+}
+

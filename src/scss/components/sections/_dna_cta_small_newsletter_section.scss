@@ -1,7 +1,13 @@
-.dna_cta_small_newsletter {
+.tgs_cta_small_newsletter {
+	background-color: #F6F6F6;
+	margin-top: 10rem !important;
+	margin-bottom: 10rem !important;
 
-	&:before {
-		background-attachment: fixed;
+	&:before ,
+	&:after {
+		left: auto !important;
+		right: 0;
+		width: 80% !important;
 	}
 
 	.row {
@@ -15,17 +21,59 @@
 		img {
 			position: absolute;
 			left: 0;
-			bottom: 0;
-			height: calc(100% + 8em);
+			top: 5rem;
+			height: 100%;
 			width: 100%;
-			object-fit: contain;
+			object-fit: cover;
 			object-position: bottom center;
 			pointer-events: none;
 		}
 	}
 
 	.col-content {
-		padding: 2em 1em;
+		padding: 6em;
+
+		.sectionHeader {
+			align-items: flex-start;
+			// .sectionHeader_label
+			&_label {
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+				flex-wrap: nowrap;
+				color: $primary-color;
+				width: 100%;
+				max-width: 500px;
+				letter-spacing: .5em;
+				margin-bottom: 1rem;
+
+				&:after {
+					content: '';
+					height: 0.15em;
+					background-color: #fff;
+					opacity: 0.25;
+					margin-left: 1rem;
+					display: flex;
+					flex-shrink: 1;
+					flex-grow: 1;
+				}
+			}
+
+			// .sectionHeader_title
+			&_title {
+				max-width: 500px;
+				text-align: left;
+				line-height: 1.25;
+				color: $text-color-white;
+			}
+
+
+
+		}
+
+		p {
+			line-height: 2.5;
+		}
 	}
 
 	.col-header {
@@ -51,23 +99,37 @@
 			flex-grow: 1;
 			flex-shrink: 1;
 			border-radius: 0;
-			background-color: #E0E0E0;
+			background-color: rgba($white,.15);
 			outline: none !important;
 			margin-bottom: 0 !important;
+			color: $text-color-white;
+			font-weight: 600;
+			padding: 0 2rem;
+
+			&::placeholder {
+				color: rgba($text-color-white,.25);
+			}
 		}
 
 		.btn {
-			background-color: #000;
+			background-color: $primary-color;
 			font-weight: 600;
 			letter-spacing: .15em;
 			white-space: nowrap;
 			border-radius: 0;
+			color: $text-color-white;
+
+			&:hover {
+				opacity: 1;
+				background-color: $black;
+				color: $primary-color;
+			}
 		}
 	}
 }
 
 @media (max-width: 415px) {
-	.dna_cta_small_newsletter {
+	.tgs_cta_small_newsletter {
 		.row {
 			align-items: flex-start;
 			flex-direction: column;
