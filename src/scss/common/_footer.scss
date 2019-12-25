@@ -1,5 +1,6 @@
 #shopify-section-tgs-footer {
 	background: $footer-color-bg;
+	margin-top: 5rem;
 }
 
 .tgs_footer {
@@ -10,12 +11,14 @@
 	.footer_col {
 		padding: 1em;
 		font-size: 1em;
-		color: $text-color-white;
+		color: $text-color;
 
 		// .footer_col-header
 		&-header {
-			color: $primary-color;
-			font-size: .8em;
+			color: $text-color;
+			font-size: 1.25em;
+			text-transform: uppercase;
+			letter-spacing: 0.25em;
 			font-weight: bold;
 			margin-bottom: 2rem;
 			line-height: 1;
@@ -47,7 +50,7 @@
 	}
 
 	.col-copyright {
-		color: $text-color-white;
+		color: $text-color;
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
@@ -69,6 +72,7 @@
 	font-size: 1em;
 	margin-left: 0;
 	margin-bottom: 0;
+	padding-left: 0;
 
 	// .footer_col-list-item
 	&-item {
@@ -77,8 +81,8 @@
 		margin-bottom: .5em;
 		a {
 			font-size: 1em;
-			font-weight: 400;
-			color: $text-color-white;
+			font-weight: 600;
+			color: $text-color;
 			line-height: 1.5;
 
 			&:hover {
@@ -225,11 +229,12 @@
 		}
 
 		a {
-			color: inherit;
+			color: $text-color;
+			font-weight: 600;
 
-			&:hover {
-				color: $primary-color;
-			}
+			// &:hover {
+			// 	color: $primary-color;
+			// }
 		}
 	}
 }
