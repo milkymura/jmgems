@@ -1,0 +1,126 @@
+.jmgemsCta {
+    position: relative;
+    background-color: $secondary-color;
+
+    .container {
+        position: relative;
+        z-index: 10;
+
+    }
+
+    .row {
+        align-items: stretch;
+    }
+
+    .col-content {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        padding-right: 2rem;
+    }
+
+    .col-graphic {
+        position: relative;
+
+        img {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: calc(100% + 4rem);
+            object-fit: contain;
+            object-position: bottom center;
+        }
+    }
+
+    .col_header {
+        font-family: $font-family-serif;
+        color: $primary-color;
+        font-size: 4rem;
+        line-height: 1.25;
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    .col_desc {
+        font-size: 1.25rem;
+        line-height: 2.5;
+        color: $text-color-white;
+    }
+
+    .col_contactEmail {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+
+        &:before {
+            content: 'Contact Us';
+            pointer-events: none;
+            @extend %absoluteFill;
+            z-index: 10;
+            background-color: $primary-color;
+            transform: translateY(100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: $secondary-color;
+            text-transform: uppercase;
+            opacity: .5;
+
+            transition:
+                opacity 300ms ease-out,
+                transform 300ms ease-out;
+        }
+
+        // .col_contactEmail_link
+        &_link {
+            position: relative;
+            z-index: 1;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: $text-color-white;
+            background-color: rgba($white,.1);
+            display: block;
+            line-height: 1;
+            padding: 1em 2em;
+            text-align: center;
+        }
+
+        &:hover {
+            opacity: 1;
+
+            &:before {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    }
+
+    // .jmgemsCta_bg
+    &_bg {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;    
+        z-index: 1;
+        opacity: 0.2;
+        background-position: 50% 50%;
+        background-size: cover;
+        overflow: hidden;
+
+        &:before {
+            content: '';
+            @extend %absoluteFill;
+            z-index: 5;
+            background-image: linear-gradient(
+                to right,    
+                $secondary-color 0%,
+                rgba($secondary-color,.5) 50%,
+                rgba($secondary-color,.1) 80%,
+                rgba($secondary-color, 0) 100%,
+            );
+        }
+    }
+}

@@ -1,34 +1,104 @@
 <!-- /templates/page.contact.liquid -->
-<h1 class="small--text-center">{{ page.title }}</h1>
 
-<div class="rte">
-  {{ page.content }}
-</div>
+<section class="jmgemsContact">
+  <div class="container">
+    <div class="row row-header row-center">
+      <div class="col col-md-8">
+        {%  include 'tgs-section-header',
+          label: 'LATEST UPDATES',
+          title: 'News & Events'
+        %}
+      </div>
+    </div>
+  
+    <div class="row row-content row-center">
+      <div class="col col-form">
+        {% form 'contact' %}
+  
+          {% if form.posted_successfully? %}
+            <div class="row row-field-messages">
+              <p class="form--success">
+                {{ 'contact.form.post_success' | t }}
+              </p>
+  
+              <div class="error-messages">
+                {{ form.errors | default_errors }}
+              </div>
+            </div>
+          {% endif %}
+          
+  
+          <div class="row">
+            <!-- full name -->
+            <div class="tgs_field col-md-6">
+              <label 
+                for="ContactFormName"
+                class="tgs_field_label"
+              >
+                Full Name
+              </label>
+              <input
+                class="tgs_field_input"
+                id="ContactFormName"
+                type="text"
+                name="contact[name]"
+                placeholder="Enter Full Name"
+                autocapitalize="words"
+                value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}"
+              >
+            </div>
+  
+            <!-- email address -->
+            <div class="tgs_field col-md-6">
+              <label
+                for="ContactFormEmail"
+                class="tgs_field_label"
+              >
+                Email Address
+              </label>
+              <input
+                class="tgs_field_input"
+                id="ContactFormEmail"
+                type="email"
+                name="contact[email]" 
+                placeholder="Enter Email Address"
+                autocorrect="off"
+                autocapitalize="off"
+                value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+              >
+            </div>
+          </div>
+  
+          <div class="tgs_field">
+            <label
+              for="ContactFormMessage"
+              class="tgs_field_label"
+            >
+              Message
+            </label>
+            <textarea
+              class="tgs_field_textarea"
+              id="ContactFormMessage"
+              rows="10"
+              name="contact[body]"
+              placeholder="Enter Message"
+            >
+              {% if form.body %}{{ form.body }}{% endif %}
+            </textarearows="10">
+          </div>
+      
+          <div class="row row-actions row-center">
+            <input
+              type="submit"
+              class="btn btn-bg-primary"
+              value="Submit"
+            >
+          </div>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+</section>
+{% include 'jmgems-cta' %}
 
-<div class="contact-form form-vertical">
-  {% form 'contact' %}
 
-    {% if form.posted_successfully? %}
-      <p class="form--success">
-        {{ 'contact.form.post_success' | t }}
-      </p>
-    {% endif %}
-
-    {{ form.errors | default_errors }}
-
-    <label for="ContactFormName" class="label--hidden">{{ 'contact.form.name' | t }}</label>
-    <input type="text" id="ContactFormName" name="contact[name]" placeholder="{{ 'contact.form.name' | t }}" autocapitalize="words" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
-
-    <label for="ContactFormEmail" class="label--hidden">{{ 'contact.form.email' | t }}</label>
-    <input type="email" id="ContactFormEmail" name="contact[email]" placeholder="{{ 'contact.form.email' | t }}" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
-
-    <label for="ContactFormPhone" class="label--hidden">{{ 'contact.form.phone' | t }}</label>
-    <input type="tel" id="ContactFormPhone" name="contact[phone]" placeholder="{{ 'contact.form.phone' | t }}" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
-
-    <label for="ContactFormMessage" class="label--hidden">{{ 'contact.form.message' | t }}</label>
-    <textarea rows="10" id="ContactFormMessage" name="contact[body]" placeholder="{{ 'contact.form.message' | t }}">{% if form.body %}{{ form.body }}{% endif %}</textarea>
-
-    <input type="submit" class="btn" value="{{ 'contact.form.send' | t }}">
-
-  {% endform %}
-</div>

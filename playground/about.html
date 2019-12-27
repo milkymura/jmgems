@@ -1,0 +1,671 @@
+
+<!doctype html>
+<html class="no-js close_sidenav">
+<head>
+  <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    THEGOODSHIT SHOPIFY PLAYGROUND
+  </title>
+
+
+  <link 
+    href="./theme.scss.css" 
+    rel="stylesheet" 
+    type="text/css" 
+    media="all"
+  >
+  <link rel="stylesheet" href="../assets/bundlecss.css">
+  <link rel="stylesheet" href="../assets/main.css">
+
+  <script src="../../assets/bundledependency.js" type="text/javascript"></script>
+  <script src="../../assets/bundleproject.js" type="text/javascript"></script>
+
+<style>.shopify-payment-button__button--hidden {
+  visibility: hidden;
+}
+
+.shopify-payment-button__button {
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 0 0 0 transparent;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  width: 100%;
+  transition: background 0.2s ease-in-out;
+}
+
+.shopify-payment-button__button[disabled] {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.shopify-payment-button__button--unbranded {
+  background-color: #1990c6;
+  padding: 1em 2em;
+}
+
+.shopify-payment-button__button--unbranded:hover:not([disabled]) {
+  background-color: #136f99;
+}
+
+.shopify-payment-button__more-options {
+  background: transparent;
+  border: 0 none;
+  cursor: pointer;
+  display: block;
+  font-size: 1em;
+  margin-top: 1em;
+  text-align: center;
+  width: 100%;
+}
+
+.shopify-payment-button__more-options:hover:not([disabled]) {
+  text-decoration: underline;
+}
+
+.shopify-payment-button__more-options[disabled] {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.shopify-payment-button__button--branded {
+  display: flex;
+  flex-direction: column;
+  min-height: 44px;
+  position: relative;
+  z-index: 1;
+}
+
+.shopify-payment-button__button--branded .shopify-cleanslate {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+</style>
+<script id="apple-pay-shop-capabilities" type="application/json">{"shopId":5741510745,"countryCode":"US","currencyCode":"USD","merchantCapabilities":["supports3DS"],"merchantId":"gid:\/\/shopify\/Shop\/5741510745","merchantName":"Hawaii Camera","requiredBillingContactFields":["postalAddress","email"],"requiredShippingContactFields":["postalAddress","email"],"shippingType":"shipping","supportedNetworks":["visa","masterCard","amex","discover"],"total":{"type":"pending","label":"Hawaii Camera","amount":"1.00"}}</script>
+<script id="shopify-features" type="application/json">{"accessToken":"5a03efcb3f1442a4827815616a79c437","betas":[],"domain":"store.hawaiicamera.com","shopId":5741510745,"smart_payment_buttons_url":"https:\/\/cdn.shopifycloud.com\/payment-sheet\/assets\/latest\/spb.js"}</script>
+<script>var Shopify = Shopify || {};
+Shopify.shop = "hawaii-camera.myshopify.com";
+Shopify.currency = {"active":"USD"};
+Shopify.theme = {"name":"Production","id":40422801497,"theme_store_id":782,"role":"main"};
+Shopify.theme.handle = "null";
+Shopify.theme.style = {"id":null,"handle":null};</script>
+<script>window.ShopifyPay = window.ShopifyPay || {};
+window.ShopifyPay.apiHost = "pay.shopify.com";
+window.ShopifyPay.storefrontPublicAccessToken = "5a03efcb3f1442a4827815616a79c437";
+window.ShopifyPay.crossStoreEnabled = true;</script>
+<script>(function() {
+  function asyncLoad() {
+    var urls = ["https:\/\/shopify.intercom.io\/widget.js?shop=hawaii-camera.myshopify.com"];
+    for (var i = 0; i < urls.length; i++) {
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = urls[i];
+      var x = document.getElementsByTagName('script')[0];
+      x.parentNode.insertBefore(s, x);
+    }
+  };
+  if(window.attachEvent) {
+    window.attachEvent('onload', asyncLoad);
+  } else {
+    window.addEventListener('load', asyncLoad, false);
+  }
+})();</script>
+<script id="__st">var __st={"a":5741510745,"offset":-36000,"reqid":"2f218795-dd0f-42fa-8283-6a7c14904fc4","pageurl":"store.hawaiicamera.com\/","u":"9b4910dde3e1","p":"home"};</script>
+<script>window.ShopifyPaypalV4VisibilityTracking = true;</script>
+<script>window.Shopify = window.Shopify || {};
+window.Shopify.Checkout = window.Shopify.Checkout || {};
+window.Shopify.Checkout.apiHost = "hawaii-camera.myshopify.com";</script>
+<script>window.ShopifyAnalytics = window.ShopifyAnalytics || {};
+window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
+window.ShopifyAnalytics.meta.currency = 'USD';
+var meta = {"page":{"pageType":"home"}};
+for (var attr in meta) {
+  window.ShopifyAnalytics.meta[attr] = meta[attr];
+}</script>
+<script>window.ShopifyAnalytics.merchantGoogleAnalytics = function() {
+  
+};
+</script>
+<script class="analytics">(window.gaDevIds=window.gaDevIds||[]).push('BwiEti');
+
+
+(function () {
+  var customDocumentWrite = function(content) {
+    var jquery = null;
+
+    if (window.jQuery) {
+      jquery = window.jQuery;
+    } else if (window.Checkout && window.Checkout.$) {
+      jquery = window.Checkout.$;
+    }
+
+    if (jquery) {
+      jquery('body').append(content);
+    }
+  };
+
+  var trekkie = window.ShopifyAnalytics.lib = window.trekkie = window.trekkie || [];
+  if (trekkie.integrations) {
+    return;
+  }
+  trekkie.methods = [
+    'identify',
+    'page',
+    'ready',
+    'track',
+    'trackForm',
+    'trackLink'
+  ];
+  trekkie.factory = function(method) {
+    return function() {
+      var args = Array.prototype.slice.call(arguments);
+      args.unshift(method);
+      trekkie.push(args);
+      return trekkie;
+    };
+  };
+  for (var i = 0; i < trekkie.methods.length; i++) {
+    var key = trekkie.methods[i];
+    trekkie[key] = trekkie.factory(key);
+  }
+  trekkie.load = function(config) {
+    trekkie.config = config;
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.onerror = function(e) {
+      (new Image()).src = '//v.shopify.com/internal_errors/track?error=trekkie_load';
+    };
+    script.async = true;
+    script.src = 'https://cdn.shopify.com/s/javascripts/tricorder/trekkie.storefront.min.js?v=2017.09.05.1';
+    var first = document.getElementsByTagName('script')[0];
+    first.parentNode.insertBefore(script, first);
+  };
+  trekkie.load(
+    {"Trekkie":{"appName":"storefront","development":false,"defaultAttributes":{"shopId":5741510745,"isMerchantRequest":null,"themeId":40422801497,"themeCityHash":6527281369082913381}},"Performance":{"navigationTimingApiMeasurementsEnabled":true,"navigationTimingApiMeasurementsSampleRate":1.0},"Google Analytics":{"trackingId":"UA-7836447-11","domain":"auto","siteSpeedSampleRate":"10","enhancedEcommerce":true,"doubleClick":true,"includeSearch":true},"Session Attribution":{}}
+  );
+
+  var loaded = false;
+  trekkie.ready(function() {
+    if (loaded) return;
+    loaded = true;
+
+    window.ShopifyAnalytics.lib = window.trekkie;
+    
+      ga('require', 'linker');
+      function addListener(element, type, callback) {
+        if (element.addEventListener) {
+          element.addEventListener(type, callback);
+        }
+        else if (element.attachEvent) {
+          element.attachEvent('on' + type, callback);
+        }
+      }
+      function decorate(event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement;
+        if (target && (target.getAttribute('action') || target.getAttribute('href'))) {
+          ga(function (tracker) {
+            var linkerParam = tracker.get('linkerParam');
+            document.cookie = '_shopify_ga=' + linkerParam + '; ' + 'path=/';
+          });
+        }
+      }
+      addListener(window, 'load', function(){
+        for (var i=0; i < document.forms.length; i++) {
+          var action = document.forms[i].getAttribute('action');
+          if(action && action.indexOf('/cart') >= 0) {
+            addListener(document.forms[i], 'submit', decorate);
+          }
+        }
+        for (var i=0; i < document.links.length; i++) {
+          var href = document.links[i].getAttribute('href');
+          if(href && href.indexOf('/checkout') >= 0) {
+            addListener(document.links[i], 'click', decorate);
+          }
+        }
+      });
+    
+
+    var originalDocumentWrite = document.write;
+    document.write = customDocumentWrite;
+    try { window.ShopifyAnalytics.merchantGoogleAnalytics.call(this); } catch(error) {};
+    document.write = originalDocumentWrite;
+
+    
+        window.ShopifyAnalytics.lib.page(
+          null,
+          {"pageType":"home"}
+        );
+      
+    
+  });
+
+  
+      var eventsListenerScript = document.createElement('script');
+      eventsListenerScript.async = true;
+      eventsListenerScript.src = "//cdn.shopify.com/s/assets/shop_events_listener-76ce6d7f3e50d4b8c05874c34d2ea1340c45e5babba61276dadcaeed488ca16a.js";
+      document.getElementsByTagName('head')[0].appendChild(eventsListenerScript);
+    
+})();</script>
+<script crossorigin="anonymous" defer="defer" src="//cdn.shopify.com/s/assets/shopify_pay/storefront-48e64befb9d182ad44cf86f1880d71d584521934854116a92094456fe5f0687c.js?v=20181012"></script>
+<script integrity="sha256-sgrWvj5Q9WPYj5gA5iQrgDLblVdxT0pWyJ7LId+GgCc=" defer="defer" src="//cdn.shopify.com/s/assets/storefront/express_buttons-b20ad6be3e50f563d88f9800e6242b8032db9557714f4a56c89ecb21df868027.js" crossorigin="anonymous"></script>
+<script integrity="sha256-NfqRkSQwKw0JfNupCky6Zxtoijw8YUA8km/3gYu7kY8=" defer="defer" src="//cdn.shopify.com/s/assets/storefront/features-35fa919124302b0d097cdba90a4cba671b688a3c3c61403c926ff7818bbb918f.js" crossorigin="anonymous"></script>
+<script defer="defer" src="//cdn.shopify.com/s/assets/themes_support/ga_urchin_forms-68ca1924c495cfc55dac65f4853e0c9a395387ffedc8fe58e0f2e677f95d7f23.js"></script>
+<script integrity="sha256-Ljsexq5eldQRudMdlkyf6X2dd1/NRWWjmWiuTmb1its=" defer="defer" src="//cdn.shopify.com/s/assets/storefront/bars/preview_bar_injector-2e3b1ec6ae5e95d411b9d31d964c9fe97d9d775fcd4565a39968ae4e66f58adb.js" crossorigin="anonymous"></script>
+
+
+<script>
+  $(document).ready(function() {
+    globalScript()
+  })
+</script>
+
+</head>
+
+<body id="about-us" class="template-index">
+  <div id="PageContainer">
+    <div id="shopify-section-tgs-navigation-style-2" class="shopify-section tgs_nav">
+      <style>
+        .tgs_nav_announcement {
+        background-color: #000000;
+        }
+        .tgs_nav_announcement-text {
+        color: #ffffff;
+        }
+      </style>
+      <div class="tgs_nav_announcement">
+        <p class="tgs_nav_announcement-text">
+          Announce something here
+        </p>
+      </div>
+      <div class="row">
+        <div class="tgs_nav_container container">
+          <div class="tgs_nav_menuburger">
+            <div id="menuburger-toggle">
+              <span></span>
+            </div>
+          </div>
+          <div class="tgs_nav_menubar tgs_nav_menubar-left menubar_menu">
+            <ul class="menubarlist">
+              <li class=" menubarlist_item 
+                ">
+                <a href="/collections/all">
+                Products
+                </a>
+              </li>
+              <li class=" menubarlist_item 
+                ">
+                <a href="/collections">
+                Collections
+                </a>
+              </li>
+              <li class=" menubarlist_item 
+                active 
+                ">
+                <a href="/pages/about-us">
+                About
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="tgs_nav_logo">
+            <a href="/">
+            <img src="//cdn.shopify.com/s/files/1/0254/0109/8276/files/logo_500x.png?v=1576949124" alt="">
+            </a>
+          </div>
+          <div class="tgs_nav_menubar tgs_nav_menubar-right menubar_menu">
+            <ul class="menubarlist">
+              <li class=" menubarlist_item 
+                ">
+                <a href="/blogs/news">
+                News &amp; Events
+                </a>
+              </li>
+              <li class=" menubarlist_item 
+                ">
+                <a href="/pages/contact-us">
+                Contact Us
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="tgs_nav_actionbar">
+            <div class="nav_cart">
+              <div id="showCartContainer">
+                <span id="nav_cart_count"></span>
+                <i class="wtfs wtf-shopping-cart"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tgs_mobilenav">
+          <div class="tgs_mobilenav_container">
+            <div class="tgs_mobilenav_menu">
+              <ul class="menubarlist">
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="shopify-section-tgs-newsletter-message" class="shopify-section tgs_newsletter_msg_modal">
+      <div id="newslettermsg_modal" class="newslettermsg_modal success">
+        <div class="newslettermsg_modal-container">
+          <div class="newslettermsg_modal-close">
+            <button id="newslettermsg_modal-close">
+            <i class="wtfl wtf-times"></i>
+            </button>
+          </div>
+          <div class="newslettermsg_modal-bg">
+            <img src="//cdn.shopify.com/s/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_800x.gif" alt="">
+          </div>
+          <div class="newslettermsg_modal-content">
+            <div class="content newslettermsg-content-success">
+              <h1 class="content-title"></h1>
+              <p class="content-desc"></p>
+              <a href="" class="strt_buttons_primary">
+              <span class="text">
+              </span>
+              </a>
+            </div>
+            <div class="content newslettermsg-content-error">
+              <h1 class="content-title"></h1>
+              <p class="content-desc"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="shopify-section-tgs-cart-container" class="shopify-section TGS_cart_container">
+      <div id="cartContainer" class="cartContainer">
+        <div id="cartContainer-close" class="cartContainer-close">
+          <i class="wtfl wtf-times"></i>
+        </div>
+        <div class="cartContainer-header">
+          <h1 class="title">
+            <a>
+            <span id="cartContainer-cart-count"></span>
+            Your Cart
+            </a>
+          </h1>
+        </div>
+        <div id="cartContainer-main" class="cartContainer-main">
+          <ul>
+          </ul>
+        </div>
+        <div class="cartContainer-footer">
+          <div class="container">
+            <div class="gtotal-row row">
+              <label>Total</label>
+              <span id="cartContainer-gTotal" class="cartContainer-gTotal value">
+              </span>
+            </div>
+            <div class="tax-row row">
+              <label>Tax</label>
+              <span class="value">
+              Tax calculated at checkout
+              </span>
+            </div>
+          </div>
+          <button id="cartContainer-checkout" class="strt_buttons_primary cartContainer-checkoutbtn">
+          Checkout
+          </button>
+          <div class="container cartContainer-collection">
+            <h1 class="cartContainer-collection-title">
+              Customers also bought
+            </h1>
+            <div class="row cartContainer-collection-items">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="shopify-section-tgs-notif-popper" class="shopify-section tgs_notif_popper">
+      <div id="tgs_popper_notif" class="tgs_popper_notif" data-position="bottom" data-timeout="1">
+        <div class="tgs_popper_notif-container">
+          <div class="tgs_popper_notif-contents">
+            <h1 class="tgs_popper_notif-msg">
+            </h1>
+            <div class="tgs_popper_notif-close">
+              <i class="wtfs wtf-times"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main class="main-content" role="main">
+      <div id="shopify-section-tgs-layout-content-1" class="shopify-section tgs_layout-1">
+        <div class="container">
+          <div class="row row-content row-center">
+            <div class="col col-md-10">
+              <div class="sectionHeader">
+                <h5 class="sectionHeader_label">
+                </h5>
+                <h1 class="sectionHeader_title">
+                  About JM Gems
+                </h1>
+              </div>
+              <div class="col_content">
+                <p>
+                  In 2003, J &amp; M GEMS ‘N’ THINGS, INC. was established and incorporated to sell fashion accessories, gift boxes and general merchandise from the Philippines. Fascinated by the different varieties and shapes of beads embossed on our gift boxes and fashion accessories, we shifted to sell beads and precious stones when we stumbled upon a gem, mineral and bead show in Tucson, AZ.
+                </p>
+                <p>
+                  J &amp; M GEMS ‘N’ THINGS, INC. is now a supplier of a wide range of fabulous beads which are made from natural wood, nuts, shells, crystals, semiprecious stones to precious stones (Australian Opal).
+                  We have been doing trade shows for over 10 years. With more than 40 shows a year in major cities across the country, our beads stood the test of time. We are proud to directly provide our customers with different selections of good quality beads at prices that fit everyone’s budget.
+                </p>
+                <p>
+                  We look forward to seeing you at one of our shows.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row row-images">
+            <div class="
+              col col-md-12
+              ">
+              <div class="
+                tgs_responsive_media 
+                tgs_responsive_media-image
+                ">
+                <img src="//cdn.shopify.com/s/files/1/0254/0109/8276/files/p_about_graphic_top_2x_991c5f7a-bff0-4511-bc50-0a4aaa4fc62d_1000x.png?v=1577454720" alt="">        
+              </div>
+            </div>
+            <div class="
+              col col-md-6
+              ">
+              <div class="
+                tgs_responsive_media 
+                tgs_responsive_media-image
+                ">
+                <img src="//cdn.shopify.com/s/files/1/0254/0109/8276/files/p_about_graphic_left_2x_dcece1e0-7755-48f5-b31b-861619e9ed1e_1000x.png?v=1577454736" alt="">        
+              </div>
+            </div>
+            <div class="
+              col col-md-6
+              ">
+              <div class="
+                tgs_responsive_media 
+                tgs_responsive_media-image
+                ">
+                <img src="//cdn.shopify.com/s/files/1/0254/0109/8276/files/p_about_graphic_right_2x_e0c701e0-e353-4d20-bc06-68b863ee8794_1000x.png?v=1577454742" alt="">        
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="jmgemsCta">
+        <div class="container">
+          <div class="row">
+            <div class="col col-md-5 col-content">
+              <h1 class="col_header">
+                For whole sale 
+                <br>
+                &amp; Retailing Prices
+              </h1>
+              <p class="col_desc">
+                We also sell whole sale price to vendors and merchants who would want to avail our products in bulk. Please Contact :
+              </p>
+              <div class="col_contactEmail">
+                <a href="mailto:jmgems@gmail.com" class="col_contactEmail_link">
+                jmgems@gmail.com
+                </a>
+              </div>
+            </div>
+            <div class="col col-md-7 col-graphic">
+              <img src="//cdn.shopify.com/s/files/1/0254/0109/8276/t/2/assets/jmgems_cta_graphic.png?845" alt="graphic">
+            </div>
+          </div>
+        </div>
+        <div class="jmgemsCta_bg" style="background-image: url(//cdn.shopify.com/s/files/1/0254/0109/8276/t/2/assets/jmgems_cta_bg.png?845)">
+        </div>
+      </section>
+    </main>
+    <div id="shopify-section-tgs-footer" class="shopify-section tgs_footer">
+      <div class="tgs_footer_main">
+        <div class="container">
+          <div class="row">
+            <div class="
+              footer_col col 
+              footer_col-graphicAndContent
+              col-sm-3">
+              <div class="footer_col-content">
+                <div class="footer_graphic">
+                  <img src="//cdn.shopify.com/s/files/1/0254/0109/8276/files/logo_300x.png?v=1576949124" alt="" class="footer_graphic-img">
+                </div>
+                <div class="footer_desc">
+                  " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas suscipit exercitationem"
+                </div>
+              </div>
+            </div>
+            <div class="
+              footer_col col 
+              footer_col-menu
+              col-sm-2">
+              <h1 class="footer_col-header">
+                Navigate
+              </h1>
+              <div class="footer_col-content">
+                <ul class="footer_col-list">
+                  <li class="footer_col-list-item false">
+                    <a href="/">
+                    Home
+                    </a>
+                  </li>
+                  <li class="footer_col-list-item false">
+                    <a href="/collections">
+                    Collections
+                    </a>
+                  </li>
+                  <li class="footer_col-list-item false">
+                    <a href="/collections/all">
+                    Products
+                    </a>
+                  </li>
+                  <li class="footer_col-list-item false">
+                    <a href="/blogs/news">
+                    Events
+                    </a>
+                  </li>
+                  <li class="footer_col-list-item false">
+                    <a href="/blogs/news">
+                    Blogs
+                    </a>
+                  </li>
+                  <li class="footer_col-list-item false">
+                    <a href="/pages/contact-us">
+                    Contact Us
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="
+              footer_col col 
+              footer_col-menu
+              col-sm-2">
+              <h1 class="footer_col-header">
+                Information
+              </h1>
+              <div class="footer_col-content">
+                <ul class="footer_col-list">
+                  <li class="footer_col-list-item false">
+                    <a href="/pages/faqs">
+                    Faqs
+                    </a>
+                  </li>
+                  <li class="footer_col-list-item false">
+                    <a href="/policies/privacy-policy">
+                    Policies
+                    </a>
+                  </li>
+                  <li class="footer_col-list-item false">
+                    <a href="#" target="_blank">
+                    Shipping
+                    </a>
+                  </li>
+                  <li class="footer_col-list-item false">
+                    <a href="/policies/terms-of-service">
+                    Terms
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="
+              footer_col col 
+              footer_col-htmlContent
+              col-sm-4">
+              <h1 class="footer_col-header">
+                Contact Us
+              </h1>
+              <div class="footer_col-content">
+                <div class="col-contact-details">
+                  <i class="wtfs wtf-phone"></i>
+                  <a href="mailto:jmgemsnthings@aol.com">973 389 8090</a>
+                </div>
+                <div class="col-contact-details">
+                  <i class="wtfs wtf-envelope"></i>
+                  <a href="mailto:jmgemsnthings@aol.com">jmgemsnthings@aol.com</a>
+                </div>
+                <div class="col-contact-details">
+                  <i class="wtfs wtf-map-marker-alt"></i>
+                  <p>
+                    J &amp; M Gems N' Things, Inc. <br>
+                    62 Hamilton Trail <br>
+                    Totowa, NJ 07512
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tgs_footer_copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col col-social col-sm-3">
+              <ul>
+              </ul>
+            </div>
+            <div class="col col-copyright col-sm-9">
+              <p>
+                © 2019 dev-jmgems. ALL RIGHTS RESERVED.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

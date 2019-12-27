@@ -183,8 +183,9 @@ gulp.task('browserSync', function() {
   browserSync.init({
     server: {
       baseDir: "./",
-      startPath:'./playground'
-    }
+      startPath:'./playground',
+    },
+    port: '1234'
   })
 });
 
