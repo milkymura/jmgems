@@ -74,6 +74,13 @@
           {{ product.vendor }} 
         </h1>
         {% endcomment %}
+        {% for tag in product.tags %}
+          {% if tag == 'popular' %}
+            <h1 class="prodcut-title-label">
+              Popular
+            </h1>
+          {% endif %}
+        {% endfor %}
         <h1 class="product-title"> 
           {{ product.title }} 
         </h1>
@@ -94,10 +101,19 @@
       <div class="col-content-price">
         <div class="product_price" 
           data-origprice="{{ current_variant.price }}">
-          $
-          <span class="price">
-            {{ current_variant.price | money_without_currency }}
-          </span>
+          <div class="priceContainer">
+            $
+            <span class="value">
+              {{ current_variant.price | money_without_currency }}
+            </span>
+          </div>
+          {% for tag in product.tags %}
+            {% if tag == 'per-strand' %}
+              <div class="unitsContainer">
+                <span class="unit">per strand</span>
+              </div>
+            {% endif %}
+          {% endfor %}
         </div>
       </div>
 
@@ -107,7 +123,6 @@
       ===============================================
       {% endcomment %}
       <div class="col-content-desc">
-        <label>Description</label>
         <div class="desc_container">
           {{ description }}
         </div>
@@ -126,13 +141,17 @@
 
           {% if product.options_with_values.size > 0 %}
             {% for product_option in product.options_with_values %}
-              <div class="col form-grp col-form-grp-{{ product_option.name }}">
-                <label>
+              <div class="tgs_field tgs_field-grp-{{ product_option.name }} col-md-6">
+                <label 
+                  for="formOption_{{ product_option.position }}"
+                  class="tgs_field_label"
+                >
                   {{ product_option.name }}
                 </label>
-                <select 
+                <select
+                  id="formOption_{{ product_option.position }}"
                   name="option{{ forloop.index }}"
-                  class="options-modifier"
+                  class="tgs_field_select options-modifier"
                   data-combokey="{{ forloop.index | minus: 1 }}"
                   data-optiontype="{{ product_option.name }}">
                   {% for value in product_option.values %}
@@ -151,10 +170,16 @@
 
 
           {% if product.available %}
-            <div class="col form-grp">
-              <label> Qty </label>
+            <div class="tgs_field col-md-6">
+              <label 
+                for="formQuantity"
+                class="tgs_field_label"
+              >
+                Quantity
+              </label>
               <input
-                class="options-qty"
+                id="formQuantity"
+                class="tgs_field_input options-qty"
                 type="number"
                 name="quantity"
                 value="1"

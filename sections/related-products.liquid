@@ -1,0 +1,151 @@
+<div class="container"  id="ProductSection-{{ section.id }}">
+  {% comment %}
+    Number of related items per row,
+    and number of rows.
+  {% endcomment %}
+
+  {% assign number_of_related_products_per_row = 4 %}
+  {% assign number_of_rows = section.settings.related_grid_row %}
+
+  {% comment %}
+    Heading.
+    Leave blank if you don't need one.
+  {% endcomment %}
+
+  {% assign heading = section.settings.related_title %}
+
+  {% comment %}
+    Set either or both to true, if you want
+    to limit yourself to items with same vendor, and/or type.
+  {% endcomment %}
+
+  {% assign same_vendor = false %}
+  {% assign same_type = false %}
+
+  {% comment %}
+    Collections to ignore.
+    Never pick related items from those.
+  {% endcomment %}
+
+  {% assign exclusions = 'frontpage,all' | split: ',' %}
+
+  {% comment %}
+    Looking for a relevant collection.
+  {% endcomment %}
+
+  {% if product.metafields.c_f['Related Products'] %}
+    {% assign collection = collections[product.metafields.c_f['Related Products']] %}
+  {% endif %}
+
+  {% assign found_a_collection = false %}
+  {% if collection and collection.all_products_count > 1 %}
+    {% unless exclusions contains collection.handle %}
+      {% assign found_a_collection = true %}
+    {% endunless %}
+  {% endif %}
+  {% unless found_a_collection %}
+    {% for c in product.collections %}
+      {% unless exclusions contains c.handle or c.all_products_count < 2 %}
+        {% assign found_a_collection = true %}
+        {% assign collection = c %}
+        {% break %}
+      {% endunless %}
+    {% endfor %}
+  {% endunless %}
+
+{% comment %}
+  If we have a relevant collection.
+{% endcomment %}
+
+{% if found_a_collection %}
+
+  {% assign counter = 0 %}
+  {% assign break_at = number_of_rows | times: number_of_related_products_per_row %}
+  {% assign current_product = product %}
+
+<div class="collection-list">
+  {% capture related_items %}
+    {% for product in collection.products %}
+      {% unless product.handle == current_product.handle %}
+         {% unless same_vendor and current_product.vendor != product.vendor %}
+           {% unless same_type and current_product.type != product.type %}
+
+            <div class="col col-md-3 col-sm-6">
+              {% include 'tgs-collection-item'
+               ,item: product  
+              %}
+            </div>
+
+
+             {% assign counter = counter | plus: 1 %}
+             {% if counter == break_at %}
+               {% break %}
+             {% endif %}
+           {% endunless %}
+        {% endunless %}
+      {% endunless %}
+    {% endfor %}
+  {% endcapture %}
+  
+  {% assign related_items = related_items | trim %}
+
+  {% unless related_items == blank %}
+
+      {% unless heading == blank %}
+      <div class="row row-center row-header">
+        {%  include 'tgs-section-header',
+          label: 'Related Products',
+          title: 'Others Also Searched'
+        %}
+      </div>
+      {% endunless %}
+      <div class="row">
+        {{ related_items }}
+      </div>
+  
+  {% endunless %}
+     
+{% endif %}
+  
+</div>
+
+{% schema %}
+{
+  "name": "Related products",
+  "class": "tgs_related_product_template",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_related_products",
+      "label": "Show related products",
+      "default": false
+    },
+    {
+      "id": "related_title",
+      "type": "text",
+      "label": "Section title",
+      "default": "Other Products"
+    },
+    {
+      "type": "select",
+      "id": "related_grid_row",
+      "label": "Number of rows (Desktop)",
+      "default": "1",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

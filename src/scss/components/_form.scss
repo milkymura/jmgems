@@ -7,3 +7,75 @@
 .shopify-challenge__container {
 	text-align: center;
 }
+
+
+
+///////////////////////////////////////////////
+//           Form Fields                     //
+/////////////////////////////////////////////*/
+%inputSettings {
+	width: 100%;
+	background-color: $white;
+	font-size: 1em;
+	border: 1px solid $gray-300;
+	font-weight: 600;
+	line-height: 1.5;
+	outline-color: $primary-color;
+
+	&:focus {
+		outline: none;
+		border-color: $primary-color;
+	}
+
+	&::placeholder {
+		color: rgba($text-color,.5);
+	}
+}
+
+.tgs_field {
+	width: 100%;
+	font-size: 1rem;
+	padding: 1rem;
+
+	// .tgs_field_label
+	&_label {
+		width: 100%;
+		display: block;
+		color: $text-color;
+		font-size: 1em;
+		font-weight: 700;
+		margin-bottom: .5em;
+
+		&:focus ,
+		&:hover {
+			color: $primary-color;
+		}
+	}
+
+	// .tgs_field_select
+	&_select {
+		padding: 1em 2em;
+		@extend %inputSettings;
+		width: 100%;
+	}
+
+	// .tgs_field_input
+	&_input {
+		@extend %inputSettings;
+		padding: 1em 2em;
+	}
+
+	// .tgs_field_textarea
+	&_textarea {
+		padding: 1em;
+		@extend %inputSettings;
+	}
+}
+
+
+
+
+///////  End of Form Fields            ////////
+
+
+

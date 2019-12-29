@@ -16,10 +16,10 @@
 		}
 	}
 
-	.strtCol {
+	.tgs_Col {
 		width: 100%;
 		padding: 1em;
-		// .strtCol-media
+		// .tgs_Col-media
 		&-media {
 			display: block;
 			width: 100%;
@@ -27,7 +27,7 @@
 			position: relative;
 			overflow: hidden;
 
-			// .strtCol-media-actions
+			// .tgs_Col-media-actions
 			&-actions {
 				@extend %absoluteFill;
 				background-color: rgba(#FFF,.9);
@@ -76,7 +76,7 @@
 				}
 			}
 
-			// .strtCol-media-img
+			// .tgs_Col-media-img
 			&-img {
 				@extend %absoluteFill;
 				transform: scale(1);
@@ -87,17 +87,17 @@
 			}
 		}
 
-		// .strtCol-media
+		// .tgs_Col-media
 		&-media:hover {
-			.strtCol-media-actions {
+			.tgs_Col-media-actions {
 				opacity: 1;
 			}
-			.strtCol-media-img {
+			.tgs_Col-media-img {
 				transform: scale(1.5);
 			}
 		}
 
-		// .strtCol-details
+		// .tgs_Col-details
 		&-details {
 			padding: 1em 0;
 			position: relative;
@@ -156,6 +156,5 @@
 			// 	margin-top: 0em;
 			// }
 		}
-
 	}
 }

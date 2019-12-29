@@ -1,0 +1,48 @@
+<div class="tgs_Col" data-productid="{{ item.id }}">
+	<div class="tgs_Col-media">
+		<div class="tgs_Col-media-actions">
+			<a href="{{ item.url }}" 
+				class="btn">
+				view
+			</a>
+			<a 
+				class="btn btn-addtocart"
+				data-productid="{{item.id}}"
+				data-defaultvariantid="{{ item.selected_or_first_available_variant.id }}">
+				<i class="wtfl wtf-plus"></i>
+				<span class="text">add to cart</span>
+			</a>
+		</div>
+		<img 
+			src="{{ item.featured_image | img_url: '500x500' }}" 
+			alt="" class="tgs_Col-media-img">
+	</div>
+
+	<div class="tgs_Col-details">
+		<a href="{{ item.url }}" class="prod_title">
+			{{ item.title }}
+		</a>
+
+		{% for tag in product.tags %}
+		{% if tag == 'coming-soon' %}
+			<span class="prod_subtitle">
+				Coming Spring 2020
+			</span>
+		{% endif %}
+		{% endfor %}
+
+		<div class="prod_action">
+			<div class="price">
+				<h1 class="orig">
+					{{ item.price | money }}
+				</h1>
+				{% if item.compare_at_price_max > 0 %}
+					<h2 class="compare_at">
+						{{ item.compare_at_price_max | money }}
+					</h2>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+

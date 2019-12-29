@@ -318,7 +318,7 @@ function loadCart() {
   }
 
   function initProductPurchase() {
-    $('.d_product_template').each(function() {
+    $('.tgs_product_template').each(function() {
       const $container = $(this),
             $price_el = $container.find('.product_price'),
             $qty_el = $container.find('.options-qty'),
@@ -531,7 +531,11 @@ function productPageSlider() {
         autoplayHoverPause: true
     }
 
-    if($slider.children().length) {
+    if($slider.children().length > 1) {
+
+      console.log('this', this);
+      console.log('$slider', $slider);
+
       $slider.owlCarousel(slide_options)
     } else {
       $slider.removeClass('owl-carousel owl-theme')
@@ -561,7 +565,7 @@ function productPageSlider() {
 
   }
 
-  $('.d_product_template').each(function() {
+  $('.tgs_product_template').each(function() {
     const $section = $(this) ,
           $slider = $section.find('.mainSlider_owl') ,
           $form = $section.find('form.product_order_form'),

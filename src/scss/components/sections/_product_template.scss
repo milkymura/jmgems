@@ -1,6 +1,6 @@
 $productCartPage: '.product-template.product-cartPage';
 
-.d_product_template {
+.tgs_product_template {
 	padding: 0em;
 	font-size: 1rem;
 	background-color: #F2F2F2 !important;
@@ -10,30 +10,61 @@ $productCartPage: '.product-template.product-cartPage';
 	}
 }
 
+// MEDIA
+// ==========================
+.tgs_product_template .col-media {
+	padding: 2rem;
+	.mainSlider_owl_item {
+		height: 600px;
+
+		img {
+			height: 100%;
+			object-fit: contain;
+			object-position: center center;
+		}
+	}
+}
 
 // CONTENT
 // ==========================
-.d_product_template .col-content {
+.tgs_product_template .col-content {
 	padding: 1em;
 
 	// .col-content-header
 	&-header {
 		margin-bottom: .15em;
-		.product-title {
-			font-size: 2em;
-			color: $text-color;
-			font-weight: normal;
-			letter-spacing: .15em;
-			line-height: 1.2;
+		.prodcut-title-label {
+			width: 100%;
+			max-width: 200px;
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+
+			text-transform: uppercase;
+			font-size: 1em;
+			color: $primary-color;
+			font-weight: 700;
+			letter-spacing: 0.15em;
+			margin-bottom: 1rem;
 
 			&:after {
 				content: '';
-				margin-top: .25em;
-				width: 20%;
-				height: .1em;
+				flex-shrink: 1;
+				flex-grow: 1;
+				height: 0.15em;
 				background-color: $primary-color;
-				display: block;
+				margin-left: 1rem;
 			}
+		}
+
+		.product-title {
+			margin-top: 0;
+			margin-bottom: 0;
+			font-size: 3.5em;
+			color: $text-color;
+			font-weight: normal;
+			line-height: 1.2;
+			font-weight: 700;
 		}
 
 		span {
@@ -56,20 +87,20 @@ $productCartPage: '.product-template.product-cartPage';
 
 	// .col-content-price
 	&-price {
+		margin: 1em 0 0.5em 0;
 		font-size: 2.5em;
-		color: darken($primary-color,20%);
+		color: $primary-color;
 		font-weight: 600;
-		margin: .5em 0;
+		font-weight: 700;
 		line-height: 1;
 	}
 
 	// .col-content-desc
 	&-desc {
-		p {
-			color: $text-color;
-			font-size: 1rem;
-			line-height: 2;
-		}
+		color: $text-color;
+		font-size: 1rem;
+		line-height: 2.5;
+		font-weight: 600;
 	}
 
 	.col-form-grp-Color {
@@ -80,7 +111,7 @@ $productCartPage: '.product-template.product-cartPage';
 
 // COLOR PICKER
 // ==========================
-.d_product_template .col-colorpicker {
+.tgs_product_template .col-colorpicker {
 
 	// .col-colorpicker_grp
 	&_grp {
@@ -147,7 +178,7 @@ $productCartPage: '.product-template.product-cartPage';
 
 // THINGS TO HIDE
 // ==========================
-.d_product_template {
+.tgs_product_template {
 	.jsonStorage ,
 	.options-combo {
 		display: none;
@@ -156,7 +187,7 @@ $productCartPage: '.product-template.product-cartPage';
 
 // FORM
 // ==========================
-.d_product_template .product_order_form {
+.tgs_product_template .product_order_form {
 	width: 80%;
 
 	> .row {
@@ -197,7 +228,7 @@ $productCartPage: '.product-template.product-cartPage';
 		color: $text-color-white;
 		text-transform: uppercase;
 		width: 100%;
-		padding: .25em 1em;
+		padding: 1em 2em;
 		letter-spacing: .15em;
 		font-weight: 600;
 		border: none;
@@ -213,10 +244,11 @@ $productCartPage: '.product-template.product-cartPage';
 
 // ROW DESC
 // ===============================
-.d_product_template .row.row-desc {
+.tgs_product_template .row.row-desc {
 	width: 100%;
 	max-width: 1280px;
 	margin: 4em 0 2em auto;
+	display: none;
 }
 
 // -----------------------------------
@@ -253,7 +285,7 @@ $productCartPage: '.product-template.product-cartPage';
 
 
 @media (max-width: 1281px) {
-	.d_product_template {
+	.tgs_product_template {
 		.col-media {
 			max-width: 60%;
 		}
@@ -268,7 +300,7 @@ $productCartPage: '.product-template.product-cartPage';
 }
 
 @media (max-width: 1025px) {
-	.d_product_template {
+	.tgs_product_template {
 		.col-media {
 			max-width: 50%;
 		}
@@ -281,6 +313,7 @@ $productCartPage: '.product-template.product-cartPage';
 		}
 
 		.mainSlider_owl {
+			height: 100%;
 			.owl-stage-outer ,
 			.owl-stage ,
 			.owl-item ,
@@ -299,7 +332,7 @@ $productCartPage: '.product-template.product-cartPage';
 }
 
 @media (max-width: 769px) {
-	.d_product_template {
+	.tgs_product_template {
 
 		.row-main {
 			flex-direction: column;
@@ -317,7 +350,7 @@ $productCartPage: '.product-template.product-cartPage';
 }
 
 @media (max-width: 415px) {
-	.d_product_template {
+	.tgs_product_template {
 
 		.product_order_form {
 			.form-grp {
